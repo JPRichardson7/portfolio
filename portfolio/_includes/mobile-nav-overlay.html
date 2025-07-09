@@ -1,0 +1,21 @@
+<div class="mobile-nav-overlay" aria-hidden="true">
+  <div class="mobile-nav-content">
+    <div class="mobile-nav-header">
+      <button type="button" 
+              class="mobile-close-btn" 
+              aria-label="Close navigation menu">
+        CLOSE
+      </button>
+    </div>
+    
+    <nav class="mobile-nav-links">
+      {% include nav-item.html url="/" text="HOME" active=page.nav_active == "home" %}
+      {% include nav-item.html url="/ux-ui/" text="UX/UI" active=page.nav_active == "ux-ui" %}
+      {% include nav-item.html url="/development/" text="DEVELOPMENT" active=page.nav_active == "development" %}
+      {% include nav-item.html url="/visual-design/" text="VISUAL DESIGN" active=page.nav_active == "visual-design" %}
+      {% include nav-item.html url="/photography/" text="PHOTOGRAPHY" active=page.nav_active == "photography" %}
+      {% include nav-item.html url="/about/" text="ABOUT" active=page.nav_active == "about" %}
+      {% include nav-item.html url="/resume/" text="GET RESUME" active=page.nav_active == "resume" %}
+    </nav>
+  </div>
+</div>
