@@ -6,12 +6,40 @@
   --breakpoint-xl: 1366px;
   --breakpoint-2xl: 1920px;
 
-    --spacing-margin-base: clamp(20px, 4.2vw, 67px);
+  --spacing-margin-base: clamp(20px, 4.2vw, 67px);
+
+  --color-highlight-yellow: #E5D900;
+  --color-light-blue: #BBEBE8;
+  --color-dark-blue: #0A2647;
+  --color-highlight-on-dark: #08241B;
+  --font-din: urw-din-condensed, sans-serif;
+  --letter-spacing-tight: -0.03em;  /* -3% default */
+  --letter-spacing-wide: 0.13em;    /* 13% for accents */
+
+}
+@layer base {
+  [style*="urw-din-condensed"],
+  .font-din {
+    letter-spacing: var(--letter-spacing-tight); /* -3% default */
+  }
 }
 
 @layer components {
+  .font-din {
+    font-family: var(--font-din);
+    /* inherits -3% from base layer */
+  }
+  
+  .tracking-accent {
+    letter-spacing: var(--letter-spacing-wide); /* 13% override */
+  }
+
   .container {
     margin-left: var(--spacing-margin-base);
     margin-right: var(--spacing-margin-base);
   }
+  .nav-link{
+    @apply text-light-blue font-din font-black text-uppercase text-2xl";
+  }
 }
+
