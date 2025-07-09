@@ -19,8 +19,22 @@
 }
 @layer base {
   [style*="urw-din-condensed"],
+  
   .font-din {
     letter-spacing: var(--letter-spacing-tight); /* -3% default */
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-margin-base);
+  }
+  
+  main,
+  header,
+  footer {
+    margin-left: var(--spacing-margin-base);
+    margin-right: var(--spacing-margin-base);
   }
 }
 
@@ -39,7 +53,7 @@
     margin-right: var(--spacing-margin-base);
   }
   .nav-link{
-    @apply text-light-blue font-din font-black text-uppercase text-2xl";
+    @apply text-light-blue font-din font-black uppercase text-2xl;
   }
 }
 
