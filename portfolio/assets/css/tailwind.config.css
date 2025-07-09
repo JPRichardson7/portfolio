@@ -1,0 +1,17 @@
+@theme {
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 390px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1080px;
+  --breakpoint-xl: 1366px;
+  --breakpoint-2xl: 1920px;
+
+    --spacing-margin-base: clamp(20px, 4.2vw, 67px);
+}
+
+@layer components {
+  .container {
+    margin-left: var(--spacing-margin-base);
+    margin-right: var(--spacing-margin-base);
+  }
+}
