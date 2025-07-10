@@ -5,24 +5,22 @@
         aria-label="close"
         aria-expanded="true">
     </button>
-    <header>
+    <div class="contact-box">
         <h1>
             JP Richardson
         </h1>
         <a href="tel:913-636-8530">913-636-8530</a>
         <a href="mailto:jp@jpr.works">jp@jpr.works</a> 
-    </header>
+    </div>
     <nav>
         <ul class="nav-list">
-            
-  {% for item in site.data.navigation %}
+            {% for item in site.data.main-pages %}
 
-    {% include components/nav-item.html 
-       url=item.url 
-       text=item.text 
-    %}
-  {% endfor %}
-</ul>
+                {% include components/navigation/nav-item.html 
+                url=item.url 
+                text=item.text 
+                %}
+            {% endfor %}
         </ul>
     </nav>
     

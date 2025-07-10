@@ -1,4 +1,0 @@
-# portfolio
-portfolio
-
-jekyll serve
