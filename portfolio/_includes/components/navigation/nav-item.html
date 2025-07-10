@@ -1,0 +1,38 @@
+<li>
+    <a href="{{ include.url }}"
+       class="nav-link
+            text-light-blue
+            font-din
+            font-black
+            uppercase
+            text-2xl
+            hover:text-highlight-yellow
+           {% if page.url == include.url %}text-highlight-yellow{% endif %}
+            "
+       {% if page.url == include.url %}aria-current="page"{% endif %}>
+        {{ include.text }}
+    </a>
+</li>
+<li>
+    <!-- Debug info -->
+    <div style="color: red; font-size: 12px;">
+      Page URL: "{{ page.url }}"<br>
+      Item URL: "{{ include.url }}"<br>
+      Match: {{ page.url == include.url }}<br>
+      Classes: nav-link text-light-blue font-din font-black uppercase text-2xl hover:text-highlight-yellow {% if page.url == include.url %}text-highlight-yellow{% endif %}
+    </div>
+    
+    <a href="{{ include.url }}"
+       class="nav-link
+            text-light-blue
+            font-din
+            font-black
+            uppercase
+            text-2xl
+            hover:text-highlight-yellow
+           {% if page.url == include.url %}text-highlight-yellow{% endif %}
+            "
+       {% if page.url == include.url %}aria-current="page"{% endif %}>
+        {{ include.text }}
+    </a>
+</li>

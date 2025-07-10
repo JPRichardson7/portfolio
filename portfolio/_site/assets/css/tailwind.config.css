@@ -58,8 +58,9 @@ body {
     margin-right: var(--spacing-margin-base);
   }
   .nav-link{
-    @apply text-light-blue font-din font-black uppercase text-2xl;
+    @apply ;
   }
+
 
 /*#region Menu Button Styles */
   .menu-btn {

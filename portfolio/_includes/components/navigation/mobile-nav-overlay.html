@@ -1,7 +1,25 @@
-<nav>
-    <button type="button"
-        
-            aria-label="close"
-
+<div class="mobile-nav">
+    <button 
+        type="button"
+        class="close-btn"
+        aria-label="close"
+        aria-expanded="true">
     </button>
-</nav>
+    <header>
+        <h1>
+            JP Richardson
+        </h1>
+        <a href="tel:913-636-8530">913-636-8530</a>
+        <a href="mailto:jp@jpr.works">jp@jpr.works</a> 
+    </header>
+    <nav>
+        <ul class="nav-list">
+            {% for item in site.data.main-pages %}            
+                {% include components/navigation/nav-item.html
+                    url=item.url
+                    text=item.text
+                %}
+            {% endfor %}
+        </ul>
+    </nav>
+    
