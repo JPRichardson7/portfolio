@@ -14,12 +14,15 @@
     </header>
     <nav>
         <ul class="nav-list">
-            {% for item in site.data.main-pages %}            
-                {% include components/navigation/nav-item.html
-                    url=item.url
-                    text=item.text
-                %}
-            {% endfor %}
+            
+  {% for item in site.data.navigation %}
+
+    {% include components/nav-item.html 
+       url=item.url 
+       text=item.text 
+    %}
+  {% endfor %}
+</ul>
         </ul>
     </nav>
     
