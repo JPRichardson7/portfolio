@@ -48,4 +48,8 @@ body {
   .hero-text {
     @apply font-black font-din uppercase text-light-blue;
   }
+  .nav-item::before{
+    content: ">";
+    @apply text-highlight-yellow
+  }
 }

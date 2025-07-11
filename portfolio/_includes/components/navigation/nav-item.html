@@ -1,6 +1,6 @@
-<li>
+<li class="nav-item {% if page.url == include.url %}nav-item--active{% endif %}">
     <a href="{{ include.url }}"
-       class="nav-link {% if page.url == include.url %}text-highlight-yellow{% endif %} 
+       class="{% if page.url == include.url %}text-highlight-yellow{% endif %} 
        font-din font-black 
        uppercase text-2xl 
        {% if page.url != include.url %}text-light-blue{% endif %}
