@@ -7,7 +7,7 @@
   --breakpoint-2xl: 1920px;
 
   --spacing-margin-base: clamp(20px, 4.2vw, 67px);
-  --spacing-margin-double: calc(var(--spacing-margin-base) * 2); /* Double the base margin */
+
 
   --color-highlight-yellow: #E5D900;
   --color-light-blue: #BBEBE8;
@@ -27,20 +27,12 @@
   }
 
 body {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-margin-base);
-    padding: var(--spacing-margin-base) 0; /* Top/bottom padding for outer edges */
     @apply bg-dark-blue;
+    
   }
- /* 
-  main,
-  header,
-  footer {
-    margin-left: var(--spacing-margin-base);
-     margin-right: var(--spacing-margin-base); 
-  }
-*/
+  
+
+
 }
 
 
@@ -53,67 +45,7 @@ body {
   .tracking-accent {
     letter-spacing: var(--letter-spacing-wide); /* 13% override */
   }
-/*
-  .container {
-    margin-left: var(--spacing-margin-base);
-    margin-right: var(--spacing-margin-base);
+  .hero-text {
+    @apply font-black font-din uppercase text-light-blue;
   }
-  */
-
-
-/*#region Menu Button Styles */
-  .menu-btn {
-    @apply bg-transparent border-none cursor-pointer p-2;
-    width: 85px;
-    height: 83px;
-  }
-
-  /* Base colors - modify these for different states */
-  .menu-base {
-    fill: var(--color-highlight-on-dark);
-    stroke: var(--color-highlight-on-dark);
-    transition: all 0.1s ease;
-  }
-
-  .menu-text-border {
-    stroke: var(--color-highlight-on-dark);
-    transition: stroke 0.1s ease;
-  }
-
-  .menu-text {
-    fill: var(--color-highlight-yellow);
-    font-family: var(--font-din);
-    font-weight: 900;
-    transition: fill 0.1s ease;
-  }
-
-  .menu-arrow-fill {
-    fill: var(--color-highlight-yellow);
-    transition: fill 0.1s ease;
-  }
-
-  .menu-arrow-outline {
-    fill: var(--color-highlight-on-dark);
-    transition: fill 0.1s ease;
-  }
-
-  /* Hover states - easy to modify */
-  .menu-btn:hover .menu-base,
-  .menu-btn:hover .menu-text-border,
-  .menu-btn:hover .menu-arrow-outline {
-    fill: var(--color-dark-blue);
-    stroke: var(--color-dark-blue);
-  }
-
-  .menu-btn:hover .menu-text,
-  .menu-btn:hover .menu-arrow-fill {
-    fill: var(--color-light-blue);
-  }
-
-  /* Active/pressed state */
-  .menu-btn.active .menu-arrow-fill {
-    transform: rotate(180deg);
-    transform-origin: center;
-  }
-/* #endregion*/
 }

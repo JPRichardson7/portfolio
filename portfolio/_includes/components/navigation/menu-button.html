@@ -46,3 +46,57 @@
     
   </svg>
 </button>
+
+  .menu-btn {
+    @apply bg-transparent border-none cursor-pointer p-2;
+    width: 85px;
+    height: 83px;
+  }
+
+  /* Base colors - modify these for different states */
+  .menu-base {
+    fill: var(--color-highlight-on-dark);
+    stroke: var(--color-highlight-on-dark);
+    transition: all 0.1s ease;
+  }
+
+  .menu-text-border {
+    stroke: var(--color-highlight-on-dark);
+    transition: stroke 0.1s ease;
+  }
+
+  .menu-text {
+    fill: var(--color-highlight-yellow);
+    font-family: var(--font-din);
+    font-weight: 900;
+    transition: fill 0.1s ease;
+  }
+
+  .menu-arrow-fill {
+    fill: var(--color-highlight-yellow);
+    transition: fill 0.1s ease;
+  }
+
+  .menu-arrow-outline {
+    fill: var(--color-highlight-on-dark);
+    transition: fill 0.1s ease;
+  }
+
+  /* Hover states - easy to modify */
+  .menu-btn:hover .menu-base,
+  .menu-btn:hover .menu-text-border,
+  .menu-btn:hover .menu-arrow-outline {
+    fill: var(--color-dark-blue);
+    stroke: var(--color-dark-blue);
+  }
+
+  .menu-btn:hover .menu-text,
+  .menu-btn:hover .menu-arrow-fill {
+    fill: var(--color-light-blue);
+  }
+
+  /* Active/pressed state */
+  .menu-btn.active .menu-arrow-fill {
+    transform: rotate(180deg);
+    transform-origin: center;
+  }
