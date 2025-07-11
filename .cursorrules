@@ -1,4 +1,0 @@
-# Ignore tutorial files when providing coding assistance
-Never reference or pull code from files in the tutorials/ directory.
-When the user is working on coding challenges, do not provide solutions from tutorial files.
-Let the user work through problems independently unless they specifically ask for tutorial references.
