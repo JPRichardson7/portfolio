@@ -182,9 +182,6 @@
   }
 }
 @layer utilities {
-  .\@container {
-    container-type: inline-size;
-  }
   .container {
     width: 100%;
     @media (width >= 320px) {
@@ -206,21 +203,6 @@
       max-width: 1920px;
     }
   }
-  .-m-margin-base {
-    margin: calc(var(--spacing-margin-base) * -1);
-  }
-  .m-50 {
-    margin: calc(var(--spacing) * 50);
-  }
-  .m-\[calc\(var\(--spacing-margin-base\)\*2\)\] {
-    margin: calc(var(--spacing-margin-base) * 2);
-  }
-  .m-auto {
-    margin: auto;
-  }
-  .m-margin-base {
-    margin: var(--spacing-margin-base);
-  }
   .ml-margin-base {
     margin-left: var(--spacing-margin-base);
   }
@@ -229,9 +211,6 @@
   }
   .w-full {
     width: 100%;
-  }
-  .min-w-0 {
-    min-width: calc(var(--spacing) * 0);
   }
   .border-collapse {
     border-collapse: collapse;
@@ -266,27 +245,6 @@
   .bg-transparent {
     background-color: transparent;
   }
-  .p-50 {
-    padding: calc(var(--spacing) * 50);
-  }
-  .p-\[calc\(var\(--spacing-margin-base\)\*2\)\] {
-    padding: calc(var(--spacing-margin-base) * 2);
-  }
-  .p-margin-base {
-    padding: var(--spacing-margin-base);
-  }
-  .pr-50 {
-    padding-right: calc(var(--spacing) * 50);
-  }
-  .pr-margin-base {
-    padding-right: var(--spacing-margin-base);
-  }
-  .pl-50 {
-    padding-left: calc(var(--spacing) * 50);
-  }
-  .pl-margin-base {
-    padding-left: var(--spacing-margin-base);
-  }
   .font-din {
     font-family: var(--font-din);
   }
@@ -301,9 +259,6 @@
   .font-black {
     --tw-font-weight: var(--font-weight-black);
     font-weight: var(--font-weight-black);
-  }
-  .whitespace-nowrap {
-    white-space: nowrap;
   }
   .text-highlight-yellow {
     color: var(--color-highlight-yellow);
@@ -345,10 +300,6 @@
     padding: var(--spacing-margin-base) 0;
     background-color: var(--color-dark-blue);
   }
-  main, header, footer {
-    margin-left: var(--spacing-margin-base);
-    margin-right: var(--spacing-margin-base);
-  }
 }
 @layer components {
   .font-din {
@@ -356,10 +307,6 @@
   }
   .tracking-accent {
     letter-spacing: var(--letter-spacing-wide);
-  }
-  .container {
-    margin-left: var(--spacing-margin-base);
-    margin-right: var(--spacing-margin-base);
   }
   .menu-btn {
     cursor: pointer;

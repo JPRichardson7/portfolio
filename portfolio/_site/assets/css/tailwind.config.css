@@ -33,14 +33,14 @@ body {
     padding: var(--spacing-margin-base) 0; /* Top/bottom padding for outer edges */
     @apply bg-dark-blue;
   }
-  
+ /* 
   main,
   header,
   footer {
     margin-left: var(--spacing-margin-base);
-    margin-right: var(--spacing-margin-base);
+     margin-right: var(--spacing-margin-base); 
   }
-
+*/
 }
 
 
@@ -53,12 +53,12 @@ body {
   .tracking-accent {
     letter-spacing: var(--letter-spacing-wide); /* 13% override */
   }
-
+/*
   .container {
     margin-left: var(--spacing-margin-base);
     margin-right: var(--spacing-margin-base);
   }
-  
+  */
 
 
 /*#region Menu Button Styles */
