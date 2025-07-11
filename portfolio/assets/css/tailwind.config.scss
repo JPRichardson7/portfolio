@@ -50,6 +50,5 @@ body {
   }
   .nav-item::before{
     content: ">";
-    @apply text-highlight-yellow
   }
 }
