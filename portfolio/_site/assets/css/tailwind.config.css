@@ -7,6 +7,7 @@
   --breakpoint-2xl: 1920px;
 
   --spacing-margin-base: clamp(20px, 4.2vw, 67px);
+  --spacing-margin-double: calc(var(--spacing-margin-base) * 2); /* Double the base margin */
 
   --color-highlight-yellow: #E5D900;
   --color-light-blue: #BBEBE8;
@@ -57,9 +58,7 @@ body {
     margin-left: var(--spacing-margin-base);
     margin-right: var(--spacing-margin-base);
   }
-  .nav-link{
-    @apply ;
-  }
+  
 
 
 /*#region Menu Button Styles */
