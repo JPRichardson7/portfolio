@@ -48,5 +48,15 @@ body {
   .hero-text {
     @apply font-black font-din uppercase text-light-blue;
   }
+  .nav-line {
+    position: relative;
 
+
+    &::before {
+        content: 'test';
+        margin: auto;
+        border-bottom: 2px solid var(--color-highlight-yellow);
+        width: 100px;
+      }
+    }
 }

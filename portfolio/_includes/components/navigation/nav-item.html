@@ -1,9 +1,8 @@
-<li class="">
+<li class="relative">
     <a href="{{ include.url }}"
-       class="{% if page.url == include.url %}text-highlight-yellow before:content-['']{% endif %} 
+       class="nav-line{% if page.url == include.url %} nav-line--active text-highlight-yellow{% else %} text-light-blue{% endif %} 
        font-din font-black 
        uppercase text-2xl 
-       {% if page.url != include.url %}text-light-blue{% endif %}
        hover:text-highlight-yellow"
        {% if page.url == include.url %}aria-current="page"{% endif %}>
         {{ include.text }}
