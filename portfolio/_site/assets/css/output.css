@@ -8,6 +8,11 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --spacing: 0.25rem;
+    --breakpoint-sm: 390px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1080px;
+    --breakpoint-xl: 1366px;
+    --breakpoint-2xl: 1920px;
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
     --font-weight-black: 900;
@@ -15,6 +20,7 @@
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --breakpoint-xs: 320px;
     --spacing-margin-base: clamp(20px, 4.2vw, 67px);
     --color-highlight-yellow: #E5D900;
     --color-light-blue: #BBEBE8;
@@ -189,14 +195,26 @@
   .inline {
     display: inline;
   }
+  .table {
+    display: table;
+  }
+  .flex-grow {
+    flex-grow: 1;
+  }
   .grow {
     flex-grow: 1;
+  }
+  .border-collapse {
+    border-collapse: collapse;
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .resize {
+    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -212,6 +230,10 @@
   }
   .gap-1 {
     gap: calc(var(--spacing) * 1);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
   }
   .border-2 {
     border-style: var(--tw-border-style);
@@ -261,6 +283,13 @@
   .uppercase {
     text-transform: uppercase;
   }
+  .underline {
+    text-decoration-line: underline;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
   .transition {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -298,12 +327,18 @@
   }
   .nav-line {
     position: relative;
-    &::before {
-      content: 'test';
-      margin: auto;
-      border-bottom: 2px solid var(--color-highlight-yellow);
-      width: 100px;
-    }
+  }
+  .nav-line::before {
+    content: 'test';
+    position: absolute;
+    left: -80px;
+    top: 50%;
+    width: 15cqw;
+    height: 2px;
+    border-top: 2px dashed #BBEBE8;
+  }
+  .nav-line--active::before {
+    border-color: #E5D900;
   }
 }
 @property --tw-rotate-x {
@@ -339,6 +374,11 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -350,6 +390,7 @@
       --tw-border-style: solid;
       --tw-leading: initial;
       --tw-font-weight: initial;
+      --tw-outline-style: solid;
     }
   }
 }

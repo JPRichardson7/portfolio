@@ -327,12 +327,18 @@
   }
   .nav-line {
     position: relative;
-    &::before {
-      content: 'test';
-      margin: auto;
-      border-bottom: 2px solid var(--color-highlight-yellow);
-      width: 100px;
-    }
+  }
+  .nav-line::before {
+    content: 'test';
+    position: absolute;
+    left: -80px;
+    top: 50%;
+    width: 15cqw;
+    height: 2px;
+    border-top: 2px dashed #BBEBE8;
+  }
+  .nav-line--active::before {
+    border-color: #E5D900;
   }
 }
 @property --tw-rotate-x {

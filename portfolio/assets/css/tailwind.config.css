@@ -49,14 +49,21 @@ body {
     @apply font-black font-din uppercase text-light-blue;
   }
   .nav-line {
-    position: relative;
-
-
-    &::before {
-        content: 'test';
-        margin: auto;
-        border-bottom: 2px solid var(--color-highlight-yellow);
-        width: 100px;
-      }
-    }
+  position: relative;
 }
+
+.nav-line::before {
+  content: 'test';                    /* Empty content, not 'test' */
+  position: absolute;             /* This was missing! */
+  left: -80px;                   /* This was missing! */
+  top: 50%;                      /* This was missing! */
+  width: 15cqw;
+  height: 2px;
+  border-top: 2px dashed #BBEBE8; /* border-top, not border-bottom */
+}
+
+.nav-line--active::before {
+  border-color: #E5D900;
+}
+
+} 
