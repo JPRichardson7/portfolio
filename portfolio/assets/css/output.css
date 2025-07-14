@@ -13,6 +13,8 @@
     --breakpoint-lg: 1080px;
     --breakpoint-xl: 1366px;
     --breakpoint-2xl: 1920px;
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
     --font-weight-black: 900;
@@ -186,6 +188,9 @@
   .m-margin-base {
     margin: var(--spacing-margin-base);
   }
+  .mt-margin-base {
+    margin-top: var(--spacing-margin-base);
+  }
   .ml-margin-base {
     margin-left: var(--spacing-margin-base);
   }
@@ -197,6 +202,45 @@
   }
   .table {
     display: table;
+  }
+  .h-10 {
+    height: calc(var(--spacing) * 10);
+  }
+  .h-\[60cqh\] {
+    height: 60cqh;
+  }
+  .h-\[70cqh\] {
+    height: 70cqh;
+  }
+  .h-\[75cqh\] {
+    height: 75cqh;
+  }
+  .h-\[80cqh\] {
+    height: 80cqh;
+  }
+  .h-\[100cqh\] {
+    height: 100cqh;
+  }
+  .h-\[calc\(\)\] {
+    height: calc();
+  }
+  .h-\[calc\(c\)\] {
+    height: calc(c);
+  }
+  .h-\[calc\(cq\)\] {
+    height: calc(cq);
+  }
+  .h-\[calc\(cqh\)\] {
+    height: calc(cqh);
+  }
+  .h-\[calc\] {
+    height: calc;
+  }
+  .h-full {
+    height: 100%;
+  }
+  .h-screen {
+    height: 100vh;
   }
   .flex-grow {
     flex-grow: 1;
@@ -219,6 +263,9 @@
   .flex-col {
     flex-direction: column;
   }
+  .flex-row {
+    flex-direction: row;
+  }
   .justify-around {
     justify-content: space-around;
   }
@@ -227,6 +274,9 @@
   }
   .justify-end {
     justify-content: flex-end;
+  }
+  .justify-evenly {
+    justify-content: space-evenly;
   }
   .gap-1 {
     gap: calc(var(--spacing) * 1);
@@ -260,6 +310,13 @@
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
   }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .text-\[clamp\(1\.3rem\,4cqw\,7rem\)\] {
+    font-size: clamp(1.3rem, 4cqw, 7rem);
+  }
   .text-\[clamp\(1\.3rem\,13cqw\,7rem\)\] {
     font-size: clamp(1.3rem, 13cqw, 7rem);
   }
@@ -273,6 +330,27 @@
   .font-black {
     --tw-font-weight: var(--font-weight-black);
     font-weight: var(--font-weight-black);
+  }
+  .text-\[c\] {
+    color: c;
+  }
+  .text-\[cla\] {
+    color: cla;
+  }
+  .text-\[clamp\\\(1\.3rem\,13cqw\,7rem\)\] {
+    color: clamp\(1.3rem,13cqw,;
+  }
+  .text-\[clamp\\\(1\.3rem\,13cqw\,7rem\\\)\] {
+    color: clamp\(1.3rem,13cqw,7rem\);
+  }
+  .text-\[clamp\\\(1\.3rem\,13cqw\\\,7rem\\\)\] {
+    color: clamp\(1.3rem,13cqw\,7rem\);
+  }
+  .text-\[clamp\\\(1\.3rem\\\,13cqw\\\,7rem\\\)\] {
+    color: clamp\(1.3rem\,13cqw\,7rem\);
+  }
+  .text-\[clamp\\\(1\\\.3rem\\\,13cqw\\\,7rem\\\)\] {
+    color: clamp\(1\.3rem\,13cqw\,7rem\);
   }
   .text-highlight-yellow {
     color: var(--color-highlight-yellow);

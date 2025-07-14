@@ -6,7 +6,7 @@
         aria-expanded="true">
         CLOSE
     </button>
-        <div class="contact-box @container border-2 border-dashed ml-margin-base flex flex-col margin-base p-margin-base leading-none gap-1">
+        <div class="h-[calc(cqh)] contact-box @container border-2 border-dashed ml-margin-base flex flex-col margin-base p-margin-base leading-none gap-1">
             <div class="text-[clamp(1.3rem,13cqw,7rem)] flex  tracking-accent justify-between">
                 <h1>
                 JP 
@@ -20,8 +20,9 @@
                 <a href="mailto:jp@jpr.works">jp@jpr.works</a> 
             </div>
         </div>
-    <nav>
-        <ul class="nav-list flex flex-col justify-around">
+    <nav class="mt-margin-base h-[calc(100vh - (var(--contact-box)*2))]
+    ">
+        <ul class="nav-list flex flex-col h-[75cqh] justify-between ">
             {% for item in site.data.main-pages %}
 
                 {% include components/navigation/nav-item.html 
