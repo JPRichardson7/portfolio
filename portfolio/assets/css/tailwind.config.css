@@ -50,16 +50,19 @@ body {
   }
   .nav-line {
   position: relative;
+  margin-left: 65px;
 }
 
 .nav-line::before {
-  content: 'test';                    /* Empty content, not 'test' */
-  position: absolute;             /* This was missing! */
-  left: -80px;                   /* This was missing! */
-  top: 50%;                      /* This was missing! */
-  width: 15cqw;
-  height: 2px;
-  border-top: 2px dashed #BBEBE8; /* border-top, not border-bottom */
+    content: '';
+    position: absolute;
+    left: -70px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55px;
+    height: 2px;
+    background: repeating-linear-gradient( to right, #BBEBE8 0, #BBEBE8 4px, transparent 4px, transparent 8px );
+  
 }
 
 .nav-line--active::before {

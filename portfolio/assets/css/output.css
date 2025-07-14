@@ -327,15 +327,17 @@
   }
   .nav-line {
     position: relative;
+    margin-left: 65px;
   }
   .nav-line::before {
-    content: 'test';
+    content: '';
     position: absolute;
-    left: -80px;
+    left: -70px;
     top: 50%;
-    width: 15cqw;
+    transform: translateY(-50%);
+    width: 55px;
     height: 2px;
-    border-top: 2px dashed #BBEBE8;
+    background: repeating-linear-gradient( to right, #BBEBE8 0, #BBEBE8 4px, transparent 4px, transparent 8px );
   }
   .nav-line--active::before {
     border-color: #E5D900;
