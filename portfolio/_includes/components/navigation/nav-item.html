@@ -1,8 +1,8 @@
 <li class="relative flex">
     <a href="{{ include.url }}"
        class="nav-line{% if page.url == include.url %} nav-line--active text-highlight-yellow{% else %} text-light-blue{% endif %} 
-       font-din font-black 
-       uppercase text-xl
+       font-din font-black leading-0
+       uppercase text-[clamp(1.5rem,9cqw,3.5rem)] tracking-accent
        hover:text-highlight-yellow"
        {% if page.url == include.url %}aria-current="page"{% endif %}>
         {{ include.text }}

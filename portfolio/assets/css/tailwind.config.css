@@ -48,22 +48,24 @@ body {
   .hero-text {
     @apply font-black font-din uppercase text-light-blue;
   }
-  .nav-line {
-  position: relative;
-  margin-left: 65px;
-}
+
 
 .nav-line::before {
     content: '';
     position: absolute;
-    left: -70px;
+    left: calc(-33cqw);
     top: 50%;
     transform: translateY(-50%);
-    width: 55px;
+    width: calc(26cqw);
     height: 2px;
     background: repeating-linear-gradient( to right, #BBEBE8 0, #BBEBE8 4px, transparent 4px, transparent 8px );
   
 }
+  .nav-line {
+  position: relative;
+  margin-left:calc(19cqw);
+}
+
 
 .nav-line--active::before {
   border-color: #E5D900;

@@ -1,4 +1,4 @@
-<div id="wrapper" class="m-margin-base hero-text">
+<div id="wrapper" class="grid grid-rows-[auto_auto_1fr] h-screen gap-margin-base m-margin-base hero-text">
     <button 
         type="button"
         class="close-btn"
@@ -20,17 +20,15 @@
                 <a href="mailto:jp@jpr.works">jp@jpr.works</a> 
             </div>
         </div>
-    <nav class="mt-margin-base h-[calc(100vh - (var(--contact-box)*2))]
-    ">
-        <ul class="nav-list flex flex-col h-[75cqh] justify-between ">
-            {% for item in site.data.main-pages %}
+        <nav class="flex flex-col ">
+            <ul class="flex flex-col justify-evenly gap-11 h-11/12">
+                    {% for item in site.data.main-pages %}
 
-                {% include components/navigation/nav-item.html 
-                url=item.url 
-                text=item.text 
-                %}
-            {% endfor %}
-            
+                        {% include components/navigation/nav-item.html 
+                        url=item.url 
+                        text=item.text 
+                        %}
+                    {% endfor %}            
         </ul>
     </nav>
 </div>
