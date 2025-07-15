@@ -50,17 +50,19 @@ body {
   }
 
 
+
 .nav-line::before {
     content: '';
     position: absolute;
-    left: calc(-33cqw);
+    left: calc(-19cqw);
     top: 50%;
     transform: translateY(-50%);
-    width: calc(26cqw);
+    width: calc(14cqw);
     height: 2px;
     background: repeating-linear-gradient( to right, #BBEBE8 0, #BBEBE8 4px, transparent 4px, transparent 8px );
-  
 }
+  
+
   .nav-line {
   position: relative;
   margin-left:calc(19cqw);
@@ -70,5 +72,14 @@ body {
 .nav-line--active::before {
   border-color: #E5D900;
 }
-
+.mobile-nav-overlay::before {
+    content: '';
+    position: absolute;
+    left: var(--spacing-margin-base);
+    top: 60px; /* Start below CLOSE button */
+    bottom: var(--spacing-margin-base);
+    width: 2px;
+    background-color: var(--color-light-blue);
+    z-index: 1;
+}
 } 

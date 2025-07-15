@@ -1,7 +1,7 @@
-<div id="wrapper" class="grid grid-rows-[auto_auto_1fr] h-screen gap-margin-base m-margin-base hero-text">
+<div id="wrapper" class="grid grid-rows-[auto_auto_1fr] h-screen gap-margin-base hero-text p-margin-base">
     <button 
         type="button"
-        class="close-btn"
+        class="close-btn text-left underline "
         aria-label="close"
         aria-expanded="true">
         CLOSE
@@ -15,13 +15,13 @@
                     Richardson
                 </h1>
             </div>
-            <div class="contact-links flex justify-around text-[clamp(1rem,5cqw,3rem)]">
+            <div class=" contact-links flex justify-around text-[clamp(1rem,5cqw,3rem)]">
                 <a href="tel:913-636-8530" class="">913-636-8530</a>
                 <a href="mailto:jp@jpr.works">jp@jpr.works</a> 
             </div>
         </div>
-        <nav class="flex flex-col ">
-            <ul class="flex flex-col justify-evenly gap-11 h-11/12">
+        <nav class="flex flex-col ml-margin-base">
+            <ul class="flex flex-col justify-evenly gap-11 h-full">
                     {% for item in site.data.main-pages %}
 
                         {% include components/navigation/nav-item.html 
