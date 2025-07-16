@@ -284,12 +284,6 @@
   .font-din {
     font-family: var(--font-din);
   }
-  .text-\[clamp\(1\.3rem\,13cqw\,7rem\)\!im\] {
-    font-size: clamp(1.3rem, 13cqw, 7rem)!im;
-  }
-  .text-\[clamp\(1\.3rem\,13cqw\,7rem\)\!important\] {
-    font-size: clamp(1.3rem, 13cqw, 7rem)!important;
-  }
   .text-\[clamp\(1\.3rem\,13cqw\,7rem\)\] {
     font-size: clamp(1.3rem, 13cqw, 7rem);
   }
