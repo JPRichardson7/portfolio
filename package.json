@@ -7,7 +7,7 @@
     "tailwindcss": "^4.1.11"
   },
 "scripts": {
-  "jekyll": "cd portfolio && bundle exec jekyll serve",
+"jekyll": "cd portfolio && bundle exec jekyll serve --livereload",
   "tailwind": "tailwindcss -i ./portfolio/assets/css/input.css -o ./portfolio/assets/css/output.css --watch",
   "dev": "concurrently \"npm run jekyll\" \"npm run tailwind\""
 }
