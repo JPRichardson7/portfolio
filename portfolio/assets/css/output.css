@@ -196,6 +196,9 @@
   .grid {
     display: grid;
   }
+  .hidden {
+    display: none;
+  }
   .inline {
     display: inline;
   }
@@ -286,6 +289,9 @@
   }
   .text-\[clamp\(1\.3rem\,13cqw\,7rem\)\] {
     font-size: clamp(1.3rem, 13cqw, 7rem);
+  }
+  .text-\[clamp\(1\.3rem\,13cqw\,7rem\)\]\! {
+    font-size: clamp(1.3rem, 13cqw, 7rem) !important;
   }
   .text-\[clamp\(1rem\,5cqw\,3rem\)\] {
     font-size: clamp(1rem, 5cqw, 3rem);
