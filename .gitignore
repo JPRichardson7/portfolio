@@ -1,0 +1,17 @@
+# Jekyll build output
+portfolio/_site/
+portfolio/.sass-cache/
+portfolio/.jekyll-cache/
+portfolio/.jekyll-metadata
+
+# Node modules
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+*.swp
+*.swo
