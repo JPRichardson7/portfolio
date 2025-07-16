@@ -48,7 +48,23 @@ body {
   .hero-text {
     @apply font-black font-din uppercase text-light-blue;
   }
-
+  .connecting-line::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    width: 200px;
+    height: 2px;
+    background: repeating-linear-gradient(
+      to right,
+      #BBEBE8 0,
+      #BBEBE8 4px,
+      transparent 4px,
+      transparent 8px
+    );
+    transform: translateY(-50%);
+  }
+}
 
 
 .nav-line::before {
@@ -82,4 +98,5 @@ body {
     background-color: var(--color-light-blue);
     z-index: 1;
 }
+
 } 
