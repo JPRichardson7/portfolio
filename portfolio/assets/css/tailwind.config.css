@@ -45,7 +45,7 @@ body {
     letter-spacing: var(--letter-spacing-wide); /* 13% override */
   }
   .hero-text {
-    @apply font-black font-din uppercase text-light-blue;
+    @apply font-din uppercase text-light-blue font-black;
   }
 
 

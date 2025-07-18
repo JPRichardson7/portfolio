@@ -8,8 +8,8 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --spacing: 0.25rem;
-    --text-4xl: 2.25rem;
-    --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-6xl: 3.75rem;
+    --text-6xl--line-height: 1;
     --font-weight-thin: 100;
     --font-weight-black: 900;
     --default-transition-duration: 150ms;
@@ -335,33 +335,27 @@
   .font-din {
     font-family: var(--font-din);
   }
-  .text-4xl {
-    font-size: var(--text-4xl);
-    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  .\!text-6xl {
+    font-size: var(--text-6xl) !important;
+    line-height: var(--tw-leading, var(--text-6xl--line-height)) !important;
+  }
+  .\!text-\[clamp\(1\.5rem\,3\.2cqw\,2\.5rem\)\] {
+    font-size: clamp(1.5rem, 3.2cqw, 2.5rem) !important;
+  }
+  .\!text-\[clamp\(4\.5rem\,23\.1cqw\,11\.3rem\)\] {
+    font-size: clamp(4.5rem, 23.1cqw, 11.3rem) !important;
+  }
+  .\!text-\[clamp\(4\.5rem\,23\.5cqw\,11\.3rem\)\] {
+    font-size: clamp(4.5rem, 23.5cqw, 11.3rem) !important;
+  }
+  .\!text-\[clamp\(4\.5rem\,157\.6cqw\,11\.3rem\)\] {
+    font-size: clamp(4.5rem, 157.6cqw, 11.3rem) !important;
   }
   .text-\[clamp\(1\.3rem\,13cqw\,7rem\)\] {
     font-size: clamp(1.3rem, 13cqw, 7rem);
   }
-  .text-\[clamp\(1\.5rem\,3\.2cqw\,2\.5rem\)\] {
-    font-size: clamp(1.5rem, 3.2cqw, 2.5rem);
-  }
-  .text-\[clamp\(1\.8rem\,9\.5cqw\,6\.0rem\)\] {
-    font-size: clamp(1.8rem, 9.5cqw, 6.0rem);
-  }
-  .text-\[clamp\(1\.8rem\,9\.5cqw\,6rem\)\] {
-    font-size: clamp(1.8rem, 9.5cqw, 6rem);
-  }
-  .text-\[clamp\(1\.8rem\,9\.5cqw\,11\.7rem\)\] {
-    font-size: clamp(1.8rem, 9.5cqw, 11.7rem);
-  }
-  .text-\[clamp\(1\.8rem\,23\.7cqw\,11\.7rem\)\] {
-    font-size: clamp(1.8rem, 23.7cqw, 11.7rem);
-  }
   .text-\[clamp\(1rem\,5cqw\,3rem\)\] {
     font-size: clamp(1rem, 5cqw, 3rem);
-  }
-  .text-\[clamp\(4\.6rem\,23\.7cqw\,11\.7rem\)\] {
-    font-size: clamp(4.6rem, 23.7cqw, 11.7rem);
   }
   .leading-0 {
     --tw-leading: calc(var(--spacing) * 0);
@@ -522,9 +516,15 @@
   }
 }
 @layer base {
-  h1, h2, h3, h4, h5, h6 {
-    font-size: revert-layer !important;
-    font-weight: revert-layer !important;
+  h1, h2, h3, h4, h5 {
+    font-size: unset;
+    font-weight: revert !important;
+  }
+  .font-thin {
+    font-weight: 100 !important;
+  }
+  .font-black {
+    font-weight: 900 !important;
   }
 }
 @property --tw-rotate-x {
