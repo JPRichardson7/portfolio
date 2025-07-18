@@ -20,6 +20,7 @@
   
 }
 @layer base {
+  
   [style*="urw-din-condensed"],
 
   .font-din {
@@ -30,8 +31,6 @@ body {
     @apply bg-dark-blue;
     
   }
-  
-
 
 }
 
@@ -87,5 +86,6 @@ body {
     background: repeating-linear-gradient( to right, #BBEBE8 0, #BBEBE8 4px, transparent 4px, transparent 8px );
 
 }
-  
+
+
 } 
