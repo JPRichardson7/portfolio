@@ -5,10 +5,8 @@
   /* Reset headings to preserve weights but control sizes */
   h1, h2, h3, h4, h5 {
         font-size: unset;
-    font-weight: revert !important;
+    
   }
   
-  /* Ensure Tailwind font weights take precedence */
-  .font-thin { font-weight: 100 !important; }
-  .font-black { font-weight: 900 !important; }
+
 }
