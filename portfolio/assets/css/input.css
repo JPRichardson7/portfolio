@@ -2,11 +2,11 @@
 @import "./tailwind.config.css";
 
 @layer base {
-  /* Reset headings to preserve weights but control sizes */
   h1, h2, h3, h4, h5 {
-        font-size: unset;
-    
+    font-size: unset;
+    font-weight: inherit; /* Changed from revert to inherit */
   }
   
-
+  .font-thin { font-weight: 100; }
+  .font-black { font-weight: 900; }
 }
