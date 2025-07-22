@@ -1,29 +1,28 @@
-{{ content }}
-
-<!-- Temporary inline test -->
-<script>
-console.log('Inline script loaded');
-function randomizeHighlights() {
-  console.log('randomizeHighlights called');
-  const highlights = document.querySelectorAll('.highlight-marker');
-  console.log('Found highlights:', highlights.length);
-  
-  highlights.forEach(highlight => {
-    const skew = Math.random() * -8 - 4;
-    const rotate = Math.random() * 1.8 - 0.9;
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="https://use.typekit.net/paw6nms.css">
+    <link rel="stylesheet" href="/assets/css/output.css">
+  </head>
+  <header>
+  </header>
+  <body>
+    <!--* popup nav is currently hidden-->
+    <div class="mobile-nav-container hidden relative
+      before:content-[''] before:absolute 
+      before:left-[calc(var(--spacing-margin-base)*2)] 
+      before:top-[60px] before:bottom-[var(--spacing-margin-base)] 
+      before:w-[2px] before:bg-light-blue before:z-10">    
+      {% include components/navigation/mobile-nav-overlay.html %}
+    </div>
+    {{ content }}
     
-    const r1 = Math.floor(Math.random() * 10) + 5;
-    const r2 = Math.floor(Math.random() * 10) + 5;
-    const r3 = Math.floor(Math.random() * 10) + 5;
-    const r4 = Math.floor(Math.random() * 10) + 5;
-    
-    highlight.style.setProperty('--highlight-transform', `skew(${skew}deg) rotate(${rotate}deg)`);
-    highlight.style.setProperty('--highlight-radius', `${r1}px ${r2}px ${r3}px ${r4}px`);
-  });
-}
-document.addEventListener('DOMContentLoaded', randomizeHighlights);
-</script>
-
-<!-- Global JavaScript -->
-<script src="/assets/js/highlighter.js"></script>
-</body>
+    <!-- Global JavaScript -->
+    <script src="/assets/js/highlighter.js"></script>
+  </body>
+  <footer>
+  </footer>
+</html>

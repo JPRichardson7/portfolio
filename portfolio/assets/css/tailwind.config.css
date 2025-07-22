@@ -73,22 +73,22 @@ body {
       background: repeating-linear-gradient( to right, #BBEBE8 0, #BBEBE8 .5vw, transparent .5vw, transparent 1.5vw );
   }
 
-.highlight-marker {
-    @apply relative inline-block text-highlight-yellow italic;
-    padding: 0.25em 0.3em;
-}
+  .highlight-marker {
+      @apply relative inline-block text-highlight-yellow italic;
+      padding: 0.25em 0.3em;
+  }
 
-.highlight-marker::before {
-    content: '';
-    @apply absolute bg-highlight-on-dark opacity-85;
-    top: 0.15em;
-    left: -0.1em;
-    right: -0.1em;
-    bottom: 0.1em;
-    z-index: -1;
-    transform: var(--highlight-transform, skew(-8deg) rotate(-0.9deg));
-    border-radius: var(--highlight-radius, 8px 12px 10px 6px);
-}
+  .highlight-marker::before {
+      content: '';
+      @apply absolute bg-highlight-on-dark opacity-85;
+      top: 0.15em;
+      left: -0.1em;
+      right: -0.1em;
+      bottom: 0.1em;
+      z-index: -1;
+      transform: var(--highlight-transform, skew(-8deg) rotate(-0.9deg));
+      border-radius: var(--highlight-radius, 8px 12px 10px 6px);
+  }
 }
 
  
