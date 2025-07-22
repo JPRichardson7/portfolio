@@ -29,50 +29,66 @@ body {
 
 
 
-@layer components {
+  @layer components {
 
-  .hero-text {
-    @apply font-din uppercase text-light-blue font-black;
+    .hero-text {
+      @apply font-din uppercase text-light-blue font-black;
+    }
+
+
+
+  .nav-line::before {
+      content: '';
+      position: absolute;
+      left: calc(-19cqw);
+      top: 50%;
+      transform: translateY(-50%);
+      width: calc(14cqw);
+      height: 2px;
+      background: repeating-linear-gradient( to right, #BBEBE8 0, #BBEBE8 4px, transparent 4px, transparent 8px );
+  }
+    
+
+    .nav-line {
+    position: relative;
+    margin-left:calc(19cqw);
   }
 
 
+  .nav-line--active::before {
+    border-color: #E5D900;
+  }
+  .mobile-nav-overlay::before {
+      content: '';
+      position: absolute;
+      left: var(--spacing-margin-base);
+      top: 60px; /* Start below CLOSE button */
+      bottom: var(--spacing-margin-base);
+      width: 2px;
+      background-color: var(--color-light-blue);
+      z-index: 1;
+  }
 
-.nav-line::before {
-    content: '';
-    position: absolute;
-    left: calc(-19cqw);
-    top: 50%;
-    transform: translateY(-50%);
-    width: calc(14cqw);
-    height: 2px;
-    background: repeating-linear-gradient( to right, #BBEBE8 0, #BBEBE8 4px, transparent 4px, transparent 8px );
-}
-  
+  .connecting-line{
+      background: repeating-linear-gradient( to right, #BBEBE8 0, #BBEBE8 .5vw, transparent .5vw, transparent 1.5vw );
+  }
 
-  .nav-line {
-  position: relative;
-  margin-left:calc(19cqw);
-}
+  .highlight-marker {
+      @apply relative inline-block text-highlight-yellow italic;
+      padding: 0.25em 0.3em;
+  }
 
-
-.nav-line--active::before {
-  border-color: #E5D900;
-}
-.mobile-nav-overlay::before {
-    content: '';
-    position: absolute;
-    left: var(--spacing-margin-base);
-    top: 60px; /* Start below CLOSE button */
-    bottom: var(--spacing-margin-base);
-    width: 2px;
-    background-color: var(--color-light-blue);
-    z-index: 1;
-}
-
-.connecting-line{
-    background: repeating-linear-gradient( to right, #BBEBE8 0, #BBEBE8 .5vw, transparent .5vw, transparent 1.5vw );
-
+  .highlight-marker::before {
+      content: '';
+      @apply absolute bg-highlight-on-dark opacity-85;
+      top: 0.15em;
+      left: -0.1em;
+      right: -0.1em;
+      bottom: 0.1em;
+      z-index: -1;
+      transform: var(--highlight-transform, skew(-8deg) rotate(-0.9deg));
+      border-radius: var(--highlight-radius, 8px 12px 10px 6px);
+  }
 }
 
-
-} 
+ 

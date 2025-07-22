@@ -6,22 +6,22 @@
     <title>{{ page.title }} - {{ site.title }}</title>
     <link rel="stylesheet" href="https://use.typekit.net/paw6nms.css">
     <link rel="stylesheet" href="/assets/css/output.css">
-
   </head>
   <header>
-
- 
-</header>
+  </header>
   <body>
-      <!--* popup nav is currently hidden-->
-      <div class="mobile-nav-container hidden relative
-        before:content-[''] before:absolute 
-        before:left-[calc(var(--spacing-margin-base)*2)] 
-        before:top-[60px] before:bottom-[var(--spacing-margin-base)] 
-        before:w-[2px] before:bg-light-blue before:z-10">    
-        {% include components/navigation/mobile-nav-overlay.html %}
-      </div>
-   {{ content }}
+    <!--* popup nav is currently hidden-->
+    <div class="mobile-nav-container hidden relative
+      before:content-[''] before:absolute 
+      before:left-[calc(var(--spacing-margin-base)*2)] 
+      before:top-[60px] before:bottom-[var(--spacing-margin-base)] 
+      before:w-[2px] before:bg-light-blue before:z-10">    
+      {% include components/navigation/mobile-nav-overlay.html %}
+    </div>
+    {{ content }}
+    
+    <!-- Global JavaScript -->
+    <script src="/assets/js/highlighter.js"></script>
   </body>
   <footer>
   </footer>

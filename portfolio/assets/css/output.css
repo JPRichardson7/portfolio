@@ -322,9 +322,6 @@
     --tw-border-style: none;
     border-style: none;
   }
-  .bg-highlight-on-dark {
-    background-color: var(--color-highlight-on-dark);
-  }
   .bg-transparent {
     background-color: transparent;
   }
@@ -394,9 +391,6 @@
   }
   .underline {
     text-decoration-line: underline;
-  }
-  .bg-blend-darken {
-    background-blend-mode: darken;
   }
   .outline {
     outline-style: var(--tw-outline-style);
@@ -525,6 +519,26 @@ body {
   }
   .connecting-line {
     background: repeating-linear-gradient( to right, #BBEBE8 0, #BBEBE8 .5vw, transparent .5vw, transparent 1.5vw );
+  }
+  .highlight-marker {
+    position: relative;
+    display: inline-block;
+    color: var(--color-highlight-yellow);
+    font-style: italic;
+    padding: 0.25em 0.3em;
+  }
+  .highlight-marker::before {
+    content: '';
+    position: absolute;
+    background-color: var(--color-highlight-on-dark);
+    opacity: 85%;
+    top: 0.15em;
+    left: -0.1em;
+    right: -0.1em;
+    bottom: 0.1em;
+    z-index: -1;
+    transform: var(--highlight-transform, skew(-8deg) rotate(-0.9deg));
+    border-radius: var(--highlight-radius, 8px 12px 10px 6px);
   }
 }
 @property --tw-rotate-x {
