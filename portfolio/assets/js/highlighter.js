@@ -1,3 +1,5 @@
+---
+---
 // Highlighter randomization utility
 function randomizeHighlights() {
   const highlights = document.querySelectorAll('.highlight-marker');
