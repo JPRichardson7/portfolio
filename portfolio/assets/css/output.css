@@ -262,9 +262,6 @@
   .min-h-screen {
     min-height: 100vh;
   }
-  .w-\[85px\] {
-    width: 85px;
-  }
   .flex-1 {
     flex: 1;
   }
@@ -353,26 +350,14 @@
   .bg-transparent {
     background-color: transparent;
   }
-  .fill-dark-blue {
-    fill: var(--color-dark-blue);
-  }
   .p-2 {
     padding: calc(var(--spacing) * 2);
   }
   .p-margin-base {
     padding: var(--spacing-margin-base);
   }
-  .pb-85 {
-    padding-bottom: calc(var(--spacing) * 85);
-  }
   .pb-\[-850px\] {
     padding-bottom: -850px;
-  }
-  .pb-\[85px\] {
-    padding-bottom: 85px;
-  }
-  .pb-\[850px\] {
-    padding-bottom: 850px;
   }
   .text-left {
     text-align: left;
@@ -382,6 +367,9 @@
   }
   .font-din {
     font-family: var(--font-din);
+  }
+  .text-\[clamp\(1\.1rem\,4\.3cqw\,2\.9rem\)\] {
+    font-size: clamp(1.1rem, 4.3cqw, 2.9rem);
   }
   .text-\[clamp\(1\.1rem\,6\.2cqw\,7\.5rem\)\] {
     font-size: clamp(1.1rem, 6.2cqw, 7.5rem);
