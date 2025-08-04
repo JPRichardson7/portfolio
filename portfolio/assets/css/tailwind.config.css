@@ -22,12 +22,23 @@
 
 
 body {
-    @apply bg-dark-blue;
+    @apply 
+      bg-dark-blue 
+      selection:bg-highlight-on-dark
+      selection:text-highlight-yellow
+
     
   }
-
-
-
+  
+footer {
+    @apply
+      fixed 
+      bottom-0 
+      left-0 
+      right-0 
+      w-full 
+      z-50;
+}
 
   @layer components {
 
@@ -93,6 +104,26 @@ body {
       transform: var(--highlight-transform, skew(-8deg) rotate(-0.9deg));
       border-radius: var(--highlight-radius, 8px 12px 10px 6px);
   }
+  .menu-btn {
+    @apply bg-transparent border-none cursor-pointer p-2 transition duration-100 ease-in-out w-[85px] h-[83px];
+  }
+
+  .menu-btn:hover .menu-base,
+  .menu-btn:hover .menu-text-border,
+  .menu-btn:hover .menu-arrow-outline {
+    @apply fill-dark-blue stroke-dark-blue;
+  }
+
+  .menu-btn:hover .menu-text,
+  .menu-btn:hover .menu-arrow-fill {
+    @apply fill-light-blue;
+  }
+
+  .menu-btn.active .menu-arrow-fill {
+    @apply transform rotate-180;
+    transform-origin: center;
+  }
+
 }
 
  
