@@ -220,6 +220,9 @@
   .mb-\[3\.5cqw\] {
     margin-bottom: 3.5cqw;
   }
+  .mb-\[60px\] {
+    margin-bottom: 60px;
+  }
   .ml-margin-base {
     margin-left: var(--spacing-margin-base);
   }
@@ -244,6 +247,12 @@
   .h-\[\.5cqw\] {
     height: .5cqw;
   }
+  .h-\[calc\(100vh-400px\)\] {
+    height: calc(100vh - 400px);
+  }
+  .h-\[calc\(100vh-var\(--spacing-margin-base\)\)\] {
+    height: calc(100vh - var(--spacing-margin-base));
+  }
   .h-\[calc\(cqh\)\] {
     height: calc(cqh);
   }
@@ -252,6 +261,21 @@
   }
   .h-screen {
     height: 100vh;
+  }
+  .min-h-\[calc\(100vh-40px\)\] {
+    min-height: calc(100vh - 40px);
+  }
+  .min-h-\[calc\(screen-40px\)\] {
+    min-height: calc(screen - 40px);
+  }
+  .min-h-\[calc\(screen-margin-base\)\] {
+    min-height: calc(screen-margin-base);
+  }
+  .min-h-\[calc\(screen-var\(--margin-base\)\)\] {
+    min-height: calc(screen-var(--margin-base));
+  }
+  .min-h-screen {
+    min-height: 100vh;
   }
   .flex-1 {
     flex: 1;
@@ -490,6 +514,11 @@
   .md\:mb-\[3cqw\] {
     @media (width >= 768px) {
       margin-bottom: 3cqw;
+    }
+  }
+  .md\:hidden {
+    @media (width >= 768px) {
+      display: none;
     }
   }
   .md\:text-\[clamp\(4\.5rem\,19\.8cqw\,23rem\)\] {
