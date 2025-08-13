@@ -120,11 +120,11 @@ footer {
     @apply fill-light-blue;
   }
 
-  .menu-btn.active .menu-arrow-fill {
-    @apply transform rotate-180;
-    transform-origin: center;
-  }
-
+.menu-btn.active .arrow-group {
+  transform: rotate(180deg);
+  transform-origin: 43.83px 25.88px;  /* More precise center */
+  transition: transform 0.1s ease-in-out;
+}
 }
 
  

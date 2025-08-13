@@ -175,11 +175,20 @@
   .\@container {
     container-type: inline-size;
   }
+  .fixed {
+    position: fixed;
+  }
   .relative {
     position: relative;
   }
   .static {
     position: static;
+  }
+  .inset-0 {
+    inset: calc(var(--spacing) * 0);
+  }
+  .z-40 {
+    z-index: 40;
   }
   .col-span-2 {
     grid-column: span 2 / span 2;
@@ -220,9 +229,6 @@
   .mb-\[3\.5cqw\] {
     margin-bottom: 3.5cqw;
   }
-  .mb-\[60px\] {
-    margin-bottom: 60px;
-  }
   .ml-margin-base {
     margin-left: var(--spacing-margin-base);
   }
@@ -247,9 +253,6 @@
   .h-\[\.5cqw\] {
     height: .5cqw;
   }
-  .h-\[calc\(100vh-400px\)\] {
-    height: calc(100vh - 400px);
-  }
   .h-\[calc\(100vh-var\(--spacing-margin-base\)\)\] {
     height: calc(100vh - var(--spacing-margin-base));
   }
@@ -265,18 +268,6 @@
   .min-h-\[calc\(100vh-40px\)\] {
     min-height: calc(100vh - 40px);
   }
-  .min-h-\[calc\(screen-40px\)\] {
-    min-height: calc(screen - 40px);
-  }
-  .min-h-\[calc\(screen-margin-base\)\] {
-    min-height: calc(screen-margin-base);
-  }
-  .min-h-\[calc\(screen-var\(--margin-base\)\)\] {
-    min-height: calc(screen-var(--margin-base));
-  }
-  .min-h-screen {
-    min-height: 100vh;
-  }
   .flex-1 {
     flex: 1;
   }
@@ -288,6 +279,10 @@
   }
   .border-collapse {
     border-collapse: collapse;
+  }
+  .translate-y-full {
+    --tw-translate-y: 100%;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -361,6 +356,9 @@
   .border-none {
     --tw-border-style: none;
     border-style: none;
+  }
+  .bg-dark-blue {
+    background-color: var(--color-dark-blue);
   }
   .bg-transparent {
     background-color: transparent;
@@ -447,9 +445,18 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .transition-transform {
+    transition-property: transform, translate, scale, rotate;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
   .duration-100 {
     --tw-duration: 100ms;
     transition-duration: 100ms;
+  }
+  .duration-300 {
+    --tw-duration: 300ms;
+    transition-duration: 300ms;
   }
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
@@ -514,11 +521,6 @@
   .md\:mb-\[3cqw\] {
     @media (width >= 768px) {
       margin-bottom: 3cqw;
-    }
-  }
-  .md\:hidden {
-    @media (width >= 768px) {
-      display: none;
     }
   }
   .md\:text-\[clamp\(4\.5rem\,19\.8cqw\,23rem\)\] {
@@ -647,11 +649,26 @@ footer {
   .menu-btn:hover .menu-text, .menu-btn:hover .menu-arrow-fill {
     fill: var(--color-light-blue);
   }
-  .menu-btn.active .menu-arrow-fill {
-    rotate: 180deg;
-    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
-    transform-origin: center;
+  .menu-btn.active .arrow-group {
+    transform: rotate(180deg);
+    transform-origin: 43.83px 25.88px;
+    transition: transform 0.1s ease-in-out;
   }
+}
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
 }
 @property --tw-rotate-x {
   syntax: "*";
@@ -707,6 +724,9 @@ footer {
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
       --tw-rotate-x: initial;
       --tw-rotate-y: initial;
       --tw-rotate-z: initial;
