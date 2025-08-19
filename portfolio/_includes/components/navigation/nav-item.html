@@ -1,10 +1,35 @@
-<li class="relative flex">
+<li class="relative flex items-center">
+    <!-- Horizontal line with decorative elements -->
+    <div class="relative flex items-center mr-3">
+        <div class="w-[calc(19cqw)] border-t-2 border-light-blue z-10
+        {% if page.url == include.url %} 
+            border-solid
+        {% else %} 
+           border-dashed
+        {% endif %}
+        ">
+        </div>
+        <!-- Left diamond -->
+        <span class="absolute left-[-4px] top-[-9px] text-light-blue leading-none">◆</span>
+        <!-- Right arrow (only for active page) -->
+        {% if page.url == include.url %}
+        <span class="absolute right-[-6px] top-[-9px] text-light-blue leading-none">◀</span>
+        {% endif %}
+    </div>
+    
+    <!-- Link -->
     <a href="{{ include.url }}"
-       class="nav-line{% if page.url == include.url %} nav-line--active text-highlight-yellow{% else %} text-light-blue{% endif %} 
-       font-din font-black leading-0
-       uppercase text-[clamp(1.5rem, 8.4cqw, 3.9rem)] tracking-accent
-       hover:text-highlight-yellow"
-       {% if page.url == include.url %}aria-current="page"{% endif %}>
+    class="nav-line
+    {% if page.url == include.url %} 
+        nav-line--active text-highlight-yellow italic
+    {% else %} 
+        text-light-blue
+    {% endif %} 
+    font-din font-black leading-0
+    uppercase text-[clamp(1.5rem,8.4cqw,3.9rem)] tracking-accent
+    hover:text-highlight-yellow 
+    "
+    {% if page.url == include.url %}aria-current="page"{% endif %}>
         {{ include.text }}
     </a>
 </li>
