@@ -2,7 +2,7 @@
   --breakpoint-xs: 320px;
   --breakpoint-sm: 390px;
   --breakpoint-md: 768px;
-  --breakpoint-lg: 1080px;
+  --breakpoint-lg: 1024px;
   --breakpoint-xl: 1366px;
   --breakpoint-2xl: 1920px;
 
@@ -29,7 +29,7 @@ body {
 
     
   }
-  
+
 footer {
     @apply
       fixed 
@@ -66,7 +66,7 @@ footer {
   }
 
   .highlight-marker {
-      @apply relative inline-block text-highlight-yellow italic;
+      @apply relative inline-block text-highlight-yellow;
       padding: 0.25em 0.3em;
   }
 
@@ -81,6 +81,47 @@ footer {
       transform: var(--highlight-transform, skew(-8deg) rotate(-0.9deg));
       border-radius: var(--highlight-radius, 8px 12px 10px 6px);
   }
+
+  .nav-hover {
+      @apply relative inline-block;
+      padding: 0.25em 0.3em;
+  }
+
+  .nav-hover::before {
+      content: '';
+      @apply absolute bg-highlight-on-dark;
+      opacity: 1;
+      top: 0.15em;
+      bottom: 0.1em;
+      left: -0.1em;
+      right: -0.1em;
+      z-index: -1;
+      transform: var(--highlight-transform, skew(-8deg) rotate(-0.9deg)) scaleX(0);
+      transform-origin: left center;
+      border-radius: var(--highlight-radius, 8px 12px 10px 6px);
+      transition: transform .3s ease;
+  }
+
+  .nav-hover::after {
+      content: attr(data-text);
+      @apply absolute;
+      top: 0;
+      left: 0;
+      padding: 0.25em 0.3em;
+      color: var(--color-highlight-yellow);
+      overflow: hidden;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path .3s ease;
+      pointer-events: none;
+  }
+
+  .nav-hover:hover::before {
+      transform: var(--highlight-transform, skew(-8deg) rotate(-0.9deg)) scaleX(1);
+  }
+
+  .nav-hover:hover::after {
+      clip-path: inset(0 0 0 0);
+  }
   .menu-btn {
     @apply bg-transparent border-none cursor-pointer p-0 transition duration-100 ease-in-out w-[61px] h-[62px];
   }
@@ -94,6 +135,24 @@ footer {
   .menu-btn:hover .menu-text,
   .menu-btn:hover .menu-arrow-fill {
     @apply fill-light-blue;
+  }
+
+  /* Reset focus and active states to default colors */
+  .menu-btn:focus .menu-base,
+  .menu-btn:focus .menu-text-border,
+  .menu-btn:focus .menu-arrow-outline,
+  .menu-btn:active .menu-base,
+  .menu-btn:active .menu-text-border,
+  .menu-btn:active .menu-arrow-outline {
+    fill: var(--color-highlight-on-dark);
+    stroke: var(--color-highlight-on-dark);
+  }
+
+  .menu-btn:focus .menu-text,
+  .menu-btn:focus .menu-arrow-fill,
+  .menu-btn:active .menu-text,
+  .menu-btn:active .menu-arrow-fill {
+    fill: var(--color-highlight-yellow);
   }
 
 .menu-btn.active .arrow-group {

@@ -1,6 +1,15 @@
 - text: "HOME"
   url: "/"
   
+- text: "ABOUT"
+  url: "/about/"
+
+- text: "contact"
+  url: "/contact/"
+
+- text: "RESUME"
+  url: "/resume/"
+
 - text: "UX/UI"
   url: "/ux-ui/"
   
@@ -12,9 +21,4 @@
   
 - text: "PHOTOGRAPHY"
   url: "/photography/"
-  
-- text: "ABOUT"
-  url: "/about/"
-  
-- text: "GET RESUME"
-  url: "/resume/"
+

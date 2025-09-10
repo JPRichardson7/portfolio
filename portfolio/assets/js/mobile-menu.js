@@ -7,6 +7,7 @@ class MobileMenu {
     this.isOpen = false;
     
     this.init();
+    this.ensureClosedState();
   }
   
   init() {
@@ -35,8 +36,9 @@ class MobileMenu {
   openMenu() {
     this.isOpen = true;
     
-    // Remove translate-y-full to slide nav up
+    // Remove translate-y-full and clear transform to slide nav up
     this.mobileNav.classList.remove('translate-y-full');
+    this.mobileNav.style.transform = '';
     
     // Update button states
     this.menuToggle.setAttribute('aria-expanded', 'true');
@@ -52,7 +54,8 @@ class MobileMenu {
   closeMenu() {
     this.isOpen = false;
     
-    // Add translate-y-full to slide nav down
+    // Force transform and add translate-y-full to slide nav down
+    this.mobileNav.style.transform = 'translateY(100%)';
     this.mobileNav.classList.add('translate-y-full');
     
     // Update button states
@@ -65,6 +68,46 @@ class MobileMenu {
     // Restore body scroll
     document.body.style.overflow = '';
   }
+
+  ensureClosedState() {
+    // Force menu to closed state on initialization
+    // This fixes Chrome-specific issues where the menu might appear open initially
+    console.log('Mobile nav element:', this.mobileNav);
+    console.log('Initial classes:', this.mobileNav?.className);
+    
+    if (this.mobileNav) {
+      // Force immediate style update for Chrome
+      this.mobileNav.style.transform = 'translateY(100%)';
+      this.mobileNav.classList.add('translate-y-full');
+      document.body.style.overflow = '';
+      
+      console.log('After fix classes:', this.mobileNav.className);
+    }
+    
+    if (this.menuToggle) {
+      this.menuToggle.setAttribute('aria-expanded', 'false');
+      this.menuToggle.setAttribute('aria-label', 'Open navigation menu');
+      this.menuToggle.classList.remove('active');
+    }
+    
+    this.isOpen = false;
+  }
+}
+
+// Force mobile nav to be hidden immediately on script load (for Chrome compatibility)
+const forceHideMobileNav = () => {
+  const mobileNav = document.getElementById('mobile-nav');
+  if (mobileNav) {
+    mobileNav.style.transform = 'translateY(100%)';
+    mobileNav.classList.add('translate-y-full');
+  }
+};
+
+// Try to hide immediately if DOM is already loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', forceHideMobileNav);
+} else {
+  forceHideMobileNav();
 }
 
 // Initialize when page loads

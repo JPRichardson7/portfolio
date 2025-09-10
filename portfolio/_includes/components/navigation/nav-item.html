@@ -1,6 +1,6 @@
 <li class="relative flex items-center">
     <!-- Horizontal line with decorative elements -->
-    <div class="relative flex items-center mr-3">
+    <div class="relative flex items-center mr-3 md:hidden">
         <div class="w-[calc(19cqw)] border-t-2 border-light-blue z-10
         {% if page.url == include.url %} 
             border-solid
@@ -10,25 +10,26 @@
         ">
         </div>
         <!-- Left diamond -->
-        <span class="absolute left-[-4px] top-[-9px] text-light-blue leading-none">◆</span>
+        <span class="absolute left-[-4px] top-[-9px] text-light-blue leading-0">◆</span>
         <!-- Right arrow (only for active page) -->
         {% if page.url == include.url %}
-        <span class="absolute right-[-6px] top-[-9px] text-light-blue leading-none">◀</span>
+        <span class="absolute right-[-6px] top-[-9px] text-light-blue leading-0">◀</span>
         {% endif %}
     </div>
     
     <!-- Link -->
     <a href="{{ include.url }}"
-    class="nav-line
+    class="nav-lines
     {% if page.url == include.url %} 
         nav-line--active text-highlight-yellow italic
     {% else %} 
         text-light-blue
     {% endif %} 
-    font-din font-black leading-0
-    uppercase text-[clamp(1.5rem,8.4cqw,3.9rem)] tracking-accent
-    hover:text-highlight-yellow 
+    font-din font-black leading-8
+    uppercase text-[clamp(1.5rem,8.4vw,3.9rem)] tracking-accent
+    nav-hover lg:text-[clamp(1rem,3.3vw,3.2rem)] block whitespace-nowrap
     "
+    data-text="{{ include.text }}"
     {% if page.url == include.url %}aria-current="page"{% endif %}>
         {{ include.text }}
     </a>
