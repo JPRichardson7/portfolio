@@ -1,0 +1,21 @@
+- text: "HOME"
+  url: "/"
+  
+- text: "ABOUT"
+  url: "/about/"
+
+- text: "RESUME"
+  url: "/resume/"
+
+- text: "UX/UI"
+  url: "/ux-ui/"
+  
+- text: "DEVELOPMENT"
+  url: "/development/"
+  
+- text: "VISUAL DESIGN"
+  url: "/visual-design/"
+  
+- text: "PHOTOGRAPHY"
+  url: "/photography/"
+

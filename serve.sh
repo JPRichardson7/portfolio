@@ -1,2 +1,2 @@
 #!/bin/bash
-bundle exec jekyll serve --incremental --limit_posts 10
+bin/jekyll serve --incremental --limit_posts 10
