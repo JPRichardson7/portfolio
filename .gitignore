@@ -14,4 +14,4 @@ Thumbs.db
 # Editor files
 .vscode/
 *.swp
-*.swo
+*.swo_site/
