@@ -22,14 +22,19 @@
 
 
 body {
-    @apply 
+    @apply
       bg-dark-blue 
       selection:bg-highlight-on-dark
       selection:text-highlight-yellow
-
     
   }
+p{
+  font-family: trade-gothic-next-condenced, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  @apply mb-2;
 
+}
 footer {
     @apply
       fixed 
@@ -65,12 +70,13 @@ footer {
       background: repeating-linear-gradient( to bottom, #BBEBE8 0, #BBEBE8 .5vw, transparent .5vw, transparent 1.5vw );
   }
 
-  .highlight-marker {
+  .lowlight-marker {
       @apply relative inline-block text-highlight-yellow;
       padding: 0.25em 0.3em;
+      z-index: 1;
   }
 
-  .highlight-marker::before {
+  .lowlight-marker::before {
       content: '';
       @apply absolute bg-highlight-on-dark opacity-85;
       top: 0.15em;
@@ -82,6 +88,24 @@ footer {
       border-radius: var(--highlight-radius, 8px 12px 10px 6px);
   }
 
+  .highlight-marker {
+      @apply relative inline-block text-highlight-yellow;
+      padding: 0.25em 0.3em;
+      z-index: 1;
+  }
+
+  .highlight-marker::before {
+      content: '';
+      @apply absolute bg-highlight-yellow opacity-85;
+      top: 0.15em;
+      left: -0.1em;
+      right: -0.1em;
+      bottom: 0.1em;
+      z-index: -1;
+      transform: var(--highlight-transform, skew(-8deg) rotate(-0.9deg));
+      border-radius: var(--highlight-radius, 8px 12px 10px 6px);
+  }
+  
   .nav-hover {
       @apply relative inline-block;
   }
@@ -157,7 +181,13 @@ footer {
   transform: rotate(180deg);
   transform-origin: 43.83px 25.88px;  /* More precise center */
   transition: transform 0.1s ease-in-out;
-}
+} 
+.strong{
+  font-family: urw-din-condensed, sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 125%;
+  @apply leading-none
+ }
 }
 
- 
