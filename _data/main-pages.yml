@@ -2,23 +2,23 @@
   url: "/"
   
 - text: "ABOUT"
-  url: "/about/"
+  url: "/pages/about.html"
 
 - text: "contact"
-  url: "/contact/"
+  url: "/pages/contact.html"
 
 - text: "RESUME"
-  url: "/resume/"
+  url: "/pages/resume.html"
 
 - text: "UX/UI"
-  url: "/ux-ui/"
-  
+  url: "/pages/portfolio/ux-ui.html"
+
 - text: "DEVELOPMENT"
-  url: "/development/"
-  
+  url: "/pages/portfolio/development.html"
+
 - text: "VISUAL DESIGN"
-  url: "/visual-design/"
-  
+  url: "/pages/portfolio/visual-design/print.html"
+
 - text: "PHOTOGRAPHY"
-  url: "/photography/"
+  url: "/pages/portfolio/photography.html"
 

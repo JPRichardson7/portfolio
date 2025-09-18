@@ -8,9 +8,32 @@
     <link rel="stylesheet" href="/assets/css/output.css">
     
   </head>
-  <header>
-  </header>
+
   <body class="overflow-x-hidden max-w-full">
+    <header>
+      <div class="flex h-auto bg-dark-blue border-b-4 border-dark-blue md:border-none md:h-auto md:p-4 md:grid md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-4
+                   h-auto min-h-0 relative">
+
+        <!-- Left connecting line -->
+        <div class="hidden md:block h-[.5cqw] connecting-line ">
+            <!--r connecting line -->
+        </div>
+
+        <!-- Center - Name -->
+                <h1 class=" w-full text-center md:static md:text-center">
+                     <span class="hero-text text-light-blue text-[clamp(2.8rem,14.2cqw,17.4rem)] justify-center leading-none md:text-light-blue md:text-[7.3rem] whitespace-nowrap flex-nowrap">
+                        JP RICHARDSON
+                    </span>
+                </h1>
+
+        <!-- Right connecting line -->
+        <div class="hidden md:block h-[.5cqw] connecting-line">
+            <!--r connecting line -->
+        </div>
+    
+</div>
+    
+    </header>
     
     <div id="mobile-nav" 
         class="mobile-nav-container fixed inset-0 bg-dark-blue z-40 translate-y-full transition-transform duration-300 ease-in-out">    
@@ -37,8 +60,8 @@
         <nav class="flex flex-col">
             <ul class="flex flex-col justify-evenly h-full">
                     
-
-                        <li class="relative flex items-center">
+                        
+                            <li class="relative flex items-center">
     <!-- Horizontal line with decorative elements -->
     <div class="relative flex items-center mr-3 md:hidden">
         <div class="w-[calc(19cqw)] border-t-2 border-light-blue z-10
@@ -59,18 +82,20 @@
      
         text-light-blue
      
-    font-din font-black leading-8
-    uppercase text-[clamp(1.5rem,8.4vw,3.9rem)] tracking-accent
-    nav-hover lg:text-[clamp(1rem,3.3vw,3.2rem)] block whitespace-nowrap
+
+    font-din font-black leading-11
+    uppercase  text-[clamp(1.5rem,8.4vw,3.9rem)] tracking-accent
+    nav-hover lg:text-[clamp(1rem,2.3vw,2.8rem)] block whitespace-nowrap
     "
     data-text="HOME"
     >
         HOME
     </a>
 </li>
+                        
                     
-
-                        <li class="relative flex items-center">
+                        
+                            <li class="relative flex items-center">
     <!-- Horizontal line with decorative elements -->
     <div class="relative flex items-center mr-3 md:hidden">
         <div class="w-[calc(19cqw)] border-t-2 border-light-blue z-10
@@ -86,23 +111,27 @@
     </div>
     
     <!-- Link -->
-    <a href="/about/"
+    <a href="/pages/about.html"
     class="nav-lines
      
         text-light-blue
      
-    font-din font-black leading-8
-    uppercase text-[clamp(1.5rem,8.4vw,3.9rem)] tracking-accent
-    nav-hover lg:text-[clamp(1rem,3.3vw,3.2rem)] block whitespace-nowrap
+
+    font-din font-black leading-11
+    uppercase  text-[clamp(1.5rem,8.4vw,3.9rem)] tracking-accent
+    nav-hover lg:text-[clamp(1rem,2.3vw,2.8rem)] block whitespace-nowrap
     "
     data-text="ABOUT"
     >
         ABOUT
     </a>
 </li>
+                        
                     
-
-                        <li class="relative flex items-center">
+                        
+                    
+                        
+                            <li class="relative flex items-center">
     <!-- Horizontal line with decorative elements -->
     <div class="relative flex items-center mr-3 md:hidden">
         <div class="w-[calc(19cqw)] border-t-2 border-light-blue z-10
@@ -118,23 +147,25 @@
     </div>
     
     <!-- Link -->
-    <a href="/resume/"
+    <a href="/pages/resume.html"
     class="nav-lines
      
         text-light-blue
      
-    font-din font-black leading-8
-    uppercase text-[clamp(1.5rem,8.4vw,3.9rem)] tracking-accent
-    nav-hover lg:text-[clamp(1rem,3.3vw,3.2rem)] block whitespace-nowrap
+
+    font-din font-black leading-11
+    uppercase  text-[clamp(1.5rem,8.4vw,3.9rem)] tracking-accent
+    nav-hover lg:text-[clamp(1rem,2.3vw,2.8rem)] block whitespace-nowrap
     "
     data-text="RESUME"
     >
         RESUME
     </a>
 </li>
+                        
                     
-
-                        <li class="relative flex items-center">
+                        
+                            <li class="relative flex items-center">
     <!-- Horizontal line with decorative elements -->
     <div class="relative flex items-center mr-3 md:hidden">
         <div class="w-[calc(19cqw)] border-t-2 border-light-blue z-10
@@ -150,23 +181,25 @@
     </div>
     
     <!-- Link -->
-    <a href="/ux-ui/"
+    <a href="/pages/portfolio/ux-ui.html"
     class="nav-lines
      
         text-light-blue
      
-    font-din font-black leading-8
-    uppercase text-[clamp(1.5rem,8.4vw,3.9rem)] tracking-accent
-    nav-hover lg:text-[clamp(1rem,3.3vw,3.2rem)] block whitespace-nowrap
+
+    font-din font-black leading-11
+    uppercase  text-[clamp(1.5rem,8.4vw,3.9rem)] tracking-accent
+    nav-hover lg:text-[clamp(1rem,2.3vw,2.8rem)] block whitespace-nowrap
     "
     data-text="UX/UI"
     >
         UX/UI
     </a>
 </li>
+                        
                     
-
-                        <li class="relative flex items-center">
+                        
+                            <li class="relative flex items-center">
     <!-- Horizontal line with decorative elements -->
     <div class="relative flex items-center mr-3 md:hidden">
         <div class="w-[calc(19cqw)] border-t-2 border-light-blue z-10
@@ -182,23 +215,25 @@
     </div>
     
     <!-- Link -->
-    <a href="/development/"
+    <a href="/pages/portfolio/development.html"
     class="nav-lines
      
         text-light-blue
      
-    font-din font-black leading-8
-    uppercase text-[clamp(1.5rem,8.4vw,3.9rem)] tracking-accent
-    nav-hover lg:text-[clamp(1rem,3.3vw,3.2rem)] block whitespace-nowrap
+
+    font-din font-black leading-11
+    uppercase  text-[clamp(1.5rem,8.4vw,3.9rem)] tracking-accent
+    nav-hover lg:text-[clamp(1rem,2.3vw,2.8rem)] block whitespace-nowrap
     "
     data-text="DEVELOPMENT"
     >
         DEVELOPMENT
     </a>
 </li>
+                        
                     
-
-                        <li class="relative flex items-center">
+                        
+                            <li class="relative flex items-center">
     <!-- Horizontal line with decorative elements -->
     <div class="relative flex items-center mr-3 md:hidden">
         <div class="w-[calc(19cqw)] border-t-2 border-light-blue z-10
@@ -214,23 +249,25 @@
     </div>
     
     <!-- Link -->
-    <a href="/visual-design/"
+    <a href="/pages/portfolio/visual-design/print.html"
     class="nav-lines
      
         text-light-blue
      
-    font-din font-black leading-8
-    uppercase text-[clamp(1.5rem,8.4vw,3.9rem)] tracking-accent
-    nav-hover lg:text-[clamp(1rem,3.3vw,3.2rem)] block whitespace-nowrap
+
+    font-din font-black leading-11
+    uppercase  text-[clamp(1.5rem,8.4vw,3.9rem)] tracking-accent
+    nav-hover lg:text-[clamp(1rem,2.3vw,2.8rem)] block whitespace-nowrap
     "
     data-text="VISUAL DESIGN"
     >
         VISUAL DESIGN
     </a>
 </li>
+                        
                     
-
-                        <li class="relative flex items-center">
+                        
+                            <li class="relative flex items-center">
     <!-- Horizontal line with decorative elements -->
     <div class="relative flex items-center mr-3 md:hidden">
         <div class="w-[calc(19cqw)] border-t-2 border-light-blue z-10
@@ -246,20 +283,22 @@
     </div>
     
     <!-- Link -->
-    <a href="/photography/"
+    <a href="/pages/portfolio/photography.html"
     class="nav-lines
      
         text-light-blue
      
-    font-din font-black leading-8
-    uppercase text-[clamp(1.5rem,8.4vw,3.9rem)] tracking-accent
-    nav-hover lg:text-[clamp(1rem,3.3vw,3.2rem)] block whitespace-nowrap
+
+    font-din font-black leading-11
+    uppercase  text-[clamp(1.5rem,8.4vw,3.9rem)] tracking-accent
+    nav-hover lg:text-[clamp(1rem,2.3vw,2.8rem)] block whitespace-nowrap
     "
     data-text="PHOTOGRAPHY"
     >
         PHOTOGRAPHY
     </a>
 </li>
+                        
                                 
                 </ul>
     </nav>
@@ -1084,9 +1123,17 @@ This module tests various Python syntax elements
     <!-- Global JavaScript -->
     <script src="/assets/js/highlighter.js"></script>
     <script src="/assets/js/mobile-menu.js"></script>
-  </body>
-  <footer class="lg:hidden">
-    <button type="button" 
+
+    <footer class="z-90" >
+      <div class="lg:hidden
+        fixed
+        bottom-0
+        left-[calc(var(--spacing-margin-base)*0.5)]
+        right-0
+        w-full
+        h-[62px]
+        z-90">
+        <button type="button" 
         id="menu-toggle"
         class="menu-btn bg-transparent border-none cursor-pointer transition duration-100 ease-in-out p-0"
         aria-label="Open navigation menu"
@@ -1142,5 +1189,16 @@ This module tests various Python syntax elements
 
 
 
-  </footer>
+      </div>
+      
+        <div class="hidden lg:inline-block text-center bg-dark-blue text-light-blue p-2.5
+                    md:p-1 fixed left-1/2 -translate-x-1/2 bottom-0 z-90 border-light-blue border-7 border-b-0">
+          <h3 class="hero-text text-light-blue ml-2 mr-2 pl-2 pr-2 text-lg">
+    <a  href="tel:913-636-8530" class=" pr-2">913-636-8530</a>
+    <a href="mailto:jp@jpr.works" class="pl-2 ">jp@jpr.works</a> 
+</h3>
+        </div>
+      
+    </footer>
+  </body>
 </html>

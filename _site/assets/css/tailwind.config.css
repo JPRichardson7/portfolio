@@ -32,19 +32,10 @@ p{
   font-family: trade-gothic-next-condenced, sans-serif;
   font-weight: 400;
   font-style: normal;
-  @apply mb-2;
+  @apply mb-2 md:text-[clamp(1rem,1.4cqw,1.6rem)];
 
 }
-footer {
-    @apply
-      fixed 
-      bottom-0 
-      left-[calc(var(--spacing-margin-base)*0.5)]
-      right-0 
-      w-full 
-      h-[62px]
-      z-50;
-}
+
 
   @layer components {
 

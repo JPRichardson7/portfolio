@@ -6,41 +6,45 @@
     <title>{{ page.title }} - {{ site.title }}</title>
     <link rel="stylesheet" href="https://use.typekit.net/paw6nms.css">
     <link rel="stylesheet" href="/assets/css/output.css">
-    
   </head>
 
-  <body class="overflow-x-hidden max-w-full">
-    <header>
-      {% if page.url != "/" %}{% include components/header.html %}{% endif %}
-    </header>
-    
+  <body class="overflow-x-hidden max-w-full bg-dark-blue">
+
     <div id="mobile-nav" 
         class="mobile-nav-container fixed inset-0 bg-dark-blue z-40 translate-y-full transition-transform duration-300 ease-in-out">    
       {% include components/navigation/mobile-nav-overlay.html %}
     </div>
-    {{ content }}
-    
+
+    <!-- Portfolio Grid Container -->
+    <div class="min-h-screen p-margin-base">
+
+      <!-- Header Section -->
+      
+        {% include components/header.html %}
+        {% include components/navigation/nav-strip.html %}
+
+        <!-- Portfolio Navigation -->
+        {% include components/navigation/portfolio-nav.html %}
+        
+      </header>
+
+      <!-- Main Content Area -->
+      <main>
+        {{ content }}
+      </main>
+
+    </div>
+
     <!-- Global JavaScript -->
     <script src="/assets/js/highlighter.js"></script>
     <script src="/assets/js/mobile-menu.js"></script>
 
-    <footer class="z-90" >
-      <div class="lg:hidden
-        fixed
-        bottom-0
-        left-[calc(var(--spacing-margin-base)*0.5)]
-        right-0
-        w-full
-        h-[62px]
-        z-90">
+    <!-- Mobile Menu Button -->
+    <footer class="z-90">
+      <div class="lg:hidden fixed bottom-0 left-[calc(var(--spacing-margin-base)*0.5)] right-0 w-full h-[62px] z-90">
         {% include components/navigation/menu-button.html %}
       </div>
-      {% if page.url != "/" %}
-        <div class="hidden lg:inline-block text-center bg-dark-blue text-light-blue p-2.5
-                    md:p-1 fixed left-1/2 -translate-x-1/2 bottom-0 z-90 border-light-blue border-7 border-b-0">
-          {% include components/footer.html %}
-        </div>
-      {% endif %}
     </footer>
+
   </body>
 </html>

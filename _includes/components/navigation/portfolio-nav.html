@@ -1,0 +1,17 @@
+<nav class="visual-design-subnav mb-8">
+    <div class="flex items-center space-x-4 text-sm uppercase tracking-wider">
+        <span class="text-gray-600">VISUAL DESIGN</span>
+        <span class="text-gray-400">—</span>
+        <ul class="flex space-x-6">
+            {% for item in site.data.visual-design-nav %}
+                <li>
+                    {% if page.url == item.url %}
+                        <span class="text-yellow-400 font-bold">{{ item.text }}</span>
+                    {% else %}
+                        <a href="{{ item.url }}" class="text-gray-300 hover:text-white transition-colors">{{ item.text }}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>

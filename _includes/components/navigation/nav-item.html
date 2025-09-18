@@ -25,9 +25,10 @@
     {% else %} 
         text-light-blue
     {% endif %} 
-    font-din font-black leading-8
-    uppercase text-[clamp(1.5rem,8.4vw,3.9rem)] tracking-accent
-    nav-hover lg:text-[clamp(1rem,3.3vw,3.2rem)] block whitespace-nowrap
+
+    font-din font-black leading-11
+    uppercase {% if page.url == "/about.html" %}text-[clamp(1.3rem,8.4vw,3.9rem)]{% else %} text-[clamp(1.5rem,8.4vw,3.9rem)]{% endif %} tracking-accent
+    nav-hover lg:text-[clamp(1rem,2.3vw,2.8rem)] block whitespace-nowrap
     "
     data-text="{{ include.text }}"
     {% if page.url == include.url %}aria-current="page"{% endif %}>
