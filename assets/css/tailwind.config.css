@@ -7,7 +7,7 @@
   --breakpoint-2xl: 1920px;
 
   --spacing-margin-base: clamp(20px, 4.2vw, 67px);
-
+  --header-height: 149px;
 
   --color-highlight-yellow: #E5D900;
   --color-light-blue: #BBEBE8;
