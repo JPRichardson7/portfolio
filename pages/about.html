@@ -4,71 +4,63 @@ title: About
 ---
 
 <!-- Grid container -->
-<div class="md:grid md:grid-cols-2 md:h-[calc(100vh-var(--header-height,auto))]">
-
-    <!-- Header - spans both columns -->
+<div class="md:grid md:grid-cols-2 md:h-[calc(100vh-149px)] md:overflow-hidden">
 
     <!-- Left column - content -->
-    <div class="md:overflow-y-auto md:h-full scrollbar-hidden">
-        <!-- Navigation -->
-        <nav class="hidden lg:block pl-margin-base bg-dark-blue sticky top-0 z-20 pb-2.5">
-          <ul class="flex-row flex flex-wrap justify-between gap-x-4 mr-margin-base">
-            {% for item in site.data.main-pages %}
-              {% include components/navigation/nav-item.html
-              url=item.url
-              text=item.text
-              %}
-
-            {% endfor %}
-          </ul>
+     <div class="md:overflow-y-auto h-full scrollbar-hidden">
+        <nav class="md:sticky md:top-0 z-10 pr-margin-base bg-dark-blue">
+            <!-- Navigation -->
+            {% include components/navigation/nav-strip.html %}
         </nav>
+        <div>
+            <div class="bg-light-blue pl-margin-base pr-margin-base pb-3 ">
+                <h2 class="left-[-3px]">
+                    <span class="-ml-margin-base mt-3.5 mb-3.5 italic pl-margin-base highlight-marker hero-text text-dark-blue text-[clamp(1rem,2.3cqw,2rem)] hero-text">
+                        Hi, I'm JP!
+                    </span>
+                </h2>
+                <p class="text-dark-blue">
+                    Growing up, I was surrounded by creativity. My mom taught piano from our house, took me to concerts and art museums, and filled our home with music of all kinds. But I was terrible with pencils and brushes - traditional art just didn't click for me.
+                </p>
+                <p class="text-dark-blue">
+                    <span class="strong">Everything changed when I discovered photography.</span> Suddenly I could create something beautiful, but through the aid of a technical instrument. I was hooked. From there, I found audio engineering, then graphic design, and eventually code - each one revealing the same truth: <span class="strong">I thrive where art meets technology,</span>  where creative vision is enhanced by technical expertise.
+                </p>
+            </div>
 
-        <div class="bg-light-blue pl-margin-base pr-margin-base pb-3">
-            <h2 class="left[-3px]">
-                <span class="-ml-margin-base mt-3.5 mb-3.5 italic pl-margin-base highlight-marker hero-text text-dark-blue text-[clamp(1rem,2.3cqw,2rem)] hero-text">
-                    Hi, I'm JP!
-                </span>
-            </h2>
-            <p class="text-dark-blue">
-                Growing up, I was surrounded by creativity. My mom taught piano from our house, took me to concerts and art museums, and filled our home with music of all kinds. But I was terrible with pencils and brushes - traditional art just didn't click for me.
-            </p>
-            <p class="text-dark-blue">
-                <span class="strong">Everything changed when I discovered photography.</span> Suddenly I could create something beautiful, but through the aid of a technical instrument. I was hooked. From there, I found audio engineering, then graphic design, and eventually code - each one revealing the same truth: <span class="strong">I thrive where art meets technology,</span>  where creative vision is enhanced by technical expertise.
-            </p>
+            <!--m Building With Both Sides of My Brain-->
+            <div class="pl-margin-base pr-margin-base bg-dark-blue pb-3">
+                <h2 class="left-[-3px]">
+                    <span class="-ml-margin-base mt-2 mb-2 italic pl-margin-base lowlight-marker hero-text text-[clamp(1rem,2.3cqw,2rem)] hero-text">
+                        Building With Both Sides of My Brain
+                    </span>
+                </h2>
+                <p class="text-light-blue">
+                    Today, I'm channeling this perspective into UX/UI design and development. I'm currently deepening my UX methodology, working extensively in Figma, using my foundation with Sketch and Adobe XD. I'm also building my portfolio site from scratch, implementing responsive layouts that transform seamlessly across multiple breakpoints. It's like audio engineering - you master on calibrated studio monitors, then reference on everything from cheap computer speakers to car stereos to make sure it works everywhere. Same principle: design on a calibrated monitor, then test across all   devices.
+                </p>
+                <p class="text-light-blue">
+                    Over the past decade, I ran a wedding photography business alongside my full-time employment. At Shor-Line and Faultless Brands, I was responsible for designing and executing projects for enterprise clients, managing the full creative process from concept through technical implementation. This experience taught me to think in systems - establishing brand guidelines, creating reusable components, and designing for consistency across multiple touchpoints.
+                </p>
+            </div>
+            <!-- Looking Forward -->
+            <div class="pb-[65px] pl-margin-base pr-margin-base bg-light-blue lg:pb-[20px]">
+                <h2 class="left-[-3px]">
+                    <span class="-ml-margin-base mt-2 mb-2 italic pl-margin-base highlight-marker hero-text text-dark-blue text-[clamp(1rem,2.3cqw,2rem)] hero-text">
+                        Looking Forward
+                    </span>
+                </h2>
+                <p class="text-dark-blue">
+                    I understand the constraints that developers face because I write code myself. I appreciate the nuances that designers care about because I've spent years crafting pixel-perfect visual experiences. This unique combination - someone who can design beautiful interfaces AND implement them effectively - is exactly what modern product teams need. I'm not just transitioning into UX/UI; I'm bringing a decade of creative problem-solving experience to help build digital experiences that work beautifully for both users and the technology that performs them.
+                </p>
+            </div>
         </div>
-
-        <!--m Building With Both Sides of My Brain-->
-        <div class="pl-margin-base pr-margin-base bg-dark-blue pb-3">
-            <h2 class="left[-3px]">
-                <span class="-ml-margin-base mt-2 mb-2 italic pl-margin-base lowlight-marker hero-text text-[clamp(1rem,2.3cqw,2rem)] hero-text">
-                    Building With Both Sides of My Brain
-                </span>
-            </h2>
-            <p class="text-light-blue">
-                Today, I'm channeling this perspective into UX/UI design and development. I'm currently deepening my UX methodology, working extensively in Figma, using my foundation with Sketch and Adobe XD. I'm also building my portfolio site from scratch, implementing responsive layouts that transform seamlessly across multiple breakpoints. It's like audio engineering - you master on calibrated studio monitors, then reference on everything from cheap computer speakers to car stereos to make sure it works everywhere. Same principle: design on a calibrated monitor, then test across all   devices.
-            </p>
-            <p class="text-light-blue">
-                Over the past decade, I ran a wedding photography business alongside my full-time employment. At Shor-Line and Faultless Brands, I was responsible for designing and executing projects for enterprise clients, managing the full creative process from concept through technical implementation. This experience taught me to think in systems - establishing brand guidelines, creating reusable components, and designing for consistency across multiple touchpoints.
-            </p>
-        </div>
-        <!-- Looking Forward -->
-        <div class="pb-[65px] pl-margin-base pr-margin-base bg-light-blue lg:pb-2">
-            <h2 class="left[-3px]">
-                <span class="-ml-margin-base mt-2 mb-2 italic pl-margin-base highlight-marker hero-text text-dark-blue text-[clamp(1rem,2.3cqw,2rem)] hero-text">
-                    Looking Forward
-                </span>
-            </h2>
-            <p class="text-dark-blue">
-                I understand the constraints that developers face because I write code myself. I appreciate the nuances that designers care about because I've spent years crafting pixel-perfect visual experiences. This unique combination - someone who can design beautiful interfaces AND implement them effectively - is exactly what modern product teams need. I'm not just transitioning into UX/UI; I'm bringing a decade of creative problem-solving experience to help build digital experiences that work beautifully for both users and the technology that performs them.
-            </p>
-        </div>
-    </div>
-
-    <!-- Right column - image -->
-    <div class="hidden md:block p-[10px] border-[10px] border-light-blue border-b-0 pb-0   ">
-        <div class="bg-cover w-full h-full bg-no-repeat bg-[center_left_50%] border-b-0"
+    </div> 
+       <!-- Right column - image -->
+   <div class="md:block  bg-dark-blue !border-y-[10px] !border-x-[10px] !border-t-light-blue !border-x-light-blue !border-b-light-blue pr-[20px] !border-solid mb-[-10px]">
+        <div class="bg-cover w-full h-full bg-no-repeat bg-[center_left_50%]  bg-dark-blue m-[10px] pr-[10px]"
                 style="background-image:url(../assets/img/profile.png);">
         </div>
     </div>
 
 </div>
+
+

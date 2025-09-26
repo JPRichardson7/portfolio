@@ -29,7 +29,7 @@ body {
     
   }
 p{
-  font-family: trade-gothic-next-condenced, sans-serif;
+  font-family: trade-gothic-next-condensed, sans-serif;
   font-weight: 400;
   font-style: normal;
   @apply mb-2 md:text-[clamp(1rem,1.4cqw,1.6rem)];

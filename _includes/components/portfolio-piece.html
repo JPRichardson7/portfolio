@@ -1,0 +1,109 @@
+<!-- Portfolio Piece Component -->
+<article class="portfolio-piece mb-12 md:mb-16">
+
+    <!-- Title Section -->
+    {% if include.title %}
+        <header class="portfolio-piece-header flex items-baseline">
+            <div class="w-[calc(var(--spacing-margin-base)*2)] h-[.4cqw] bg-light-blue flex-shrink-0"></div>
+            <div class="flex-shrink-0 px-2">
+                <h2 class="hero-text text-light-blue text-[clamp(1rem,2.1cqw,2.5rem)] leading-none">
+                    {{ include.title }}
+                </h2>
+                {% if include.subtitle %}
+                    <p class="text-light-blue/80 text-[clamp(1rem,3cqw,1.5rem)] font-light">
+                        {{ include.subtitle }}
+                    </p>
+                {% endif %}
+            </div>
+            <div class="flex-1 h-[.4cqw] bg-light-blue"></div>
+        </header>
+    {% endif %}
+
+    <!-- Image/Visual Section -->
+    {% if include.image %}
+    <div class="portfolio-piece-visual mb-6 md:mb-8">
+        <div class="relative overflow-hidden rounded-lg">
+            <img src="{{ include.image }}"
+                 alt="{{ include.image_alt | default: include.title }}"
+                 class="w-full h-auto object-cover {% if include.image_class %}{{ include.image_class }}{% endif %}">
+            {% if include.image_caption %}
+            <figcaption class="text-sm text-light-blue/60 mt-2 italic">
+                {{ include.image_caption }}
+            </figcaption>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Content Section -->
+    {% if include.content %}
+    <div class="hidden lg:block portfolio-piece-content ml-margin-base mr-margin-base mb-6 md:mb-8 ">
+        <div class="prose prose-invert max-w-none">
+            {{ include.content | markdownify }}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Gallery Section -->
+    {% if include.gallery %}
+    <div class="portfolio-piece-gallery mb-6 md:mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {% for image in include.gallery %}
+            <div class="relative overflow-hidden rounded-lg">
+                <img src="{{ image.src }}"
+                     alt="{{ image.alt | default: 'Gallery image' }}"
+                     class="w-full h-auto object-cover">
+                {% if image.caption %}
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                    <p class="text-sm text-white">{{ image.caption }}</p>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Meta Information -->
+    {% if include.meta %}
+    <div class="portfolio-piece-meta border-t border-light-blue/20 pt-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-light-blue/70">
+            {% if include.meta.date %}
+            <div>
+                <span class="text-yellow-400 uppercase tracking-wider">Date:</span>
+                <span class="ml-2">{{ include.meta.date }}</span>
+            </div>
+            {% endif %}
+            {% if include.meta.client %}
+            <div>
+                <span class="text-yellow-400 uppercase tracking-wider">Client:</span>
+                <span class="ml-2">{{ include.meta.client }}</span>
+            </div>
+            {% endif %}
+            {% if include.meta.tools %}
+            <div>
+                <span class="text-yellow-400 uppercase tracking-wider">Tools:</span>
+                <span class="ml-2">{{ include.meta.tools }}</span>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Call to Action -->
+    {% if include.cta %}
+    <div class="portfolio-piece-cta mt-6 md:mt-8">
+        {% if include.cta.link %}
+        <a href="{{ include.cta.link }}"
+           class="inline-block text-yellow-400 hero-text text-[clamp(1rem,3cqw,1.5rem)] hover:text-yellow-300 transition-colors">
+            {{ include.cta.text | default: "View Project" }}
+        </a>
+        {% else %}
+        <span class="text-yellow-400 hero-text text-[clamp(1rem,3cqw,1.5rem)]">
+            {{ include.cta.text }}
+        </span>
+        {% endif %}
+    </div>
+    {% endif %}
+
+</article>

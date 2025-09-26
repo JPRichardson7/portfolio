@@ -11,28 +11,25 @@
 
   <body class="overflow-x-hidden max-w-full">
     <header>
-      <div class="flex h-auto bg-dark-blue border-b-4 border-dark-blue md:border-none md:h-auto md:p-4 md:grid md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-4
+        <div class="md:min-h-[100px] bg-dark-blue border-b-4 border-dark-blue md:border-none md:p-4 md:grid md:grid-cols-[1fr_auto_1fr]  md:items-center md:gap-4
                    relative">
 
         <!-- Left connecting line -->
-        <div class="hidden md:block h-[.5cqw] connecting-line ">
-            <!--r connecting line -->
+        <div class="max-md:hidden md:block h-1 connecting-line bg-light-blue">
         </div>
 
         <!-- Center - Name -->
-                <h1 class=" w-full text-center md:static md:text-center">
+                <h1 class=" text-center md:text-center w-full max-md:absolute max-md:bottom-0">
                      <span class="hero-text text-light-blue text-[clamp(2.8rem,14.2cqw,17.4rem)] justify-center leading-none md:text-light-blue md:text-[7.3rem] whitespace-nowrap flex-nowrap">
                         JP RICHARDSON
                     </span>
                 </h1>
 
         <!-- Right connecting line -->
-        <div class="hidden md:block h-[.5cqw] connecting-line">
-            <!--r connecting line -->
+        <div class="max-md:hidden md:block h-1  connecting-line bg-light-blue">
         </div>
-    
+
 </div>
-    
     </header>
     
     <div id="mobile-nav" 
@@ -42,7 +39,7 @@
     <div class="absolute  left-[calc(0.5*var(--spacing-margin-base)+32px)] top-margin-base bottom-[var(--spacing-margin-base)] w-[2px] bg-light-blue z-[1]">
     </div>
     <!-- Contact box -->
-    <div class="h-[calc(cqh)] contact-box @container border-2 border-dashed flex flex-col margin-base p-margin-base leading-none gap-1">
+    <div class="h-[calc(100cqh)] contact-box @container border-2 border-dashed flex flex-col margin-base p-margin-base leading-none gap-1">
         <div class="text-[clamp(1.3rem,13cqw,7rem)] flex  tracking-accent justify-between">
             <h1>
             JP 
@@ -78,9 +75,9 @@
     
     <!-- Link -->
     <a href="/"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -112,9 +109,9 @@
     
     <!-- Link -->
     <a href="/pages/about.html"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -150,9 +147,9 @@
     
     <!-- Link -->
     <a href="/pages/resume.html"
-    class="nav-lines
+    class="nav-line
      
-        nav-line--active text-highlight-yellow italic
+        nav-line--active !text-highlight-yellow italic
      
 
     font-din font-black leading-11
@@ -184,9 +181,9 @@
     
     <!-- Link -->
     <a href="/pages/portfolio/ux-ui.html"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -218,9 +215,9 @@
     
     <!-- Link -->
     <a href="/pages/portfolio/development.html"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -252,9 +249,9 @@
     
     <!-- Link -->
     <a href="/pages/portfolio/visual-design/print.html"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -286,9 +283,9 @@
     
     <!-- Link -->
     <a href="/pages/portfolio/photography.html"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -382,12 +379,22 @@
 
       </div>
       
-        <div class="hidden lg:inline-block text-center bg-dark-blue text-light-blue p-2.5
-                    md:p-1 fixed left-1/2 -translate-x-1/2 bottom-0 z-90 border-light-blue border-7 border-b-0">
-          <h3 class="hero-text text-light-blue ml-2 mr-2 pl-2 pr-2 text-lg">
-    <a  href="tel:913-636-8530" class=" pr-2">913-636-8530</a>
-    <a href="mailto:jp@jpr.works" class="pl-2 ">jp@jpr.works</a> 
-</h3>
+        <div class="hidden lg:flex items-center w-full fixed bottom-0">
+          <div class="flex-1">
+
+          </div>
+          <div class="flex-shrink-0 bg-light-blue pt-1.5 px-1.5">
+              <div class="flex justify-center hero-text text-light-blue text-lg bg-dark-blue gap-5 px-4 pb-1">
+
+        <a href="tel:913-636-8530">913-636-8530</a>
+        <a href="mailto:jp@jpr.works">jp@jpr.works</a>
+
+</div>
+
+          </div>
+          <div class="flex-1 text-right">
+
+          </div>
         </div>
       
     </footer>

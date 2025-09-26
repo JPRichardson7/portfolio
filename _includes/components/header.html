@@ -1,22 +1,19 @@
-<div class="flex h-auto bg-dark-blue border-b-4 border-dark-blue md:border-none md:h-auto md:p-4 md:grid md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-4
-                  {% if page.url == '/pages/about.html' %}sm:h-[30vh] sm:min-h-[30vh] bg-cover bg-no-repeat bg-[center_top_20%] bg-[url('/assets/img/profile.png')] md:bg-none md:h-auto md:min-h-0{% endif %} relative">
+  <div class="md:min-h-[100px] bg-dark-blue border-b-4 border-dark-blue md:border-none md:p-4 md:grid md:grid-cols-[1fr_auto_1fr]  md:items-center md:gap-4
+                  {% if page.url == '/pages/about.html' %}xs:h-[30vh] md:h-auto bg-cover bg-no-repeat bg-[center_top_20%] bg-[url('/assets/img/profile.png')] md:bg-none{% endif %} relative">
 
         <!-- Left connecting line -->
-        <div class="hidden md:block h-[.5cqw] connecting-line ">
-            <!--r connecting line -->
+        <div class="max-md:hidden md:block h-1 connecting-line bg-light-blue">
         </div>
 
         <!-- Center - Name -->
-                <h1 class="{% if page.url == '/pages/about.html' %}absolute bottom-0{% endif %} w-full text-center md:static md:text-center">
+                <h1 class=" text-center md:text-center w-full max-md:absolute max-md:bottom-0">
                      <span class="hero-text {% if page.url == '/pages/about.html' %}text-dark-blue{% else %}text-light-blue{% endif %} text-[clamp(2.8rem,14.2cqw,17.4rem)] justify-center leading-none md:text-light-blue md:text-[7.3rem] whitespace-nowrap flex-nowrap">
                         JP RICHARDSON
                     </span>
                 </h1>
 
         <!-- Right connecting line -->
-        <div class="hidden md:block h-[.5cqw] connecting-line">
-            <!--r connecting line -->
+        <div class="max-md:hidden md:block h-1  connecting-line bg-light-blue">
         </div>
-    
+
 </div>
-    

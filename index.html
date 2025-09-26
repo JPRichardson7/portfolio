@@ -4,13 +4,13 @@ title: Portfolio
 ---
 
   
-<div class="flex items-center justify-center min-h-[calc(100vh-40px)] h-sc">
+<div class="flex items-center justify-center min-h-[calc(100vh-40px)] h-screen">
   <div class="flex flex-col h-[calc(100vh-var(--spacing-margin-base))]
  mt-margin-base mr-margin-base ml-margin-base max-w-[1350px] overflow-x-hidden">
     <div class="@container grid grid-cols-[1fr_auto] gap-y-0 justify-around text-right leading-none max-w-full ">
       <!-- First row -->
       <div class="mr-[3cqw] flex flex-col justify-end">
-        <nav class="hidden lg:inline ml-margin-base">
+        <nav class="max-lg:hidden ml-margin-base">
           <ul class="flex-row flex flex-wrap justify-between gap-x-4  mb-[3cqw]">
             {% for item in site.data.main-pages %}
               {% include components/navigation/nav-item.html 

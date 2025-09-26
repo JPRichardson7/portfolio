@@ -17,7 +17,7 @@
     <div class="absolute  left-[calc(0.5*var(--spacing-margin-base)+32px)] top-margin-base bottom-[var(--spacing-margin-base)] w-[2px] bg-light-blue z-[1]">
     </div>
     <!-- Contact box -->
-    <div class="h-[calc(cqh)] contact-box @container border-2 border-dashed flex flex-col margin-base p-margin-base leading-none gap-1">
+    <div class="h-[calc(100cqh)] contact-box @container border-2 border-dashed flex flex-col margin-base p-margin-base leading-none gap-1">
         <div class="text-[clamp(1.3rem,13cqw,7rem)] flex  tracking-accent justify-between">
             <h1>
             JP 
@@ -53,9 +53,9 @@
     
     <!-- Link -->
     <a href="/"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -87,9 +87,9 @@
     
     <!-- Link -->
     <a href="/pages/about.html"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -123,9 +123,9 @@
     
     <!-- Link -->
     <a href="/pages/resume.html"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -157,9 +157,9 @@
     
     <!-- Link -->
     <a href="/pages/portfolio/ux-ui.html"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -191,9 +191,9 @@
     
     <!-- Link -->
     <a href="/pages/portfolio/development.html"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -227,9 +227,9 @@
     
     <!-- Link -->
     <a href="/pages/portfolio/visual-design/print.html"
-    class="nav-lines
+    class="nav-line
      
-        nav-line--active text-highlight-yellow italic
+        nav-line--active !text-highlight-yellow italic
      
 
     font-din font-black leading-11
@@ -261,9 +261,9 @@
     
     <!-- Link -->
     <a href="/pages/portfolio/photography.html"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -283,34 +283,31 @@
     </div>
 
     <!-- Portfolio Grid Container -->
-    <div class="min-h-screen p-margin-base">
+    <div class="min-h-screen">
 
       <!-- Header Section -->
       
-        <div class="flex h-auto bg-dark-blue border-b-4 border-dark-blue md:border-none md:h-auto md:p-4 md:grid md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-4
+          <div class="md:min-h-[100px] bg-dark-blue border-b-4 border-dark-blue md:border-none md:p-4 md:grid md:grid-cols-[1fr_auto_1fr]  md:items-center md:gap-4
                    relative">
 
         <!-- Left connecting line -->
-        <div class="hidden md:block h-[.5cqw] connecting-line ">
-            <!--r connecting line -->
+        <div class="max-md:hidden md:block h-1 connecting-line bg-light-blue">
         </div>
 
         <!-- Center - Name -->
-                <h1 class=" w-full text-center md:static md:text-center">
+                <h1 class=" text-center md:text-center w-full max-md:absolute max-md:bottom-0">
                      <span class="hero-text text-light-blue text-[clamp(2.8rem,14.2cqw,17.4rem)] justify-center leading-none md:text-light-blue md:text-[7.3rem] whitespace-nowrap flex-nowrap">
                         JP RICHARDSON
                     </span>
                 </h1>
 
         <!-- Right connecting line -->
-        <div class="hidden md:block h-[.5cqw] connecting-line">
-            <!--r connecting line -->
+        <div class="max-md:hidden md:block h-1  connecting-line bg-light-blue">
         </div>
-    
+
 </div>
-    
-                <nav class="hidden lg:block pl-margin-base bg-dark-blue sticky top-0 z-20 pb-2.5 col-span-full">
-          <ul class="flex- flex flex-wrap justify-between gap-x-4 mr-margin-base mt-[-10px]">
+                <nav class="max-lg:hidden lg:block pl-margin-base bg-dark-blue sticky top-0 z-20 pb-2.5 col-span-full">
+          <ul class="flex-row flex flex-wrap justify-between gap-x-4 mr-margin-base mt-[-10px]">
             
               <li class="relative flex items-center">
     <!-- Horizontal line with decorative elements -->
@@ -329,9 +326,9 @@
     
     <!-- Link -->
     <a href="/"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -362,9 +359,9 @@
     
     <!-- Link -->
     <a href="/pages/about.html"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -395,9 +392,9 @@
     
     <!-- Link -->
     <a href="/pages/contact.html"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -428,9 +425,9 @@
     
     <!-- Link -->
     <a href="/pages/resume.html"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -461,9 +458,9 @@
     
     <!-- Link -->
     <a href="/pages/portfolio/ux-ui.html"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -494,9 +491,9 @@
     
     <!-- Link -->
     <a href="/pages/portfolio/development.html"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -529,9 +526,9 @@
     
     <!-- Link -->
     <a href="/pages/portfolio/visual-design/print.html"
-    class="nav-lines
+    class="nav-line
      
-        nav-line--active text-highlight-yellow italic
+        nav-line--active !text-highlight-yellow italic
      
 
     font-din font-black leading-11
@@ -562,9 +559,9 @@
     
     <!-- Link -->
     <a href="/pages/portfolio/photography.html"
-    class="nav-lines
+    class="nav-line
      
-        text-light-blue
+        !text-light-blue
      
 
     font-din font-black leading-11
@@ -582,29 +579,38 @@
         </nav>
 
         <!-- Portfolio Navigation -->
-        <nav class="visual-design-subnav mb-8">
-    <div class="flex items-center space-x-4 text-sm uppercase tracking-wider">
-        <span class="text-gray-600">VISUAL DESIGN</span>
-        <span class="text-gray-400">—</span>
-        <ul class="flex space-x-6">
+        <nav class="visual-design-subnav m-auto mb-8 w-[70vw]">
+    <div class="flex items-center text-sm uppercase tracking-wider">
+        <ul class="flex items-center w-full">
             
-                <li>
+                <li class="flex-shrink-0 text-[clamp(1.25rem,5.5cqw,5rem)]">
                     
-                        <span class="text-yellow-400 font-bold">PRINT</span>
+                        <span class="hero-text text-highlight-yellow">PRINT</span>
                     
                 </li>
+                
+                <li class="flex-1 mx-[1.5cqw]">
+                    <div class="h-[.5cqw] connecting-line"></div>
+                </li>
+                
             
-                <li>
+                <li class="flex-shrink-0 text-[clamp(1.25rem,5.5cqw,5rem)]">
                     
-                        <a href="/pages/portfolio/visual-design/logo-branding.html" class="text-gray-300 hover:text-white transition-colors">LOGO & BRANDING</a>
+                        <a href="/pages/portfolio/visual-design/logo-branding.html" class="text-light-blue hero-text font-normal">LOGO & BRANDING</a>
                     
                 </li>
+                
+                <li class="flex-1 mx-[1.5cqw]">
+                    <div class="h-[.5cqw] connecting-line"></div>
+                </li>
+                
             
-                <li>
+                <li class="flex-shrink-0 text-[clamp(1.25rem,5.5cqw,5rem)]">
                     
-                        <a href="/pages/portfolio/visual-design/digital.html" class="text-gray-300 hover:text-white transition-colors">DIGITAL</a>
+                        <a href="/pages/portfolio/visual-design/digital.html" class="text-light-blue hero-text font-normal">DIGITAL</a>
                     
                 </li>
+                 
             
         </ul>
     </div>
@@ -614,81 +620,205 @@
 
       <!-- Main Content Area -->
       <main>
-        <!-- Portfolio Grid - matches your screenshot layout -->
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-  <!-- Left Column - Featured Project -->
-  <div class="space-y-6">
-
-    <!-- Project Title -->
-    <div class="border-l-4 border-highlight-yellow pl-4">
-      <h2 class="text-highlight-yellow text-2xl font-bold uppercase tracking-wide">
-        2019-20 CATALOG
-      </h2>
-      <div class="h-px bg-light-blue mt-2 mb-4"></div>
-    </div>
-
-    <!-- Main Project Image -->
-    <div class="aspect-[4/3] bg-light-blue border-4 border-light-blue">
-      <img src="/assets/img/portfolio/shor-line-catalog.jpg"
-           alt="Shor-Line Catalog Cover"
-           class="w-full h-full object-cover">
-    </div>
-
-    <!-- Project Description -->
-    <div class="text-light-blue space-y-4">
-      <p class="text-sm leading-relaxed">
-        The Shor-Line catalog project was an exercise in blending striking visuals with clear understanding of manufacturing processes. I needed not just the products, but the dedication and precision behind their creation. The photography captures the precision and impact of our work with humor utilizing a collage of metalworking processes paired with human artistry.
-      </p>
-    </div>
-
-    <!-- Specifications -->
-    <div class="bg-dark-blue border border-light-blue p-4">
-      <div class="text-highlight-yellow text-sm font-bold mb-2">SPECS:</div>
-      <div class="text-light-blue text-xs">
-        219 × 15<br>
-        CONTAINS 14K AUTO BY<br>
-        TEXT 4K+ FONT BOLD M
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Right Column - Secondary Projects -->
-  <div class="space-y-6">
-
-    <!-- Secondary Project 1 -->
-    <div class="aspect-video bg-light-blue border-4 border-light-blue">
-      <img src="/assets/img/portfolio/welding-process.jpg"
-           alt="Welding Process Documentation"
-           class="w-full h-full object-cover">
-    </div>
-
-    <!-- Secondary Project 2 -->
-    <div class="aspect-[4/3] bg-light-blue border-4 border-light-blue">
-      <img src="/assets/img/portfolio/design-layout.jpg"
-           alt="Design Layout Process"
-           class="w-full h-full object-cover">
-    </div>
+        <!-- Portfolio Piece Component -->
+<article class="portfolio-piece mb-12 md:mb-16">
 
     <!-- Title Section -->
-    <div class="border-l-4 border-highlight-yellow pl-4">
-      <h3 class="text-light-blue text-xl font-bold uppercase tracking-wide">
-        TITLE
-      </h3>
-      <div class="h-px bg-light-blue mt-2"></div>
+    
+        <header class="portfolio-piece-header flex items-baseline">
+            <div class="w-[calc(var(--spacing-margin-base)*2)] h-[.4cqw] bg-light-blue flex-shrink-0"></div>
+            <div class="flex-shrink-0 px-2">
+                <h2 class="hero-text text-light-blue text-[clamp(1rem,2.1cqw,2.5rem)] leading-none">
+                    2019-20 CATALOG
+                </h2>
+                
+            </div>
+            <div class="flex-1 h-[.4cqw] bg-light-blue"></div>
+        </header>
+    
+
+    <!-- Image/Visual Section -->
+    
+    <div class="portfolio-piece-visual mb-6 md:mb-8">
+        <div class="relative overflow-hidden rounded-lg">
+            <img src="/assets/img/portfolio/shor-line-catalog.jpg" alt="Shor-Line Catalog Cover-test" class="w-full h-auto object-cover " />
+            
+        </div>
     </div>
+    
 
-    <!-- Secondary Project 3 -->
-    <div class="aspect-[4/3] bg-light-blue border-4 border-light-blue">
-      <img src="/assets/img/portfolio/circular-design.jpg"
-           alt="Circular Design Element"
-           class="w-full h-full object-cover">
+    <!-- Content Section -->
+    
+    <div class="hidden lg:block portfolio-piece-content ml-margin-base mr-margin-base mb-6 md:mb-8 ">
+        <div class="prose prose-invert max-w-none">
+            <p>The Shor-Line catalog project was an exercise in blending striking visuals with clear understanding of manufacturing processes. I needed not just the products, but the dedication and precision behind their creation. The photography captures the precision and impact of our work with humor utilizing a collage of metalworking processes paired with human artistry.</p>
+
+<h3 id="specs">SPECS:</h3>
+<ul>
+  <li>219 × 15</li>
+  <li>CONTAINS 14K AUTO BY</li>
+  <li>TEXT 4K+ FONT BOLD M</li>
+</ul>
+
+        </div>
     </div>
+    
 
-  </div>
+    <!-- Gallery Section -->
+    
 
-</div>
+    <!-- Meta Information -->
+    
+
+    <!-- Call to Action -->
+    
+
+</article>
+
+<!-- Portfolio Piece Component -->
+<article class="portfolio-piece mb-12 md:mb-16">
+
+    <!-- Title Section -->
+    
+        <header class="portfolio-piece-header flex items-baseline">
+            <div class="w-[calc(var(--spacing-margin-base)*2)] h-[.4cqw] bg-light-blue flex-shrink-0"></div>
+            <div class="flex-shrink-0 px-2">
+                <h2 class="hero-text text-light-blue text-[clamp(1rem,2.1cqw,2.5rem)] leading-none">
+                    WELDING PROCESS DOCUMENTATION
+                </h2>
+                
+            </div>
+            <div class="flex-1 h-[.4cqw] bg-light-blue"></div>
+        </header>
+    
+
+    <!-- Image/Visual Section -->
+    
+    <div class="portfolio-piece-visual mb-6 md:mb-8">
+        <div class="relative overflow-hidden rounded-lg">
+            <img src="/assets/img/portfolio/welding-process.jpg" alt="WELDING PROCESS DOCUMENTATION" class="w-full h-auto object-cover " />
+            
+        </div>
+    </div>
+    
+
+    <!-- Content Section -->
+    
+    <div class="hidden lg:block portfolio-piece-content ml-margin-base mr-margin-base mb-6 md:mb-8 ">
+        <div class="prose prose-invert max-w-none">
+            <p>Technical documentation and visual guide for precision welding processes, combining photography with instructional design.</p>
+
+        </div>
+    </div>
+    
+
+    <!-- Gallery Section -->
+    
+
+    <!-- Meta Information -->
+    
+
+    <!-- Call to Action -->
+    
+
+</article>
+
+<!-- Portfolio Piece Component -->
+<article class="portfolio-piece mb-12 md:mb-16">
+
+    <!-- Title Section -->
+    
+        <header class="portfolio-piece-header flex items-baseline">
+            <div class="w-[calc(var(--spacing-margin-base)*2)] h-[.4cqw] bg-light-blue flex-shrink-0"></div>
+            <div class="flex-shrink-0 px-2">
+                <h2 class="hero-text text-light-blue text-[clamp(1rem,2.1cqw,2.5rem)] leading-none">
+                    DESIGN LAYOUT EXPLORATION
+                </h2>
+                
+            </div>
+            <div class="flex-1 h-[.4cqw] bg-light-blue"></div>
+        </header>
+    
+
+    <!-- Image/Visual Section -->
+    
+    <div class="portfolio-piece-visual mb-6 md:mb-8">
+        <div class="relative overflow-hidden rounded-lg">
+            <img src="/assets/img/portfolio/design-layout.jpg" alt="DESIGN LAYOUT EXPLORATION" class="w-full h-auto object-cover " />
+            
+        </div>
+    </div>
+    
+
+    <!-- Content Section -->
+    
+    <div class="hidden lg:block portfolio-piece-content ml-margin-base mr-margin-base mb-6 md:mb-8 ">
+        <div class="prose prose-invert max-w-none">
+            <p>Exploration of grid systems and typography for manufacturing documentation, balancing technical accuracy with visual appeal.</p>
+
+        </div>
+    </div>
+    
+
+    <!-- Gallery Section -->
+    
+
+    <!-- Meta Information -->
+    
+
+    <!-- Call to Action -->
+    
+
+</article>
+
+<!-- Portfolio Piece Component -->
+<article class="portfolio-piece mb-12 md:mb-16">
+
+    <!-- Title Section -->
+    
+        <header class="portfolio-piece-header flex items-baseline">
+            <div class="w-[calc(var(--spacing-margin-base)*2)] h-[.4cqw] bg-light-blue flex-shrink-0"></div>
+            <div class="flex-shrink-0 px-2">
+                <h2 class="hero-text text-light-blue text-[clamp(1rem,2.1cqw,2.5rem)] leading-none">
+                    CIRCULAR DESIGN ELEMENTS
+                </h2>
+                
+            </div>
+            <div class="flex-1 h-[.4cqw] bg-light-blue"></div>
+        </header>
+    
+
+    <!-- Image/Visual Section -->
+    
+    <div class="portfolio-piece-visual mb-6 md:mb-8">
+        <div class="relative overflow-hidden rounded-lg">
+            <img src="/assets/img/portfolio/circular-design.jpg" alt="CIRCULAR DESIGN ELEMENTS" class="w-full h-auto object-cover " />
+            
+        </div>
+    </div>
+    
+
+    <!-- Content Section -->
+    
+    <div class="hidden lg:block portfolio-piece-content ml-margin-base mr-margin-base mb-6 md:mb-8 ">
+        <div class="prose prose-invert max-w-none">
+            <p>Brand element development focusing on geometric precision and manufacturing aesthetic integration.</p>
+
+        </div>
+    </div>
+    
+
+    <!-- Gallery Section -->
+    
+
+    <!-- Meta Information -->
+    
+
+    <!-- Call to Action -->
+    
+
+</article>
+
       </main>
 
     </div>

@@ -1,16 +1,19 @@
-<nav class="visual-design-subnav mb-8">
-    <div class="flex items-center space-x-4 text-sm uppercase tracking-wider">
-        <span class="text-gray-600">VISUAL DESIGN</span>
-        <span class="text-gray-400">—</span>
-        <ul class="flex space-x-6">
+<nav class="visual-design-subnav m-auto mb-8 w-[70vw]">
+    <div class="flex items-center text-sm uppercase tracking-wider">
+        <ul class="flex items-center w-full">
             {% for item in site.data.visual-design-nav %}
-                <li>
+                <li class="flex-shrink-0 text-[clamp(1.25rem,5.5cqw,5rem)]">
                     {% if page.url == item.url %}
-                        <span class="text-yellow-400 font-bold">{{ item.text }}</span>
+                        <span class="hero-text text-highlight-yellow">{{ item.text }}</span>
                     {% else %}
-                        <a href="{{ item.url }}" class="text-gray-300 hover:text-white transition-colors">{{ item.text }}</a>
+                        <a href="{{ item.url }}" class="text-light-blue hero-text font-normal">{{ item.text }}</a>
                     {% endif %}
                 </li>
+                {% if forloop.last %} {% else %}
+                <li class="flex-1 mx-[1.5cqw]">
+                    <div class="h-[.5cqw] connecting-line"></div>
+                </li>
+                {% endif %}
             {% endfor %}
         </ul>
     </div>
