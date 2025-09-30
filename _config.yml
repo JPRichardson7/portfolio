@@ -1,3 +1,13 @@
 url: "https://jpr.works" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
 title: "JP Richardson - Portfolio" # the name of your site, e.g. ACME Corp.
+
+plugins:
+  - jekyll_picture_tag
+
+picture:
+  source: "assets/img"
+  output: "assets/generated"
+  markup: "picture"
+  formats: [webp, original]
+  dimension_attributes: true

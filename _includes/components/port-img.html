@@ -1,0 +1,11 @@
+<figure class="port-img{{ include.figure_class }}">
+  {% picture {{ include.preset | default: 'default' }} {{ include.src }}
+     --alt {{ include.alt }}
+     --img class="{{ include.class | default: 'w-full h-auto' }}" %}
+  
+  {% if include.caption %}
+    <figcaption class="text-sm text-light-blue mt-2 italic">
+      {{ include.caption }}
+    </figcaption>
+  {% endif %}
+</figure>

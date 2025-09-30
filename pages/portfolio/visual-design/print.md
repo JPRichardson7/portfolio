@@ -18,7 +18,7 @@ portfolio_category: print
 
 {% include components/portfolio-piece.html
    title='WELDING PROCESS DOCUMENTATION'
-   image='/assets/img/portfolio/welding-process.jpg'
+   image='projects/shor-line-catalog.jpg'
    content='Technical documentation and visual guide for precision welding processes, combining photography with instructional design.'
 %}
 

@@ -1,19 +1,19 @@
 <li class="relative flex items-center">
     <!-- Horizontal line with decorative elements -->
-    <div class="relative flex items-center mr-3 md:hidden">
-        <div class="w-[calc(19cqw)] border-t-2 border-light-blue z-10
-        {% if page.url == include.url %} 
+    <div class="relative flex items-center mr-3 lg:hidden">
+        <div class="min-w-[19vw] w-[19vw] !border-t-[2px] !border-light-blue z-10
+        {% if page.url == include.url %}
             border-solid
-        {% else %} 
+        {% else %}
            border-dashed
         {% endif %}
         ">
         </div>
         <!-- Left diamond -->
-        <span class="absolute left-[-4px] top-[-9px] text-light-blue leading-0">◆</span>
+        <span class="absolute left-[-5px] top-[-2px] text-light-blue leading-0">◆</span>
         <!-- Right arrow (only for active page) -->
         {% if page.url == include.url %}
-        <span class="absolute right-[-6px] top-[-9px] text-light-blue leading-0">◀</span>
+        <span class="absolute right-[-5px] top-[-2px] text-light-blue leading-0">◀</span>
         {% endif %}
     </div>
     

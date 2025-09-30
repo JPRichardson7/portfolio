@@ -15,3 +15,11 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo_site/
+
+# optomized images
+_site/
+.jekyll-cache/
+assets/images/generated/    # Add this - these are auto-generated
+assets/css/output.css
+node_modules/
+.DS_Store

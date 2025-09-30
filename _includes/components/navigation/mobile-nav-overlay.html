@@ -3,7 +3,7 @@
     <div class="absolute  left-[calc(0.5*var(--spacing-margin-base)+32px)] top-margin-base bottom-[var(--spacing-margin-base)] w-[2px] bg-light-blue z-[1]">
     </div>
     <!-- Contact box -->
-    <div class="h-[calc(100cqh)] contact-box @container border-2 border-dashed flex flex-col margin-base p-margin-base leading-none gap-1">
+    <div class="contact-box @container border-2 border-dashed flex flex-col margin-base p-margin-base leading-none gap-1">
         <div class="text-[clamp(1.3rem,13cqw,7rem)] flex  tracking-accent justify-between">
             <h1>
             JP 
@@ -18,16 +18,16 @@
         </div>
     </div>
     <!-- Navigation -->
-        <nav class="flex flex-col">
+        <nav class="flex flex-col @container/nav">
             <ul class="flex flex-col justify-evenly h-full">
-                    {% for item in site.data.main-pages %}
+                {% for item in site.data.main-pages %}
                         {% unless item.text == "contact" %}
                             {% include components/navigation/nav-item.html
                             url=item.url
                             text=item.text
                             %}
                         {% endunless %}
-                    {% endfor %}            
-                </ul>
+                {% endfor %}
+            </ul>
     </nav>
 </div>

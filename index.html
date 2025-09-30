@@ -10,17 +10,17 @@ title: Portfolio
     <div class="@container grid grid-cols-[1fr_auto] gap-y-0 justify-around text-right leading-none max-w-full ">
       <!-- First row -->
       <div class="mr-[3cqw] flex flex-col justify-end">
-        <nav class="max-lg:hidden ml-margin-base">
-          <ul class="flex-row flex flex-wrap justify-between gap-x-4  mb-[3cqw]">
-            {% for item in site.data.main-pages %}
-              {% include components/navigation/nav-item.html 
-              url=item.url 
-              text=item.text 
-              %}
-              
-            {% endfor %}            
-          </ul>
-        </nav>
+          <nav class="max-lg:hidden ml-margin-base">
+            <ul class="flex-row flex flex-wrap justify-between gap-x-4  mb-[3cqw]">
+              {% for item in site.data.main-pages %}
+                {% include components/navigation/nav-item.html 
+                url=item.url 
+                text=item.text 
+                %}
+                
+              {% endfor %}            
+            </ul>
+          </nav>
         <div class="h-[.5cqw] md:mb-[1cqw] connecting-line absolute left-0 w-[clamp(229px,74vw,1300px)] lg:w-[clamp(327px,76vw,1351px)]">
           <!--r connecting line -->
         </div>

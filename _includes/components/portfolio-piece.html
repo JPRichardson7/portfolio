@@ -23,9 +23,7 @@
     {% if include.image %}
     <div class="portfolio-piece-visual mb-6 md:mb-8">
         <div class="relative overflow-hidden rounded-lg">
-            <img src="{{ include.image }}"
-                 alt="{{ include.image_alt | default: include.title }}"
-                 class="w-full h-auto object-cover {% if include.image_class %}{{ include.image_class }}{% endif %}">
+            {% picture {{ include.image }} --alt {{ include.image_alt | default: include.title }} --img class="w-full h-auto object-cover {% if include.image_class %}{{ include.image_class }}{% endif %}" %}
             {% if include.image_caption %}
             <figcaption class="text-sm text-light-blue/60 mt-2 italic">
                 {{ include.image_caption }}
@@ -50,9 +48,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {% for image in include.gallery %}
             <div class="relative overflow-hidden rounded-lg">
-                <img src="{{ image.src }}"
-                     alt="{{ image.alt | default: 'Gallery image' }}"
-                     class="w-full h-auto object-cover">
+                {% picture {{ image.src }} --alt {{ image.alt | default: 'Gallery image' }} --img class="w-full h-auto object-cover" %}
                 {% if image.caption %}
                 <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
                     <p class="text-sm text-white">{{ image.caption }}</p>
