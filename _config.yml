@@ -8,6 +8,3 @@ plugins:
 picture:
   source: "assets/img"
   output: "assets/generated"
-  markup: "picture"
-  formats: [webp, original]
-  dimension_attributes: true

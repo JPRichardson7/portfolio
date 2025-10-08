@@ -1,15 +1,18 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>{{ page.title }} - {{ site.title }}</title>
-    <link rel="stylesheet" href="https://use.typekit.net/paw6nms.css">
     <link rel="stylesheet" href="/assets/css/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,800;1,800&family=IBM+Plex+Sans+Condensed&display=swap" rel="stylesheet">
+
   </head>
 
   <body class="overflow-x-hidden max-w-full bg-dark-blue">
-
+    {% include components/dev-banner.html %}
     <div id="mobile-nav" 
         class="mobile-nav-container fixed inset-0 bg-dark-blue z-40 translate-y-full transition-transform duration-300 ease-in-out">    
       {% include components/navigation/mobile-nav-overlay.html %}
@@ -38,6 +41,7 @@
     <!-- Global JavaScript -->
     <script src="/assets/js/highlighter.js"></script>
     <script src="/assets/js/mobile-menu.js"></script>
+    <script src="/assets/js/portfolio-carousel.js"></script>
 
     <!-- Mobile Menu Button -->
     <footer class="z-90">

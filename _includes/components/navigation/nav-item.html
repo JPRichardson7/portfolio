@@ -1,7 +1,7 @@
 <li class="relative flex items-center">
     <!-- Horizontal line with decorative elements -->
     <div class="relative flex items-center mr-3 lg:hidden">
-        <div class="min-w-[19vw] w-[19vw] !border-t-[2px] !border-light-blue z-10
+        <div class="min-w-[19vw] w-[19vw] !border-t-[2px] !border-light-blue z-10 lg:hidden
         {% if page.url == include.url %}
             border-solid
         {% else %}
@@ -10,10 +10,10 @@
         ">
         </div>
         <!-- Left diamond -->
-        <span class="absolute left-[-5px] top-[-2px] text-light-blue leading-0">◆</span>
+        <span class="absolute left-[-5px] top-[-2px] text-light-blue leading-0 lg:hidden">◆</span>
         <!-- Right arrow (only for active page) -->
         {% if page.url == include.url %}
-        <span class="absolute right-[-5px] top-[-2px] text-light-blue leading-0">◀</span>
+        <span class="absolute right-[-5px] top-[-2px] text-light-blue leading-0 lg:hidden">◀</span>
         {% endif %}
     </div>
     
@@ -26,7 +26,7 @@
         !text-light-blue
     {% endif %} 
 
-    font-din font-black leading-11
+    font-barlow font-extrabold leading-11
     uppercase {% if page.url == "/about.html" %}text-[clamp(1.3rem,8.4vw,3.9rem)]{% else %} text-[clamp(1.5rem,8.4vw,3.9rem)]{% endif %} tracking-accent
     nav-hover lg:text-[clamp(1rem,2.3vw,2.8rem)] block whitespace-nowrap
     "

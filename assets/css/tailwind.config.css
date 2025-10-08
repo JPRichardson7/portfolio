@@ -13,14 +13,18 @@
   --color-light-blue: #BBEBE8;
   --color-dark-blue: #0A2647;
   --color-highlight-on-dark: #08241B;
-  --font-din: urw-din-condensed, sans-serif;
+  --font-barlow: Barlow Condensed, sans-serif;
 
   --letter-spacing-wide: 0.13em;    /* 13% for accents */
 
   
 }
 
-
+.barlow-condensed-extrabold {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
 body {
     @apply
       bg-dark-blue 
@@ -29,18 +33,19 @@ body {
     
   }
 p{
-  font-family: trade-gothic-next-condensed, sans-serif;
+  font-family: "IBM Plex Sans Condensed", sans-serif;
   font-weight: 400;
   font-style: normal;
-  @apply mb-2 md:text-[clamp(1rem,1.4cqw,1.6rem)];
-
+  @apply mb-2 md:text-[clamp(1rem,1.4cqw,1.6rem)] text-light-blue leading-[1.2em];
 }
 
-
+.prose {
+  text-align: justify;
+}
   @layer components {
 
     .hero-text {
-      @apply font-din uppercase text-light-blue font-black;
+      @apply font-barlow uppercase text-light-blue font-extrabold;
     }
     
 
@@ -136,21 +141,32 @@ p{
       clip-path: inset(0 0 0 0);
   }
   .menu-btn {
-    @apply bg-transparent border-none cursor-pointer p-0 transition duration-100 ease-in-out w-[61px] h-[62px];
+    @apply bg-transparent border-none cursor-pointer p-0 w-[61px] h-[62px];
+  }
+
+  .menu-btn .menu-base,
+  .menu-btn .menu-text-border,
+  .menu-btn .menu-arrow-outline {
+    @apply transition-all duration-100 ease-in-out;
+  }
+
+  .menu-btn .menu-text,
+  .menu-btn .menu-arrow-fill {
+    @apply transition-all duration-100 ease-in-out;
   }
 
   .menu-btn:hover .menu-base,
   .menu-btn:hover .menu-text-border,
   .menu-btn:hover .menu-arrow-outline {
-    @apply fill-dark-blue stroke-dark-blue;
+    fill: var(--color-dark-blue);
+    stroke: var(--color-dark-blue);
   }
 
   .menu-btn:hover .menu-text,
   .menu-btn:hover .menu-arrow-fill {
-    @apply fill-light-blue;
+    fill: var(--color-light-blue);
   }
 
-  /* Reset focus and active states to default colors */
   .menu-btn:focus .menu-base,
   .menu-btn:focus .menu-text-border,
   .menu-btn:focus .menu-arrow-outline,
@@ -174,11 +190,101 @@ p{
   transition: transform 0.1s ease-in-out;
 } 
 .strong{
-  font-family: urw-din-condensed, sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
   font-weight: 700;
   font-style: italic;
-  font-size: 125%;
-  @apply leading-none
+  font-size: 113%;
+  @apply leading-none;
  }
+
+.stripe-divider {
+  @apply h-[10px] w-full border-2 border-solid border-light-blue;
+  background: repeating-linear-gradient(
+    45deg,
+    #BBEBE8 0,
+    #BBEBE8 2px,
+    #0A2647 2px,
+    #0A2647 8px
+  );
+}
+
+.stripe-divider-vertical {
+  @apply w-[10px] h-full border-2 border-solid border-light-blue;
+  background: repeating-linear-gradient(
+    45deg,
+    #BBEBE8 0,
+    #BBEBE8 2px,
+    #0A2647 2px,
+    #0A2647 8px
+  );
+}
+
+
+.dev-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #E5D900;
+    backdrop-filter: blur(10px);
+    color: #0A2647;
+    padding: 12px 20px;
+    z-index: 9999;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.dev-banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.dev-banner strong {
+    font-weight: 600;
+}
+
+.last-updated {
+    opacity: 0.85;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+.dismiss-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0 8px;
+    margin-left: auto;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.dismiss-btn:hover {
+    opacity: 1;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 768px) {
+    .dev-banner-content {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+    
+    .dismiss-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        margin: 0;
+    }
+}
+
 }
 

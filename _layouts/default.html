@@ -4,12 +4,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>{{ page.title }} - {{ site.title }}</title>
-    <link rel="stylesheet" href="https://use.typekit.net/paw6nms.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,400;0,700;0,800;1,400;1,700;1,800&family=IBM+Plex+Sans+Condensed&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/assets/css/output.css">
-    
+
   </head>
 
   <body class="overflow-x-hidden max-w-full">
+
+<!-- Development Banner  -->
+{% include components/dev-banner.html %}
+
     <header>
       {% if page.url != "/" %}{% include components/header.html %}{% endif %}
     </header>
@@ -23,6 +31,7 @@
     <!-- Global JavaScript -->
     <script src="/assets/js/highlighter.js"></script>
     <script src="/assets/js/mobile-menu.js"></script>
+    <script src="/assets/js/portfolio-carousel.js"></script>
 
     <footer class="z-90" >
       <div class="lg:hidden

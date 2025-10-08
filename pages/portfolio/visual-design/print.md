@@ -6,30 +6,28 @@ portfolio_category: print
 
 {% include components/portfolio-piece.html
    title='2019-20 CATALOG'
-   image='/assets/img/portfolio/shor-line-catalog.jpg'
-   image_alt='Shor-Line Catalog Cover-test'
-   content='The Shor-Line catalog project was an exercise in blending striking visuals with clear understanding of manufacturing processes. I needed not just the products, but the dedication and precision behind their creation. The photography captures the precision and impact of our work with humor utilizing a collage of metalworking processes paired with human artistry.
-
-### SPECS:
-- 219 × 15
-- CONTAINS 14K AUTO BY
-- TEXT 4K+ FONT BOLD M'
-%}
-
-{% include components/portfolio-piece.html
-   title='WELDING PROCESS DOCUMENTATION'
    image='projects/shor-line-catalog.jpg'
-   content='Technical documentation and visual guide for precision welding processes, combining photography with instructional design.'
+   image_alt='Shor-Line Catalog Cover'
+   carousel_folder='assets/img/projects/2019-20-catalog'
+   content='The Shor-Line catalog project was an exercise in blending striking visuals with clear understanding of manufacturing processes. I needed not just the products, but the dedication and precision behind their creation. The photography captures the precision and impact of our work with humor utilizing a collage of metalworking processes paired with human artistry.'
+%}
+
+
+
+{% include components/portfolio-piece.html
+   title='Test of Time'
+   layout='right'
+   image='projects/time.jpg'
+   image_alt='Shor-Line print ad showing an old table'
+   carousel_folder='assets/img/projects/2019-20-catalog'
+
+   content='The Shor-Line catalog project was an exercise in blending striking visuals with clear understanding of manufacturing processes. I needed not just the products, but the dedication and precision behind their creation. The photography captures the precision and impact of our work with humor utilizing a collage of metalworking processes paired with human artistry.'
 %}
 
 {% include components/portfolio-piece.html
-   title='DESIGN LAYOUT EXPLORATION'
-   image='/assets/img/portfolio/design-layout.jpg'
-   content='Exploration of grid systems and typography for manufacturing documentation, balancing technical accuracy with visual appeal.'
-%}
-
-{% include components/portfolio-piece.html
-   title='CIRCULAR DESIGN ELEMENTS'
-   image='/assets/img/portfolio/circular-design.jpg'
-   content='Brand element development focusing on geometric precision and manufacturing aesthetic integration.'
+   title='Test of Time'
+   image='projects/time.jpg'
+   image_alt='Shor-Line print ad showing an old table'
+   carousel_folder='assets/img/projects/2019-20-catalog'
+   content='The Shor-Line catalog project was an exercise in blending striking visuals with clear understanding of manufacturing processes. I needed not just the products, but the dedication and precision behind their creation. The photography captures the precision and impact of our work with humor utilizing a collage of metalworking processes paired with human artistry.'
 %}

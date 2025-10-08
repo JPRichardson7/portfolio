@@ -1,12 +1,12 @@
 <!-- Portfolio Piece Component -->
-<article class="portfolio-piece mb-12 md:mb-16">
+<article class="portfolio-piece">
 
-    <!-- Title Section -->
+    <!-- Title Section (Mobile Only) -->
     {% if include.title %}
-        <header class="portfolio-piece-header flex items-baseline">
-            <div class="w-[calc(var(--spacing-margin-base)*2)] h-[.4cqw] bg-light-blue flex-shrink-0"></div>
+        <header class="portfolio-piece-header flex items-baseline lg:hidden!">
+            <div class="w-[calc(var(--spacing-margin-base)*2)] h-[.4cqw] bg-light-blue flex-shrink-0 "></div>
             <div class="flex-shrink-0 px-2">
-                <h2 class="hero-text text-light-blue text-[clamp(1rem,2.1cqw,2.5rem)] leading-none">
+                <h2 class="hero-text text-light-blue text-[clamp(1rem,5cqw,1.10rem)] italic tracking-widest">
                     {{ include.title }}
                 </h2>
                 {% if include.subtitle %}
@@ -19,25 +19,237 @@
         </header>
     {% endif %}
 
-    <!-- Image/Visual Section -->
+    <!-- Prepare carousel data before layout split -->
+    {% if include.carousel_folder %}
+        {% comment %} Auto-discover images from folder {% endcomment %}
+        {% assign folder_path = include.carousel_folder | prepend: "/" %}
+        {% assign folder_images = site.static_files | where_exp: "file", "file.path contains folder_path" | where_exp: "file", "file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.png' or file.extname == '.gif' or file.extname == '.webp'" | sort: "name" %}
+
+        {% comment %} Try to load metadata from _data/projects/[folder-name].yml {% endcomment %}
+        {% assign folder_basename = include.carousel_folder | split: "/" | last %}
+        {% assign meta_data = site.data.projects[folder_basename] %}
+    {% elsif include.carousel_inline %}
+        {% comment %} Parse inline format: "img1.jpg|Alt 1|img2.jpg|Alt 2" {% endcomment %}
+        {% assign inline_parts = include.carousel_inline | split: '|' %}
+    {% endif %}
+
+    <!-- Mobile Image Section (Mobile Only) -->
     {% if include.image %}
-    <div class="portfolio-piece-visual mb-6 md:mb-8">
-        <div class="relative overflow-hidden rounded-lg">
-            {% picture {{ include.image }} --alt {{ include.image_alt | default: include.title }} --img class="w-full h-auto object-cover {% if include.image_class %}{{ include.image_class }}{% endif %}" %}
-            {% if include.image_caption %}
-            <figcaption class="text-sm text-light-blue/60 mt-2 italic">
-                {{ include.image_caption }}
-            </figcaption>
+    <div class="portfolio-piece-mobile-image lg:hidden">
+        <div class="portfolio-piece-visual relative">
+            {% if include.carousel_images or include.carousel_inline or include.carousel_folder %}
+                {% if include.carousel_folder %}
+                    {% capture carousel_data %}[{% for img in folder_images %}{% if forloop.first == false %},{% endif %}{"src":"{{ img.path }}","alt":"{% if meta_data[img.name] %}{{ meta_data[img.name] | escape }}{% else %}{{ img.path | image_description | escape }}{% endif %}"}{% endfor %}]{% endcapture %}
+                {% elsif include.carousel_inline %}
+                    {% capture carousel_data %}[{% for i in (0..10) %}{% assign idx = i | times: 2 %}{% assign src_idx = idx %}{% assign alt_idx = idx | plus: 1 %}{% assign src = inline_parts[src_idx] %}{% assign alt = inline_parts[alt_idx] %}{% if src and src != '' %}{% if i > 0 %},{% endif %}{"src":"/{{ src }}","alt":"{{ alt | escape }}"}{% endif %}{% endfor %}]{% endcapture %}
+                {% else %}
+                    {% capture carousel_data %}[{% for img in include.carousel_images %}{% if forloop.first == false %},{% endif %}{"src":"/{{ img.src }}","alt":"{{ img.alt | escape }}"}{% endfor %}]{% endcapture %}
+                {% endif %}
+                <div class="portfolio-image-container relative overflow-hidden aspect-[5/4] cursor-pointer" data-carousel-images='{{ carousel_data | strip }}'>
+            {% else %}
+                <div class="portfolio-image-container relative overflow-hidden aspect-[5/4] cursor-pointer">
             {% endif %}
+                {% assign img_class = "portfolio-image w-full h-full object-cover transition-all duration-300" %}
+                {% if include.image_class %}
+                    {% assign img_class = img_class | append: " " | append: include.image_class %}
+                {% endif %}
+                {% picture {{ include.image }} --alt {{ include.image_alt | default: include.title }} --img class="{{ img_class }}" %}
+            </div>
         </div>
     </div>
     {% endif %}
 
-    <!-- Content Section -->
+    <!-- Two-Column Layout (Desktop lg+ only) -->
+    {% assign layout_type = include.layout | default: 'left' %}
+
+    {% if layout_type == 'right' %}
+        <!-- Right Layout: Image (left, flush right edge) | Stripe | Content (right) -->
+        <div class="portfolio-piece-wrapper hidden lg:!grid lg:grid-cols-[auto_10px_max-content] lg:gap-x-0 lg:gap-y-8 lg:items-start lg:justify-center lg:mx-auto lg:max-w-[90vw] mb-[calc(var(--spacing-margin-base)*.5)]">
+    {% else %}
+        <!-- Left Layout (default): Content (left) | Stripe | Image (right, flush left edge) -->
+        <div class="portfolio-piece-wrapper hidden lg:!grid lg:grid-cols-[max-content_10px_auto] lg:gap-x-0 lg:gap-y-8 lg:items-start lg:justify-center lg:mx-auto lg:max-w-[90vw] mb-[calc(var(--spacing-margin-base)*.5)]">
+    {% endif %}
+
+        {% if layout_type == 'right' %}
+            <!-- RIGHT LAYOUT: Image Column First (flush right edge to stripe) -->
+            <div class="portfolio-piece-right lg:m-0 lg:p-0 lg:ml-margin-base">
+                {% if include.image %}
+                <div class="portfolio-piece-visual relative">
+                    {% if include.carousel_images or include.carousel_inline or include.carousel_folder %}
+                        {% if include.carousel_folder %}
+                            {% capture carousel_data %}[{% for img in folder_images %}{% if forloop.first == false %},{% endif %}{"src":"{{ img.path }}","alt":"{% if meta_data[img.name] %}{{ meta_data[img.name] | escape }}{% else %}{{ img.path | image_description | escape }}{% endif %}"}{% endfor %}]{% endcapture %}
+                        {% elsif include.carousel_inline %}
+                            {% capture carousel_data %}[{% for i in (0..10) %}{% assign idx = i | times: 2 %}{% assign src_idx = idx %}{% assign alt_idx = idx | plus: 1 %}{% assign src = inline_parts[src_idx] %}{% assign alt = inline_parts[alt_idx] %}{% if src and src != '' %}{% if i > 0 %},{% endif %}{"src":"/{{ src }}","alt":"{{ alt | escape }}"}{% endif %}{% endfor %}]{% endcapture %}
+                        {% else %}
+                            {% capture carousel_data %}[{% for img in include.carousel_images %}{% if forloop.first == false %},{% endif %}{"src":"/{{ img.src }}","alt":"{{ img.alt | escape }}"}{% endfor %}]{% endcapture %}
+                        {% endif %}
+                        <div class="portfolio-image-container relative overflow-hidden aspect-[2/3] max-h-[55vh] cursor-pointer" data-carousel-images='{{ carousel_data | strip }}'>
+                    {% else %}
+                        <div class="portfolio-image-container relative overflow-hidden aspect-[2/3] max-h-[55vh] cursor-pointer">
+                    {% endif %}
+                        {% assign img_class = "portfolio-image w-full h-full object-cover object-right transition-all duration-300" %}
+                        {% if include.image_class %}
+                            {% assign img_class = img_class | append: " " | append: include.image_class %}
+                        {% endif %}
+                        {% picture {{ include.image }} --alt {{ include.image_alt | default: include.title }} --img class="{{ img_class }}" %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        {% else %}
+            <!-- LEFT LAYOUT: Content Column First -->
+            <div class="portfolio-piece-left ml-margin-base lg:pr-8 max-w-[45vw]">
+            {% if include.title %}
+                <header class="portfolio-piece-header-desktop mb-6">
+                    <h2 class="hero-text text-light-blue text-[clamp(1.2rem,3vw,2rem)] italic tracking-widest mb-2">
+                        {{ include.title }}
+                    </h2>
+                    {% if include.subtitle %}
+                        <p class="text-light-blue/80 text-[clamp(1rem,2vw,1.5rem)] font-light">
+                            {{ include.subtitle }}
+                        </p>
+                    {% endif %}
+                </header>
+            {% endif %}
+
+            {% if include.content %}
+                <div class="prose prose-invert max-w-none">
+                    {{ include.content | markdownify }}
+                </div>
+            {% endif %}
+
+            <!-- Filmstrip Thumbnails (Desktop Only) -->
+            {% if include.carousel_images or include.carousel_inline or include.carousel_folder %}
+            <div class="portfolio-filmstrip hidden lg:flex! gap-2 mt-4 overflow-x-auto">
+                {% if include.carousel_folder %}
+                    {% for img in folder_images %}
+                    <button class="filmstrip-thumb flex-shrink-0 w-20 h-20 overflow-hidden border-2 border-transparent hover:border-light-blue/50 transition-all cursor-pointer" data-index="{{ forloop.index0 }}">
+                        <img src="{{ img.path }}" alt="{% if meta_data[img.name] %}{{ meta_data[img.name] }}{% else %}Thumbnail {{ forloop.index }}{% endif %}" class="w-full h-full object-cover">
+                    </button>
+                    {% endfor %}
+                {% elsif include.carousel_inline %}
+                    {% for i in (0..10) %}
+                        {% assign idx = i | times: 2 %}
+                        {% assign src = inline_parts[idx] %}
+                        {% if src and src != '' %}
+                        <button class="filmstrip-thumb flex-shrink-0 w-20 h-16 overflow-hidden border-2 border-transparent hover:border-light-blue/50 transition-all cursor-pointer" data-index="{{ i }}">
+                            <img src="/{{ src }}" alt="Thumbnail {{ i | plus: 1 }}" class="w-full h-full object-cover">
+                        </button>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    {% for img in include.carousel_images %}
+                    <button class="filmstrip-thumb flex-shrink-0 w-20 h-16 overflow-hidden border-2 border-transparent hover:border-light-blue/50 transition-all cursor-pointer" data-index="{{ forloop.index0 }}">
+                        <img src="/{{ img.src }}" alt="{{ img.alt }}" class="w-full h-full object-cover">
+                    </button>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <!-- Vertical Stripe Divider (Desktop Only - Always Second Column) -->
+        <div class="stripe-divider-vertical !border-2 !border-solid !border-light-blue"></div>
+
+        {% if layout_type == 'right' %}
+            <!-- RIGHT LAYOUT: Content Column Third -->
+            <div class="portfolio-piece-left mr-margin-base lg:mr-[calc(var(--spacing-margin-base)*0.5)] lg:pl-8 max-w-[45vw]">
+            {% if include.title %}
+                <header class="portfolio-piece-header-desktop mb-6">
+                    <h2 class="hero-text text-light-blue text-[clamp(1.2rem,3vw,2rem)] italic tracking-widest mb-2">
+                        {{ include.title }}
+                    </h2>
+                    {% if include.subtitle %}
+                        <p class="text-light-blue/80 text-[clamp(1rem,2vw,1.5rem)] font-light">
+                            {{ include.subtitle }}
+                        </p>
+                    {% endif %}
+                </header>
+            {% endif %}
+
+            {% if include.content %}
+                <div class="prose prose-invert max-w-none">
+                    {{ include.content | markdownify }}
+                </div>
+            {% endif %}
+
+            <!-- Filmstrip Thumbnails (Desktop Only) -->
+            {% if include.carousel_images or include.carousel_inline or include.carousel_folder %}
+            <div class="portfolio-filmstrip hidden lg:flex! gap-2 mt-4 overflow-x-auto">
+                {% if include.carousel_folder %}
+                    {% for img in folder_images %}
+                    <button class="filmstrip-thumb flex-shrink-0 w-20 h-20 overflow-hidden border-2 border-transparent hover:border-light-blue/50 transition-all cursor-pointer" data-index="{{ forloop.index0 }}">
+                        <img src="{{ img.path }}" alt="{% if meta_data[img.name] %}{{ meta_data[img.name] }}{% else %}Thumbnail {{ forloop.index }}{% endif %}" class="w-full h-full object-cover">
+                    </button>
+                    {% endfor %}
+                {% elsif include.carousel_inline %}
+                    {% for i in (0..10) %}
+                        {% assign idx = i | times: 2 %}
+                        {% assign src = inline_parts[idx] %}
+                        {% if src and src != '' %}
+                        <button class="filmstrip-thumb flex-shrink-0 w-20 h-16 overflow-hidden border-2 border-transparent hover:border-light-blue/50 transition-all cursor-pointer" data-index="{{ i }}">
+                            <img src="/{{ src }}" alt="Thumbnail {{ i | plus: 1 }}" class="w-full h-full object-cover">
+                        </button>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    {% for img in include.carousel_images %}
+                    <button class="filmstrip-thumb flex-shrink-0 w-20 h-16 overflow-hidden border-2 border-transparent hover:border-light-blue/50 transition-all cursor-pointer" data-index="{{ forloop.index0 }}">
+                        <img src="/{{ img.src }}" alt="{{ img.alt }}" class="w-full h-full object-cover">
+                    </button>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+        {% else %}
+            <!-- LEFT LAYOUT: Image Column Third (flush left edge to stripe) -->
+            <div class="portfolio-piece-right lg:m-0 lg:p-0 lg:mr-margin-base">
+                {% if include.image %}
+                <div class="portfolio-piece-visual relative">
+                    {% if include.carousel_images or include.carousel_inline or include.carousel_folder %}
+                        {% if include.carousel_folder %}
+                            {% capture carousel_data %}[{% for img in folder_images %}{% if forloop.first == false %},{% endif %}{"src":"{{ img.path }}","alt":"{% if meta_data[img.name] %}{{ meta_data[img.name] | escape }}{% else %}{{ img.path | image_description | escape }}{% endif %}"}{% endfor %}]{% endcapture %}
+                        {% elsif include.carousel_inline %}
+                            {% capture carousel_data %}[{% for i in (0..10) %}{% assign idx = i | times: 2 %}{% assign src_idx = idx %}{% assign alt_idx = idx | plus: 1 %}{% assign src = inline_parts[src_idx] %}{% assign alt = inline_parts[alt_idx] %}{% if src and src != '' %}{% if i > 0 %},{% endif %}{"src":"/{{ src }}","alt":"{{ alt | escape }}"}{% endif %}{% endfor %}]{% endcapture %}
+                        {% else %}
+                            {% capture carousel_data %}[{% for img in include.carousel_images %}{% if forloop.first == false %},{% endif %}{"src":"/{{ img.src }}","alt":"{{ img.alt | escape }}"}{% endfor %}]{% endcapture %}
+                        {% endif %}
+                        <div class="portfolio-image-container relative overflow-hidden aspect-[2/3] max-h-[55vh] cursor-pointer" data-carousel-images='{{ carousel_data | strip }}'>
+                    {% else %}
+                        <div class="portfolio-image-container relative overflow-hidden aspect-[2/3] max-h-[55vh] cursor-pointer">
+                    {% endif %}
+                        {% assign img_class = "portfolio-image w-full h-full object-cover object-left transition-all duration-300" %}
+                        {% if include.image_class %}
+                            {% assign img_class = img_class | append: " " | append: include.image_class %}
+                        {% endif %}
+                        {% picture {{ include.image }} --alt {{ include.image_alt | default: include.title }} --img class="{{ img_class }}" %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Content Section (Mobile Only) -->
     {% if include.content %}
-    <div class="hidden lg:block portfolio-piece-content ml-margin-base mr-margin-base mb-6 md:mb-8 ">
-        <div class="prose prose-invert max-w-none">
+    <div class="portfolio-piece-content lg:hidden ml-margin-base mr-margin-base max-h-0 overflow-hidden transition-all duration-500">
+        <div class="prose prose-invert max-w-none pt-4">
             {{ include.content | markdownify }}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Divider with Toggle Button (Mobile Only) -->
+    {% if include.image %}
+    <div class="portfolio-divider-container lg:hidden">
+        <div class="flex items-center w-full gap-0">
+            <div class="stripe-divider flex-1"></div>
+            <button class="portfolio-toggle-btn font-barlow px-2 text-light-blue! text-[1rem] uppercase cursor-pointer flex-shrink-0">
+                Read More
+            </button>
+            <div class="stripe-divider flex-1"></div>
         </div>
     </div>
     {% endif %}
@@ -47,11 +259,11 @@
     <div class="portfolio-piece-gallery mb-6 md:mb-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {% for image in include.gallery %}
-            <div class="relative overflow-hidden rounded-lg">
+            <div class="relative overflow-hidden">
                 {% picture {{ image.src }} --alt {{ image.alt | default: 'Gallery image' }} --img class="w-full h-auto object-cover" %}
                 {% if image.caption %}
                 <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
-                    <p class="text-sm text-white">{{ image.caption }}</p>
+                    <p class="text-sm text-light-blue">{{ image.caption }}</p>
                 </div>
                 {% endif %}
             </div>

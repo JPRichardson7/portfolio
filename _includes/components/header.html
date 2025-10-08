@@ -1,12 +1,12 @@
-  <div class="md:min-h-[100px] bg-dark-blue border-b-4 border-dark-blue md:border-none md:p-4 md:grid md:grid-cols-[1fr_auto_1fr]  md:items-center md:gap-4
-                  {% if page.url == '/pages/about.html' %}xs:h-[30vh] md:h-auto bg-cover bg-no-repeat bg-[center_top_20%] bg-[url('/assets/img/profile.png')] md:bg-none{% endif %} relative">
+  <div class="h-auto pt-4 px-4 md:px-4 bg-dark-blue border-b-4 border-dark-blue md:border-none md:grid md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-4
+                  {% if page.url == '/pages/about.html' %}max-md:min-h-[30vh] bg-cover bg-no-repeat bg-[center_top_20%] bg-[url('/assets/img/profile.png')] content-end md:bg-none{% endif %} relative">
 
         <!-- Left connecting line -->
         <div class="max-md:hidden md:block h-1 connecting-line bg-light-blue">
         </div>
 
         <!-- Center - Name -->
-                <h1 class=" text-center md:text-center w-full max-md:absolute max-md:bottom-0">
+                <h1 class="text-center w-full">
                      <span class="hero-text {% if page.url == '/pages/about.html' %}text-dark-blue{% else %}text-light-blue{% endif %} text-[clamp(2.8rem,14.2cqw,17.4rem)] justify-center leading-none md:text-light-blue md:text-[7.3rem] whitespace-nowrap flex-nowrap">
                         JP RICHARDSON
                     </span>

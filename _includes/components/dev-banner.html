@@ -1,0 +1,48 @@
+<div id="dev-banner" class="dev-banner">
+    <div class="dev-banner-content">
+        <strong>🚧 Active Development</strong>
+        <span>This site is under construction - expect bugs and incomplete features</span>
+        <small class="last-updated">Last updated: {{ site.time | date: "%b %d, %Y" }}</small>
+        <button onclick="dismissBanner()" class="dismiss-btn">×</button>
+    </div>
+</div>
+
+<script>
+function dismissBanner() {
+    const banner = document.getElementById('dev-banner');
+    if (banner) {
+        banner.style.transition = 'opacity 0.5s ease';
+        banner.style.opacity = '0';
+        const pageKey = 'devBannerDismissed_' + window.location.pathname;
+        localStorage.setItem(pageKey, 'true');
+
+        setTimeout(() => {
+            banner.style.display = 'none';
+        }, 500);
+    }
+}
+
+// Check if banner was previously dismissed on this page
+const pageKey = 'devBannerDismissed_' + window.location.pathname;
+if (localStorage.getItem(pageKey) === 'true') {
+    const banner = document.getElementById('dev-banner');
+    if (banner) banner.style.display = 'none';
+} else {
+    // Auto-fade: 2s at 100%, then 8s fade to 0%
+    const banner = document.getElementById('dev-banner');
+    if (banner) {
+        // Wait 2 seconds at full opacity
+        setTimeout(() => {
+            banner.style.transition = 'opacity 8s ease';
+            banner.style.opacity = '0';
+        }, 2000);
+
+        // Store dismissal and hide after fade completes (10 seconds total)
+        setTimeout(() => {
+            const pageKey = 'devBannerDismissed_' + window.location.pathname;
+            localStorage.setItem(pageKey, 'true');
+            banner.style.display = 'none';
+        }, 10000);
+    }
+}
+</script>
