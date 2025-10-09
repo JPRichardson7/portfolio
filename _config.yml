@@ -8,3 +8,9 @@ plugins:
 picture:
   source: "assets/img"
   output: "assets/generated"
+
+defaults:
+  - scope:
+      path: "pages"
+    values:
+      permalink: /:basename/

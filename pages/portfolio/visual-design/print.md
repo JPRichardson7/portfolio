@@ -2,6 +2,7 @@
 layout: portfolio
 title: Print Design Portfolio
 portfolio_category: print
+permalink: /portfolio/visual-design/print/
 ---
 
 {% include components/portfolio-piece.html
@@ -20,7 +21,6 @@ portfolio_category: print
    image='projects/time.jpg'
    image_alt='Shor-Line print ad showing an old table'
    carousel_folder='assets/img/projects/2019-20-catalog'
-
    content='The Shor-Line catalog project was an exercise in blending striking visuals with clear understanding of manufacturing processes. I needed not just the products, but the dedication and precision behind their creation. The photography captures the precision and impact of our work with humor utilizing a collage of metalworking processes paired with human artistry.'
 %}
 

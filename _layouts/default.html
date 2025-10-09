@@ -35,17 +35,11 @@
 
     <footer class="z-90" >
       <div class="lg:hidden
-        fixed
-        bottom-0
-        left-[calc(var(--spacing-margin-base)*0.5)]
-        right-0
-        w-full
-        h-[62px]
-        z-90">
+        fixed bottom-0 left-[calc(var(--spacing-margin-base)*0.5)] right-0 w-full h-[62px] z-90">
         {% include components/navigation/menu-button.html %}
       </div>
       {% if page.url != "/" %}
-        <div class="hidden lg:flex items-center w-full fixed bottom-0">
+        <div class="hidden lg:flex! items-center w-full fixed bottom-0">
           <div class="flex-1">
 
           </div>
