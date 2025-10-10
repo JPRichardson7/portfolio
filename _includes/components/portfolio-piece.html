@@ -20,7 +20,9 @@
     {% endif %}
 
     <!-- Prepare carousel data before layout split -->
-    {% if include.carousel_folder %}
+    {% assign has_carousel_folder = false %}
+    {% if include.carousel_folder and include.carousel_folder != "" %}
+        {% assign has_carousel_folder = true %}
         {% comment %} Auto-discover images from folder {% endcomment %}
         {% assign folder_path = include.carousel_folder | prepend: "/" %}
         {% assign folder_images = site.static_files | where_exp: "file", "file.path contains folder_path" | where_exp: "file", "file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.png' or file.extname == '.gif' or file.extname == '.webp'" | sort: "name" %}
@@ -34,8 +36,8 @@
     {% endif %}
 
     <!-- Generate carousel data once for all uses -->
-    {% if include.carousel_images or include.carousel_inline or include.carousel_folder %}
-        {% if include.carousel_folder %}
+    {% if include.carousel_images or include.carousel_inline or has_carousel_folder %}
+        {% if has_carousel_folder %}
             {% capture carousel_data %}[{% for img in folder_images %}{% if forloop.first == false %},{% endif %}{"src":"{{ img.path }}","alt":"{% if meta_data[img.name] %}{{ meta_data[img.name] | escape }}{% else %}{{ img.path | image_description | escape }}{% endif %}"}{% endfor %}]{% endcapture %}
         {% elsif include.carousel_inline %}
             {% capture carousel_data %}[{% for i in (0..10) %}{% assign idx = i | times: 2 %}{% assign src_idx = idx %}{% assign alt_idx = idx | plus: 1 %}{% assign src = inline_parts[src_idx] %}{% assign alt = inline_parts[alt_idx] %}{% if src and src != '' %}{% if i > 0 %},{% endif %}{"src":"/{{ src }}","alt":"{{ alt | escape }}"}{% endif %}{% endfor %}]{% endcapture %}
@@ -69,9 +71,9 @@
     {% endcapture %}
 
     {% capture filmstrip_block %}
-        {% if include.carousel_images or include.carousel_inline or include.carousel_folder %}
+        {% if include.carousel_images or include.carousel_inline or has_carousel_folder %}
         <div class="portfolio-filmstrip hidden lg:flex! gap-2 mt-4 overflow-x-auto">
-            {% if include.carousel_folder %}
+            {% if has_carousel_folder %}
                 {% for img in folder_images %}
                 <button class="filmstrip-thumb flex-shrink-0 w-30 h-30 overflow-hidden border-b-4 border-transparent hover:border-light-blue/50 transition-all cursor-pointer" data-index="{{ forloop.index0 }}">
                     <img src="{{ img.path }}" alt="{% if meta_data[img.name] %}{{ meta_data[img.name] }}{% else %}Thumbnail {{ forloop.index }}{% endif %}" class="w-full h-full object-cover">
@@ -102,7 +104,7 @@
     {% if include.image %}
     <div class="portfolio-piece-mobile-image lg:hidden">
         <div class="portfolio-piece-visual relative">
-            {% if include.carousel_images or include.carousel_inline or include.carousel_folder %}
+            {% if include.carousel_images or include.carousel_inline or has_carousel_folder %}
                 <div class="portfolio-image-container relative overflow-hidden aspect-[5/4] cursor-pointer" data-carousel-images='{{ carousel_data | strip }}'>
             {% else %}
                 <div class="portfolio-image-container relative overflow-hidden aspect-[5/4] cursor-pointer">
@@ -133,7 +135,7 @@
             <div class="portfolio-piece-right lg:m-0 lg:p-0">
                 {% if include.image %}
                 <div class="portfolio-piece-visual relative">
-                    {% if include.carousel_images or include.carousel_inline or include.carousel_folder %}
+                    {% if include.carousel_images or include.carousel_inline or has_carousel_folder %}
                         <div class="portfolio-image-container relative overflow-hidden aspect-[2/3] max-h-[55vh] max-w-[40vw] cursor-pointer" data-carousel-images='{{ carousel_data | strip }}'>
                     {% else %}
                         <div class="portfolio-image-container relative overflow-hidden aspect-[2/3] max-h-[55vh] max-w-[40vw] cursor-pointer">
@@ -188,7 +190,7 @@
             <div class="portfolio-piece-right lg:m-0 lg:p-0">
                 {% if include.image %}
                 <div class="portfolio-piece-visual relative">
-                    {% if include.carousel_images or include.carousel_inline or include.carousel_folder %}
+                    {% if include.carousel_images or include.carousel_inline or has_carousel_folder %}
                         <div class="portfolio-image-container relative overflow-hidden aspect-[2/3] max-h-[55vh] max-w-[40vw] cursor-pointer" data-carousel-images='{{ carousel_data | strip }}'>
                     {% else %}
                         <div class="portfolio-image-container relative overflow-hidden aspect-[2/3] max-h-[55vh] max-w-[40vw] cursor-pointer">
