@@ -99,6 +99,16 @@ document.addEventListener('DOMContentLoaded', function() {
   // Lightbox event listeners
   lightboxClose.addEventListener('click', closeLightbox);
   lightbox.querySelector('.lightbox-backdrop').addEventListener('click', closeLightbox);
+
+  // Click on content container (but not its children) also closes
+  const lightboxContentContainer = lightbox.querySelector('.lightbox-content');
+  lightboxContentContainer.addEventListener('click', (e) => {
+    // Only close if clicking the container itself, not its children
+    if (e.target === lightboxContentContainer) {
+      closeLightbox();
+    }
+  });
+
   lightboxPrev.addEventListener('click', (e) => {
     e.stopPropagation();
     prevLightboxImage();

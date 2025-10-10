@@ -393,9 +393,6 @@
   .table {
     display: table;
   }
-  .aspect-\[2\/3\] {
-    aspect-ratio: 2/3;
-  }
   .aspect-\[5\/4\] {
     aspect-ratio: 5/4;
   }
@@ -416,6 +413,9 @@
   }
   .h-\[2px\] {
     height: 2px;
+  }
+  .h-\[55vh\] {
+    height: 55vh;
   }
   .h-\[62px\] {
     height: 62px;
@@ -447,9 +447,6 @@
   .min-h-screen {
     min-height: 100vh;
   }
-  .w-8 {
-    width: calc(var(--spacing) * 8);
-  }
   .w-20 {
     width: calc(var(--spacing) * 20);
   }
@@ -471,14 +468,14 @@
   .w-\[clamp\(229px\,74vw\,1300px\)\] {
     width: clamp(229px, 74vw, 1300px);
   }
+  .w-auto {
+    width: auto;
+  }
   .w-full {
     width: 100%;
   }
   .w-full\! {
     width: 100% !important;
-  }
-  .max-w-\[40vw\] {
-    max-width: 40vw;
   }
   .max-w-\[45vw\] {
     max-width: 45vw;
@@ -492,9 +489,6 @@
   .max-w-none {
     max-width: none;
   }
-  .min-w-8 {
-    min-width: calc(var(--spacing) * 8);
-  }
   .min-w-\[19vw\] {
     min-width: 19vw;
   }
@@ -504,8 +498,11 @@
   .flex-shrink-0 {
     flex-shrink: 0;
   }
-  .grow {
+  .grow-1 {
     flex-grow: 1;
+  }
+  .grow-4 {
+    flex-grow: 4;
   }
   .translate-y-full {
     --tw-translate-y: 100%;
@@ -573,6 +570,9 @@
   }
   .justify-evenly {
     justify-content: space-evenly;
+  }
+  .justify-start {
+    justify-content: flex-start;
   }
   .gap-0 {
     gap: calc(var(--spacing) * 0);
@@ -762,6 +762,9 @@
   .py-8 {
     padding-block: calc(var(--spacing) * 8);
   }
+  .py-\[calc\(var\(--spacing-margin-base\)\*\.25\)\] {
+    padding-block: calc(var(--spacing-margin-base) * .25);
+  }
   .pt-1\.5 {
     padding-top: calc(var(--spacing) * 1.5);
   }
@@ -776,6 +779,9 @@
   }
   .pr-margin-base {
     padding-right: var(--spacing-margin-base);
+  }
+  .pb-1 {
+    padding-bottom: calc(var(--spacing) * 1);
   }
   .pb-3 {
     padding-bottom: calc(var(--spacing) * 3);
@@ -1226,14 +1232,14 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
-  .lg\:grid-cols-\[1fr_10px_auto\] {
-    @media (width >= 1024px) {
-      grid-template-columns: 1fr 10px auto;
-    }
-  }
   .lg\:grid-cols-\[auto_10px_1fr_auto\] {
     @media (width >= 1024px) {
       grid-template-columns: auto 10px 1fr auto;
+    }
+  }
+  .lg\:grid-cols-\[auto_10px_2fr\] {
+    @media (width >= 1024px) {
+      grid-template-columns: auto 10px 2fr;
     }
   }
   .lg\:grid-rows-\[auto\] {
@@ -1336,7 +1342,7 @@ p {
   line-height: 1.2em;
   color: var(--color-light-blue);
   @media (width >= 768px) {
-    font-size: clamp(1rem, 1.4cqw, 1.6rem);
+    font-size: clamp(1rem, 1.5cqw, 1.7rem);
   }
 }
 .prose {
