@@ -477,8 +477,8 @@
   .w-full\! {
     width: 100% !important;
   }
-  .max-w-\[45vw\] {
-    max-width: 45vw;
+  .max-w-\[52vw\] {
+    max-width: 52vw;
   }
   .max-w-\[1350px\] {
     max-width: 1350px;
@@ -738,6 +738,9 @@
   .object-cover {
     object-fit: cover;
   }
+  .object-center {
+    object-position: center;
+  }
   .object-left {
     object-position: left;
   }
@@ -797,6 +800,9 @@
   }
   .text-center {
     text-align: center;
+  }
+  .text-left {
+    text-align: left;
   }
   .text-right {
     text-align: right;
@@ -1043,6 +1049,11 @@
   .sm\:mb-0 {
     @media (width >= 390px) {
       margin-bottom: calc(var(--spacing) * 0);
+    }
+  }
+  .sm\:text-justify {
+    @media (width >= 390px) {
+      text-align: justify;
     }
   }
   .md\:sticky {
@@ -1313,6 +1324,9 @@
     }
   }
 }
+:root {
+  color-scheme: dark;
+}
 .barlow-condensed-extrabold {
   font-family: "Barlow Condensed", sans-serif;
   font-weight: 800;
@@ -1344,9 +1358,6 @@ p {
   @media (width >= 768px) {
     font-size: clamp(1rem, 1.5cqw, 1.7rem);
   }
-}
-.prose {
-  text-align: justify;
 }
 @layer components {
   .hero-text {
@@ -1577,6 +1588,15 @@ p {
   }
   .portfolio-image-container {
     position: relative;
+  }
+  .object-top-force {
+    object-position: top !important;
+  }
+  .object-bottom-force {
+    object-position: bottom !important;
+  }
+  .object-center-force {
+    object-position: center !important;
   }
   .carousel-controls {
     pointer-events: none;

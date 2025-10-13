@@ -17,7 +17,12 @@
 
   --letter-spacing-wide: 0.13em;    /* 13% for accents */
 
-  
+
+}
+
+/* Inform browsers and extensions that this site uses dark mode */
+:root {
+  color-scheme: dark;
 }
 
 .barlow-condensed-extrabold {
@@ -39,9 +44,6 @@ p{
   @apply mb-2 md:text-[clamp(1rem,1.5cqw,1.7rem)] text-light-blue leading-[1.2em];
 }
 
-.prose {
-  text-align: justify;
-}
   @layer components {
 
     .hero-text {
@@ -289,6 +291,19 @@ p{
 /* Portfolio Carousel */
 .portfolio-image-container {
   @apply relative;
+}
+
+/* Force object positioning with !important */
+.object-top-force {
+  object-position: top !important;
+}
+
+.object-bottom-force {
+  object-position: bottom !important;
+}
+
+.object-center-force {
+  object-position: center !important;
 }
 
 .carousel-controls {
