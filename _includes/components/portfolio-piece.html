@@ -35,15 +35,50 @@
         {% assign inline_parts = include.carousel_inline | split: '|' %}
     {% endif %}
 
-    <!-- Generate carousel data once for all uses -->
-    {% if include.carousel_images or include.carousel_inline or has_carousel_folder %}
-        {% if has_carousel_folder %}
-            {% capture carousel_data %}[{% for img in folder_images %}{% if forloop.first == false %},{% endif %}{"src":"{{ img.path }}","alt":"{% if meta_data[img.name] %}{{ meta_data[img.name] | escape }}{% else %}{{ img.path | image_description | escape }}{% endif %}"}{% endfor %}]{% endcapture %}
-        {% elsif include.carousel_inline %}
-            {% capture carousel_data %}[{% for i in (0..10) %}{% assign idx = i | times: 2 %}{% assign src_idx = idx %}{% assign alt_idx = idx | plus: 1 %}{% assign src = inline_parts[src_idx] %}{% assign alt = inline_parts[alt_idx] %}{% if src and src != '' %}{% if i > 0 %},{% endif %}{"src":"/{{ src }}","alt":"{{ alt | escape }}"}{% endif %}{% endfor %}]{% endcapture %}
-        {% else %}
-            {% capture carousel_data %}[{% for img in include.carousel_images %}{% if forloop.first == false %},{% endif %}{"src":"/{{ img.src }}","alt":"{{ img.alt | escape }}"}{% endfor %}]{% endcapture %}
+    <!-- Determine display image early so carousel-image-generator can use it -->
+    {% assign display_image = include.image %}
+    {% if include.image == "" or include.image == nil %}
+        {% if has_carousel_folder and folder_images.size > 0 %}
+            {% assign display_image = folder_images[0].path | remove_first: "/assets/img/" | remove_first: "assets/img/" %}
         {% endif %}
+    {% endif %}
+
+    <!-- Generate pre-processed carousel images with Jekyll Picture Tag -->
+    {% if include.carousel_images or include.carousel_inline or has_carousel_folder or display_image %}
+        <!-- Hidden container to pre-generate optimized carousel images -->
+        <div class="carousel-image-generator" style="display: none;" aria-hidden="true">
+            {% assign crop_mode = include.crop_mode | default: "center" %}
+            {% if has_carousel_folder %}
+                {% for img in folder_images %}
+                    {% assign img_path = img.path | remove_first: "/assets/img/" | remove_first: "assets/img/" %}
+                    <div class="carousel-gen-img" data-index="{{ forloop.index0 }}" data-alt="{% if meta_data[img.name] %}{{ meta_data[img.name] | escape }}{% else %}{{ img.path | image_description | escape }}{% endif %}">
+                        {% picture "{{ img_path }}" %}
+                    </div>
+                {% endfor %}
+            {% elsif include.carousel_inline %}
+                {% for i in (0..10) %}
+                    {% assign idx = i | times: 2 %}
+                    {% assign src = inline_parts[idx] %}
+                    {% assign alt = inline_parts[idx | plus: 1] %}
+                    {% if src and src != '' %}
+                        <div class="carousel-gen-img" data-index="{{ i }}" data-alt="{{ alt | escape }}">
+                            {% picture {{ src }} %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% elsif include.carousel_images %}
+                {% for img in include.carousel_images %}
+                    <div class="carousel-gen-img" data-index="{{ forloop.index0 }}" data-alt="{{ img.alt | escape }}">
+                        {% picture {{ img.src }} %}
+                    </div>
+                {% endfor %}
+            {% elsif display_image %}
+                {% comment %} Single image - generate uncropped version for mobile expansion {% endcomment %}
+                <div class="carousel-gen-img" data-index="0" data-alt="{% if include.image_alt %}{{ include.image_alt | escape }}{% elsif include.title %}{{ include.title | escape }}{% endif %}">
+                    {% picture {{ display_image }} %}
+                </div>
+            {% endif %}
+        </div>
     {% endif %}
 
     <!-- Reusable blocks for desktop layout -->
@@ -101,12 +136,6 @@
     {% endcapture %}
 
     <!-- Mobile Image Section (Mobile Only) -->
-    {% assign display_image = include.image %}
-    {% if include.image == "" or include.image == nil %}
-        {% if has_carousel_folder and folder_images.size > 0 %}
-            {% assign display_image = folder_images[0].path | remove_first: "/assets/img/" | remove_first: "assets/img/" %}
-        {% endif %}
-    {% endif %}
     {% if display_image %}
     <div class="portfolio-piece-mobile-image lg:hidden">
         <div class="portfolio-piece-visual relative">
@@ -116,33 +145,17 @@
                 <div class="portfolio-image-container relative overflow-hidden aspect-[5/4] cursor-pointer">
             {% endif %}
                 {% if include.image_class %}
-                    {% assign img_class = "portfolio-image w-full h-full object-cover transition-all duration-300 " | append: include.image_class %}
+                    {% assign img_class = "portfolio-image w-full h-full object-contain transition-all duration-300 " | append: include.image_class %}
                 {% else %}
-                    {% assign img_class = "portfolio-image w-full h-full object-cover object-center transition-all duration-300" %}
+                    {% assign img_class = "portfolio-image w-full h-full object-contain object-center transition-all duration-300" %}
                 {% endif %}
-                {% if include.object_position %}
-                    {% assign inline_style = "object-position: " | append: include.object_position | append: " !important;" %}
-                {% else %}
-                    {% assign inline_style = "" %}
-                {% endif %}
+                {% assign crop_mode = include.crop_mode | default: "center" %}
                 {% if include.image_alt %}
-                    {% if inline_style != "" %}
-                        {% picture {{ display_image }} --alt {{ include.image_alt }} --img class="{{ img_class }}" style="{{ inline_style }}" %}
-                    {% else %}
-                        {% picture {{ display_image }} --alt {{ include.image_alt }} --img class="{{ img_class }}" %}
-                    {% endif %}
+                    {% picture {{ display_image }} 5:4 {{ crop_mode }} --alt {{ include.image_alt }} --img class="{{ img_class }}" %}
                 {% elsif include.title %}
-                    {% if inline_style != "" %}
-                        {% picture {{ display_image }} --alt {{ include.title }} --img class="{{ img_class }}" style="{{ inline_style }}" %}
-                    {% else %}
-                        {% picture {{ display_image }} --alt {{ include.title }} --img class="{{ img_class }}" %}
-                    {% endif %}
+                    {% picture {{ display_image }} 5:4 {{ crop_mode }} --alt {{ include.title }} --img class="{{ img_class }}" %}
                 {% else %}
-                    {% if inline_style != "" %}
-                        {% picture {{ display_image }} --img class="{{ img_class }}" style="{{ inline_style }}" %}
-                    {% else %}
-                        {% picture {{ display_image }} --img class="{{ img_class }}" %}
-                    {% endif %}
+                    {% picture {{ display_image }} 5:4 {{ crop_mode }} --img class="{{ img_class }}" %}
                 {% endif %}
             </div>
         </div>

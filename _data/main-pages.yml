@@ -4,14 +4,11 @@
 - text: "ABOUT"
   url: "/about/"
 
-- text: "UX/UI"
-  url: "/portfolio/ux-ui/"
-
-- text: "DEVELOPMENT"
-  url: "/portfolio/development/"
+- text: "UX/UI & WEB"
+  url: "/portfolio/ux-ui-web/"
 
 - text: "VISUAL DESIGN"
-  url: "/portfolio/visual-design/print/"
+  url: "/portfolio/visual-design/graphic-design/"
 
 - text: "PHOTOGRAPHY"
   url: "/portfolio/photography/"

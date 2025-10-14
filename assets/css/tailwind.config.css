@@ -9,6 +9,9 @@
   --spacing-margin-base: clamp(20px, 4.2vw, 67px);
   --header-height: 149px;
 
+  /* Tailwind v4 spacing scale */
+  --spacing-2: 0.5rem;
+
   --color-highlight-yellow: #E5D900;
   --color-light-blue: #BBEBE8;
   --color-dark-blue: #0A2647;
@@ -291,19 +294,6 @@ p{
 /* Portfolio Carousel */
 .portfolio-image-container {
   @apply relative;
-}
-
-/* Force object positioning with !important */
-.object-top-force {
-  object-position: top !important;
-}
-
-.object-bottom-force {
-  object-position: bottom !important;
-}
-
-.object-center-force {
-  object-position: center !important;
 }
 
 .carousel-controls {

@@ -35,6 +35,7 @@
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --spacing-margin-base: clamp(20px, 4.2vw, 67px);
+    --spacing-2: 0.5rem;
     --color-highlight-yellow: #E5D900;
     --color-light-blue: #BBEBE8;
     --color-dark-blue: #0A2647;
@@ -195,6 +196,9 @@
   .\@container {
     container-type: inline-size;
   }
+  .collapse {
+    visibility: collapse;
+  }
   .invisible {
     visibility: hidden;
   }
@@ -307,7 +311,7 @@
     margin-inline: auto;
   }
   .mt-2 {
-    margin-top: calc(var(--spacing) * 2);
+    margin-top: var(--spacing-2);
   }
   .mt-3\.5 {
     margin-top: calc(var(--spacing) * 3.5);
@@ -337,7 +341,7 @@
     margin-right: var(--spacing-margin-base);
   }
   .mb-2 {
-    margin-bottom: calc(var(--spacing) * 2);
+    margin-bottom: var(--spacing-2);
   }
   .mb-3\.5 {
     margin-bottom: calc(var(--spacing) * 3.5);
@@ -361,7 +365,7 @@
     margin-left: calc(var(--spacing-margin-base) * -1);
   }
   .ml-2 {
-    margin-left: calc(var(--spacing) * 2);
+    margin-left: var(--spacing-2);
   }
   .ml-\[calc\(0\.5\*var\(--spacing-margin-base\)\+32px\)\] {
     margin-left: calc(0.5 * var(--spacing-margin-base) + 32px);
@@ -581,7 +585,7 @@
     gap: calc(var(--spacing) * 1);
   }
   .gap-2 {
-    gap: calc(var(--spacing) * 2);
+    gap: var(--spacing-2);
   }
   .gap-4 {
     gap: calc(var(--spacing) * 4);
@@ -757,7 +761,7 @@
     padding-inline: calc(var(--spacing) * 1.5);
   }
   .px-2 {
-    padding-inline: calc(var(--spacing) * 2);
+    padding-inline: var(--spacing-2);
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
@@ -1351,7 +1355,7 @@ p {
   font-family: "IBM Plex Sans Condensed", sans-serif;
   font-weight: 400;
   font-style: normal;
-  margin-bottom: calc(var(--spacing) * 2);
+  margin-bottom: var(--spacing-2);
   --tw-leading: 1.2em;
   line-height: 1.2em;
   color: var(--color-light-blue);
@@ -1588,15 +1592,6 @@ p {
   }
   .portfolio-image-container {
     position: relative;
-  }
-  .object-top-force {
-    object-position: top !important;
-  }
-  .object-bottom-force {
-    object-position: bottom !important;
-  }
-  .object-center-force {
-    object-position: center !important;
   }
   .carousel-controls {
     pointer-events: none;

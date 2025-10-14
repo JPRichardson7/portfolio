@@ -1,5 +1,15 @@
 // Portfolio Inline Carousel
 document.addEventListener('DOMContentLoaded', function() {
+  // Debug: Track scroll events
+  let lastScrollY = window.scrollY;
+  window.addEventListener('scroll', function() {
+    if (window.scrollY !== lastScrollY) {
+      console.log('SCROLL EVENT! Old:', lastScrollY, 'New:', window.scrollY, 'Delta:', window.scrollY - lastScrollY);
+      console.trace('Scroll triggered from:');
+      lastScrollY = window.scrollY;
+    }
+  });
+
   // Initialize portfolio pieces
   const portfolioPieces = document.querySelectorAll('.portfolio-piece');
 
@@ -151,18 +161,23 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
-    // Get carousel images from data attribute (check all containers)
+    // Get carousel images from pre-generated picture tags
     let carouselImages = [];
-    for (let container of imageContainers) {
-      if (container.dataset.carouselImages) {
-        try {
-          carouselImages = JSON.parse(container.dataset.carouselImages);
-          console.log('Carousel images loaded:', carouselImages);
-          break;
-        } catch (e) {
-          console.error('Failed to parse carousel images:', e);
+    const carouselGenerator = piece.querySelector('.carousel-image-generator');
+    if (carouselGenerator) {
+      const generatedImages = carouselGenerator.querySelectorAll('.carousel-gen-img');
+      generatedImages.forEach(genImg => {
+        const img = genImg.querySelector('img');
+        if (img) {
+          carouselImages.push({
+            src: img.src,
+            srcset: img.srcset || '',
+            alt: genImg.dataset.alt || img.alt || '',
+            picture: genImg.querySelector('picture') ? genImg.querySelector('picture').outerHTML : null
+          });
         }
-      }
+      });
+      console.log('Carousel images loaded from generated sources:', carouselImages);
     }
 
     // Track expanded state for content (mobile only)
@@ -170,43 +185,17 @@ document.addEventListener('DOMContentLoaded', function() {
     let controls = null;
     let currentIndex = 0;
 
-    // Setup inline carousel if multiple images exist
-    if (carouselImages.length > 1) {
-      let touchStartX = 0;
-      let touchEndX = 0;
+    // Store original cropped images for each container to restore on collapse
+    const originalImages = new Map();
+    imageContainers.forEach(container => {
+      const originalPicture = container.querySelector('picture');
+      if (originalPicture) {
+        originalImages.set(container, originalPicture.outerHTML);
+      }
+    });
 
-      // Create carousel controls (hidden initially for mobile)
-      controls = document.createElement('div');
-      controls.className = 'carousel-controls';
-      controls.style.display = 'none';
-      controls.innerHTML = `
-        <div class="carousel-dots"></div>
-      `;
-      // Append controls to all containers
-      imageContainers.forEach(container => {
-        const controlsClone = controls.cloneNode(true);
-        container.appendChild(controlsClone);
-      });
-      console.log('Carousel controls created for', carouselImages.length, 'images');
-
-      // Create dots in all controls
-      imageContainers.forEach(container => {
-        const containerControls = container.querySelector('.carousel-controls');
-        if (containerControls) {
-          const dotsContainer = containerControls.querySelector('.carousel-dots');
-          carouselImages.forEach((_, i) => {
-            const dot = document.createElement('span');
-            dot.className = 'carousel-dot';
-            dot.addEventListener('click', (e) => {
-              e.stopPropagation();
-              showImage(i);
-            });
-            dotsContainer.appendChild(dot);
-          });
-        }
-      });
-
-      function showImage(index) {
+    // Define showImage function for all pieces (single or multi-image)
+    function showImage(index) {
         if (index < 0 || index >= carouselImages.length) return;
         currentIndex = index;
 
@@ -220,42 +209,58 @@ document.addEventListener('DOMContentLoaded', function() {
           const currentPictureOrImg = container.querySelector('picture') || container.querySelector('.portfolio-image');
 
           if (currentPictureOrImg) {
-            // Create a new simple img element
-            const newImg = document.createElement('img');
-            newImg.className = 'portfolio-image w-full h-full transition-all duration-300';
+            // If we have a full picture element from Jekyll Picture Tag, use it
+            if (imgData.picture) {
+              const tempDiv = document.createElement('div');
+              tempDiv.innerHTML = imgData.picture;
+              const newPicture = tempDiv.querySelector('picture');
+              const newImg = newPicture.querySelector('img');
 
-            // Apply correct object-fit based on device type and expanded state
-            if (isDesktop()) {
-              // Desktop: always use object-contain (fit)
-              newImg.classList.add('object-contain');
-            } else {
-              // Mobile: use object-fit based on expanded state
-              if (isExpanded) {
-                newImg.classList.add('object-contain');
+              // Apply correct classes based on device type and expanded state
+              if (isDesktop()) {
+                newImg.classList.add('portfolio-image', 'h-full', 'w-auto', 'object-contain', 'transition-all', 'duration-300');
               } else {
-                newImg.classList.add('object-cover');
+                newImg.classList.add('portfolio-image', 'w-full', 'h-full', 'transition-all', 'duration-300');
+                if (isExpanded) {
+                  newImg.classList.add('object-contain');
+                } else {
+                  newImg.classList.add('object-contain');  // Changed from object-cover to match Jekyll Picture Tag
+                }
               }
+
+              // Start invisible
+              newImg.style.opacity = '0';
+
+              // Insert new picture before old one
+              currentPictureOrImg.parentNode.insertBefore(newPicture, currentPictureOrImg);
+
+              // When loaded, fade in and remove old
+              newImg.onload = function() {
+                newImg.style.opacity = '1';
+                setTimeout(() => {
+                  currentPictureOrImg.remove();
+                }, 50);
+              };
+            } else {
+              // Fallback to simple img if no picture element available
+              const newImg = document.createElement('img');
+              newImg.className = 'portfolio-image w-full h-full object-contain transition-all duration-300';
+              newImg.alt = imgData.alt || '';
+              newImg.src = imgData.src;
+              if (imgData.srcset) {
+                newImg.srcset = imgData.srcset;
+              }
+
+              newImg.style.opacity = '0';
+              currentPictureOrImg.parentNode.insertBefore(newImg, currentPictureOrImg);
+
+              newImg.onload = function() {
+                newImg.style.opacity = '1';
+                setTimeout(() => {
+                  currentPictureOrImg.remove();
+                }, 50);
+              };
             }
-
-            newImg.alt = imgData.alt || '';
-
-            // Start invisible
-            newImg.style.opacity = '0';
-
-            // Insert new image before old one
-            currentPictureOrImg.parentNode.insertBefore(newImg, currentPictureOrImg);
-
-            // Set src after inserting to trigger load
-            newImg.src = imgData.src;
-
-            // When loaded, fade in new image and remove old one
-            newImg.onload = function() {
-              newImg.style.opacity = '1';
-              // Give a tiny delay to ensure the new image is painted
-              setTimeout(() => {
-                currentPictureOrImg.remove();
-              }, 50);
-            };
           }
 
           // Update dots in this container
@@ -285,6 +290,43 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
 
+    // Setup carousel-specific features for multi-image pieces
+    if (carouselImages.length > 1) {
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      // Create carousel controls (hidden initially for mobile)
+      controls = document.createElement('div');
+      controls.className = 'carousel-controls';
+      controls.style.display = 'none';
+      controls.innerHTML = `
+        <div class="carousel-dots"></div>
+      `;
+      // Append controls to all containers
+      imageContainers.forEach(container => {
+        const controlsClone = controls.cloneNode(true);
+        container.appendChild(controlsClone);
+      });
+      console.log('Carousel controls created for', carouselImages.length, 'images');
+
+      // Create dots in all controls
+      imageContainers.forEach(container => {
+        const containerControls = container.querySelector('.carousel-controls');
+        if (containerControls) {
+          const dotsContainer = containerControls.querySelector('.carousel-dots');
+          carouselImages.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.className = 'carousel-dot';
+            dot.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              showImage(i);
+            });
+            dotsContainer.appendChild(dot);
+          });
+        }
+      });
+
       function nextImage() {
         const newIndex = (currentIndex + 1) % carouselImages.length;
         showImage(newIndex);
@@ -298,18 +340,28 @@ document.addEventListener('DOMContentLoaded', function() {
       // Click image handler
       imageContainers.forEach(container => {
         container.addEventListener('click', function(e) {
+          console.log('Image container clicked!');
+          console.log('Event target:', e.target);
+          console.log('Closest carousel controls:', e.target.closest('.carousel-controls'));
+
           // Don't trigger if clicking on carousel controls (dots)
           if (e.target.closest('.carousel-controls')) {
+            console.log('Clicked on controls, ignoring...');
             return;
           }
 
+          e.preventDefault();
+          console.log('After preventDefault on image click');
+
           if (isDesktop()) {
+            console.log('Desktop - opening lightbox');
             // Desktop: open lightbox
             openLightbox(carouselImages, currentIndex, (newIndex) => {
               // Update the main carousel when lightbox changes
               showImage(newIndex);
             });
           } else {
+            console.log('Mobile - toggling expanded state');
             // Mobile: toggle expanded state
             toggleExpandedState();
           }
@@ -320,7 +372,8 @@ document.addEventListener('DOMContentLoaded', function() {
       if (filmstrip) {
         const filmstripThumbs = filmstrip.querySelectorAll('.filmstrip-thumb');
         filmstripThumbs.forEach((thumb, index) => {
-          thumb.addEventListener('click', function() {
+          thumb.addEventListener('click', function(e) {
+            e.preventDefault();
             if (isDesktop()) {
               showImage(index);
             }
@@ -351,16 +404,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { passive: true });
       });
 
-      // Initialize first image
-      showImage(0);
+      // Initialize first image - DISABLED to preserve Jekyll Picture Tag's cropped/optimized image
+      // Only runs when user interacts (swipe, click dots, expand)
+      // showImage(0);
     }
 
     // Unified toggle function for carousel + content
     function toggleExpandedState() {
+      // Debug: Log scroll position before toggle
+      console.log('=== TOGGLE START ===');
+      console.log('Scroll position before:', window.scrollY);
+      console.log('Document height before:', document.documentElement.scrollHeight);
+
+      // Save scroll position to prevent auto-scrolling
+      const savedScrollY = window.scrollY;
+
       isExpanded = !isExpanded;
       console.log('Toggling expanded state to:', isExpanded);
 
       if (isExpanded) {
+        // Expand: Replace cropped 5:4 image with uncropped version from carousel
+        if (carouselImages.length > 0 && typeof showImage === 'function') {
+          showImage(currentIndex);
+        }
+
         // Expand: show carousel controls, switch to contain, show content
         imageContainers.forEach(container => {
           const containerControls = container.querySelector('.carousel-controls');
@@ -386,21 +453,41 @@ document.addEventListener('DOMContentLoaded', function() {
         if (toggleBtn) {
           toggleBtn.textContent = 'Read Less';
         }
+
+        // Restore scroll position after DOM changes
+        window.scrollTo(0, savedScrollY);
+
+        // Debug: Log scroll position after expand
+        console.log('Scroll position after expand:', window.scrollY);
+        console.log('Document height after expand:', document.documentElement.scrollHeight);
+        console.log('=== TOGGLE END (EXPANDED) ===');
       } else {
-        // Collapse: hide carousel controls, switch to cover, hide content
+        // Collapse: restore original cropped 5:4 image, hide carousel controls, hide content
         imageContainers.forEach(container => {
+          // Restore original cropped image if we have it stored
+          const originalHTML = originalImages.get(container);
+          if (originalHTML) {
+            const currentPictureOrImg = container.querySelector('picture') || container.querySelector('.portfolio-image');
+            if (currentPictureOrImg) {
+              const tempDiv = document.createElement('div');
+              tempDiv.innerHTML = originalHTML;
+              const originalPicture = tempDiv.querySelector('picture');
+
+              // Insert original before current
+              currentPictureOrImg.parentNode.insertBefore(originalPicture, currentPictureOrImg);
+              // Remove the uncropped version
+              currentPictureOrImg.remove();
+            }
+          }
+
           const containerControls = container.querySelector('.carousel-controls');
           if (containerControls) {
             containerControls.style.display = 'none';
           }
-
-          // Get current image (it may have been replaced by carousel)
-          const currentImg = container.querySelector('img');
-          if (currentImg) {
-            currentImg.classList.remove('object-contain');
-            currentImg.classList.add('object-cover');
-          }
         });
+
+        // Reset current index to 0 for next expansion
+        currentIndex = 0;
 
         if (content) {
           content.style.maxHeight = '0';
@@ -412,13 +499,29 @@ document.addEventListener('DOMContentLoaded', function() {
         if (toggleBtn) {
           toggleBtn.textContent = 'Read More';
         }
+
+        // Restore scroll position after DOM changes
+        window.scrollTo(0, savedScrollY);
+
+        // Debug: Log scroll position after collapse
+        console.log('Scroll position after collapse:', window.scrollY);
+        console.log('Document height after collapse:', document.documentElement.scrollHeight);
+        console.log('=== TOGGLE END (COLLAPSED) ===');
       }
     }
 
     // Button click - toggle expanded state
     if (toggleBtn) {
       toggleBtn.addEventListener('click', function(e) {
+        console.log('Button clicked!');
+        console.log('Event target:', e.target);
+        console.log('Event type:', e.type);
+        console.log('Default prevented:', e.defaultPrevented);
+
+        e.preventDefault();
         e.stopPropagation();
+
+        console.log('After preventDefault - default prevented:', e.defaultPrevented);
         toggleExpandedState();
       });
     }
@@ -426,7 +529,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // If no carousel, clicking image should still work
     if (carouselImages.length <= 1) {
       imageContainers.forEach(container => {
-        container.addEventListener('click', function() {
+        container.addEventListener('click', function(e) {
+          e.preventDefault();
           if (isDesktop()) {
             // Desktop: open lightbox with single image
             const img = container.querySelector('img');

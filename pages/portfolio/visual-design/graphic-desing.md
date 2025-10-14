@@ -1,8 +1,8 @@
 ---
 layout: portfolio
-title: Print Design Portfolio
-portfolio_category: print
-permalink: /portfolio/visual-design/print/
+title: Graphic Design Portfolio
+portfolio_category: graphic-design
+permalink: /portfolio/visual-design/graphic-design/
 ---
 
 {% include components/portfolio-piece.html
@@ -10,6 +10,7 @@ permalink: /portfolio/visual-design/print/
    image=''
    image_alt=''
    image_class='object-center'
+   crop_mode='attention'
    carousel_folder='assets/img/projects/print/shor-line-catalog'
    content='I rebuilt Shor-Line\'s 100+ page catalog by creating a comprehensive design system from scratch. Building a new grid structure, typography standards, and tabbed navigation brought order to their extensive SKU portfolio spanning tables, kennels, and cages. Using InDesign\'s Book feature, I directed a team of three designers to execute the system while maintaining consistency at scale. For the cover, I photographed and art directed a celebration of their American manufacturing heritage, then specified softtouch lamination with spot UV to make the welding sparks physically tactile—reinforcing quality through both visual and haptic experience. The catalog served as both a trade show marketing tool and sales resource for veterinary and boarding facilities nationwide.'
 %}
@@ -37,7 +38,7 @@ permalink: /portfolio/visual-design/print/
    layout='right'
    image=''
    image_alt=''
-   object_position='top'
+   crop_mode='entropy'
    carousel_folder='assets/img/projects/print/wraps'
    content='I designed promotional wraps to launch Shor-Line\'s new 4-color vinyl printing capability for kennel systems—a significant upgrade from their previous solid laminate and bare stainless steel options. I chose halftone grids and CMYK ink drips as the visual theme, creating a playful meta-reference to the printing process itself while demonstrating the vibrant customization now possible. The first design uses dramatic process color drips and bold halftones to grab attention, while the second applies the concept to a branded cat shelter environment, showing potential clients how the technology could create sophisticated, customized spaces. Both designs were printed on demo units and displayed at veterinary trade shows to showcase the new printing capabilities in person.'
 %}
