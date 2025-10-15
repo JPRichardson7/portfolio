@@ -103,6 +103,12 @@
                 {{ include.content | markdownify }}
             </div>
         {% endif %}
+        {% if include.skills %}
+            <div class="portfolio-piece-skills mt-4">
+               
+                <p class="ml-2"> <span class="text-light-blue hero-text uppercase">Skills:</span> {{ include.skills }}</p>
+            </div>
+        {% endif %}
     {% endcapture %}
 
     {% capture filmstrip_block %}
