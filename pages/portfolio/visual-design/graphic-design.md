@@ -32,7 +32,7 @@ permalink: /portfolio/visual-design/graphic-design/
    image_class='object-center'
    crop_mode='attention'
    carousel_folder='assets/img/projects/print/shor-line-catalog'
-   content="Researching the workers and steel infrastructure of the late 19th and early 20th centuries, I compiled and rewrote content from multiple historical sources into a cohesive hardcover publication. The tactile metal-textured cover reinforces the industrial subject matter, while screw-post binding provided both structural integrity and thematic resonance. I developed experimental spreads built on an underlying grid system, using each layout to complement the historical content while letting Rockwell's bold geometry dominate—allowing the typography itself to convey the strength and precision of steel construction without competing graphic elements."
+   content="Researching the workers and steel infrastructure of the late 19th and early 20th centuries, I compiled and rewrote content from multiple historical sources into a cohesive hardcover publication. The tactile metal-textured cover reinforces the industrial subject matter, while screw-post binding provided both structural integrity and thematic resonance. I developed experimental spreads built on an underlying grid system with narrow columns that echo steel beams and period newspaper typography, using each layout to complement the historical content while the pairing of Baskerville and Rockwell conveys the strength and precision of steel construction—allowing the typography itself to dominate without competing graphic elements."
    skills='Information architecture, content strategy, typography, grid systems, publication design'
 %}
 {% include components/portfolio-piece.html
