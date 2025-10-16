@@ -63,9 +63,9 @@ permalink: /portfolio/visual-design/graphic-design/
 %}
 
 <!--plan: 
-2019-20 Catalog (Shor-Line) - Print
-Cage Wraps (Shor-Line) - Print
-"A World of Steel" (Student) - Print, conceptual bridge
-Prelude LED (Shor-Line) - Digital
-Ergonomics (Shor-Line) - Digital
-"Professional View" Magazine (Student) - Print/editorial -->
+1 2019-20 Catalog (Shor-Line) - Print
+2 Cage Wraps (Shor-Line) - Print
+3 "A World of Steel" (Student) - Print, conceptual bridge
+4 Prelude LED (Shor-Line) - Digital
+5 Ergonomics (Shor-Line) - Digital
+6 "Professional View" Magazine (Student) - Print/editorial -->
