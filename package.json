@@ -12,8 +12,9 @@
     "tailwind": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css --watch",
     "dev": "concurrently \"npm run jekyll\" \"npm run tailwind\"",
     "dev-original": "concurrently \"npm run jekyll-original\" \"npm run tailwind\"",
-    "clean": "rm -rf _site assets/css/output.css .jekyll-cache",
-    "fresh": "npm run clean && npm run dev",
+    "clean": "rm -rf _site assets/css/output.css",
+    "clean-all": "rm -rf _site assets/css/output.css .jekyll-cache",
+    "fresh": "npm run clean-all && npm run dev",
     "build": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css && bin/jekyll build"
   }
 }

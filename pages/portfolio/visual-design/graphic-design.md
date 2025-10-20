@@ -36,36 +36,40 @@ permalink: /portfolio/visual-design/graphic-design/
    skills='Information architecture, content strategy, typography, grid systems, publication design'
 %}
 {% include components/portfolio-piece.html
-   title='Test of Time'
-   layout='right'
-   image='projects/print/test-of-time.jpg'
-   image_alt='Shor-Line print ad showing an old table'
-   image_class='object-center'
-   carousel_folder=''
-   content='Working with a 1960s Shor-Line table still in excellent condition, I created a visual narrative to demonstrate product longevity. I photographed the table in my studio, extracted it in Photoshop, then manually composited two contrasting environments showing the same table across six decades—a modern surgical space with clean blue tones above, and a vintage 1960s setting with period-appropriate grain and toning below. The dual-timeline approach let the product itself prove durability claims without relying on copy. I built both environments entirely through manual compositing and color grading techniques. Originally ran as a full-page print ad, later adapted as a half-spread in the catalog.'
-%}
-{% include components/portfolio-piece.html
    title='LED Web Banner'
-   image='/projects/print/Exam-light.png'
+   layout='right'
+   image='projects/print/Exam-light.png'
    image_alt=''
    image_class='object-center'
+   crop_mode='attention'
    carousel_folder=''
-   content="Shor-Line launched their first LED exam light to replace traditional halogen fixtures in veterinary practices, promoting it through digital ads in industry publications. I designed a web banner that integrated the light fixture into the typography—replacing the I in LIGHT to maximize product visibility while maintaining visual interest. I chose cool brand colors (blues rather than orange) to reinforce the LED's temperature benefits and pushed for a cleaner, more modern layout despite pressure to include heavy copy. I photographed the prototype unit and retouched it for use across multiple banner sizes."
+   content="Designed digital advertising for Shor-Line's first LED exam light launch in veterinary industry publications. I integrated the product directly into the typography—replacing the I in LIGHT to maximize visibility while maintaining visual interest. Cool brand colors (blues vs. orange) reinforced the LED's temperature benefits, and I pushed for cleaner, more modern layout despite pressure to include heavy copy. I photographed and retouched the prototype unit for use across multiple banner sizes."
    skills='Layout design, typography, product photography, photo retouching, Adobe Photoshop, Adobe Illustrator'
 %}
 {% include components/portfolio-piece.html
-   title='shor-Line Year End sale'
+   title=' Ergonomic Grooming Arm'
+   image='projects/print/ergo.jpg' 
+   image_alt='Photo of Shor-Line ergonomic grooming arm'
+   image_class='object-center'
+   crop_mode='attention'
+   carousel_folder=''
+   content="Created product campaign ad for Shor-Line's redesigned ergonomic grooming arm targeting professional groomers. I photographed the product in-use in a working grooming facility, then applied selective color treatment—desaturating the background to teal while maintaining full color on the product and subject—to direct viewer focus without losing environmental context. This approach created visual hierarchy that kept attention on the key message and product feature while the lifestyle setting reinforced real-world application, and provided clean negative space for headline placement without requiring full background removal."
+   skills='Art direction, environmental photography, color grading, visual hierarchy, photo compositing, Photoshop'
+%}
+{% include components/portfolio-piece.html
+   title='Professional View Magazine'
+   layout='right'
    image=''
    image_alt=''
    image_class='object-center'
-   carousel_folder='assets/img/projects/print/yes-18'
-   content='Cover design for a Shor-Line year-end sale mailer distributed to tens of thousands of veterinary clinics nationwide. Created entirely in Photoshop using manual techniques - the brushed metal texture and dimensional typography were built through layering and masking.'
+   carousel_folder='assets/img/projects/print/pro-view'
+   content="Created a magazine concept exploring view camera photography with a focus on making technical content visually engaging for enthusiasts. I developed a flexible grid system that balanced dense technical copy with strong visual moments—using large hero product photography, pull quotes, and selective typographic treatments to create rhythm and break up text-heavy spreads. The cover design featured a frosted transparent overlay with grid markings that mimicked a view camera's ground glass, with my photography underneath as the featured image. Corner bracket elements throughout referenced traditional cropping marks, creating a cohesive visual language tied to the camera format itself."
+   skills='Editorial design, typography, layout systems, grid design, InDesign'
 %}
-
 <!--plan: 
-1 2019-20 Catalog (Shor-Line) - Print
-2 Cage Wraps (Shor-Line) - Print
-3 "A World of Steel" (Student) - Print, conceptual bridge
-4 Prelude LED (Shor-Line) - Digital
-5 Ergonomics (Shor-Line) - Digital
-6 "Professional View" Magazine (Student) - Print/editorial -->
+1x 2019-20 Catalog (Shor-Line) - Print
+2x Cage Wraps (Shor-Line) - Print
+3x "A World of Steel" (Student) - Print, conceptual bridge
+4x Prelude LED (Shor-Line) - Digital
+5x Ergonomics (Shor-Line) - Digital
+6x "Professional View" Magazine (Student) - Print/editorial -->

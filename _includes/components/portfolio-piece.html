@@ -133,8 +133,14 @@
             <div class="portfolio-filmstrip hidden lg:flex! gap-2 mt-4 overflow-x-auto">
                 {% if has_carousel_folder %}
                     {% for img in folder_images %}
+                    {% assign img_path = img.path | remove_first: "/assets/img/" | remove_first: "assets/img/" %}
+                    {% if meta_data[img.name] %}
+                        {% assign thumb_alt = meta_data[img.name] %}
+                    {% else %}
+                        {% assign thumb_alt = "Thumbnail " | append: forloop.index %}
+                    {% endif %}
                     <button class="filmstrip-thumb flex-shrink-0 w-30 h-30 overflow-hidden pb-1 border-b-4 border-transparent hover:border-light-blue/50 transition-all cursor-pointer" data-index="{{ forloop.index0 }}">
-                        <img src="{{ img.path }}" alt="{% if meta_data[img.name] %}{{ meta_data[img.name] }}{% else %}Thumbnail {{ forloop.index }}{% endif %}" class="w-full h-full object-cover">
+                        {% picture "{{ img_path }}" --alt {{ thumb_alt }} --img class="w-full h-full object-cover" %}
                     </button>
                     {% endfor %}
                 {% elsif include.carousel_inline %}
@@ -142,15 +148,17 @@
                         {% assign idx = i | times: 2 %}
                         {% assign src = inline_parts[idx] %}
                         {% if src and src != '' %}
+                        {% assign thumb_num = i | plus: 1 %}
+                        {% assign thumb_alt = "Thumbnail " | append: thumb_num %}
                         <button class="filmstrip-thumb flex-shrink-0 w-20 h-16 overflow-hidden border-2 border-transparent hover:border-light-blue/50 transition-all cursor-pointer" data-index="{{ i }}">
-                            <img src="/{{ src }}" alt="Thumbnail {{ i | plus: 1 }}" class="w-full h-full object-cover">
+                            {% picture "{{ src }}" --alt {{ thumb_alt }} --img class="w-full h-full object-cover" %}
                         </button>
                         {% endif %}
                     {% endfor %}
                 {% else %}
                     {% for img in include.carousel_images %}
                     <button class="filmstrip-thumb flex-shrink-0 w-20 h-16 overflow-hidden border-2 border-transparent hover:border-light-blue/50 transition-all cursor-pointer" data-index="{{ forloop.index0 }}">
-                        <img src="/{{ img.src }}" alt="{{ img.alt }}" class="w-full h-full object-cover">
+                        {% picture "{{ img.src }}" --alt {{ img.alt }} --img class="w-full h-full object-cover" %}
                     </button>
                     {% endfor %}
                 {% endif %}
@@ -200,13 +208,13 @@
 
         {% if layout_type == 'right' %}
             <!-- RIGHT LAYOUT: Image -->
-            <div class="portfolio-piece-right lg:m-0 lg:p-0 flex justify-start items-center">
+            <div class="portfolio-piece-right mr-5 lg:p-0 flex justify-start items-center">
                 {% if display_image %}
                 <div class="portfolio-piece-visual relative">
                     {% if include.carousel_images or include.carousel_inline or has_carousel_folder %}
-                        <div class="portfolio-image-container relative overflow-hidden max-h-[55vh] h-[55vh] w-auto cursor-pointer" data-carousel-images='{{ carousel_data | strip }}'>
+                        <div class="portfolio-image-container relative overflow-hidden max-h-[55vh] h-[55vh] w-auto max-w-[40vw] cursor-pointer" data-carousel-images='{{ carousel_data | strip }}'>
                     {% else %}
-                        <div class="portfolio-image-container relative overflow-hidden max-h-[55vh] h-[55vh] w-auto cursor-pointer">
+                        <div class="portfolio-image-container relative overflow-hidden max-h-[55vh] h-[55vh] w-auto max-w-[40vw] cursor-pointer">
                     {% endif %}
                         {% if include.image_class %}
                             {% assign img_class = "portfolio-image h-full w-auto object-contain transition-all duration-300 " | append: include.image_class %}
@@ -262,13 +270,13 @@
             <div class="stripe-divider-vertical !border-2 !border-solid !border-light-blue self-stretch"></div>
 
             <!-- LEFT LAYOUT: Image -->
-            <div class="portfolio-piece-right lg:m-0 lg:p-0 flex justify-end items-center">
+            <div class="portfolio-piece-right  lg:p-0 flex justify-end items-center ml-5">
                 {% if display_image %}
                 <div class="portfolio-piece-visual relative">
                     {% if include.carousel_images or include.carousel_inline or has_carousel_folder %}
-                        <div class="portfolio-image-container relative overflow-hidden max-h-[55vh] h-[55vh] w-auto cursor-pointer" data-carousel-images='{{ carousel_data | strip }}'>
+                        <div class="portfolio-image-container relative overflow-hidden max-h-[55vh] h-[55vh] w-auto max-w-[40vw] cursor-pointer" data-carousel-images='{{ carousel_data | strip }}'>
                     {% else %}
-                        <div class="portfolio-image-container relative overflow-hidden max-h-[55vh] h-[55vh] w-auto cursor-pointer">
+                        <div class="portfolio-image-container relative overflow-hidden max-h-[55vh] h-[55vh] w-auto max-w-[40vw] cursor-pointer ">
                     {% endif %}
                         {% if include.image_class %}
                             {% assign img_class = "portfolio-image h-full w-auto object-contain transition-all duration-300 " | append: include.image_class %}

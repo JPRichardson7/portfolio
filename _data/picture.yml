@@ -3,5 +3,6 @@ presets:
     formats: [webp, original]
     widths: [400, 600, 800, 1000, 1400, 1920, 2560]
     fallback_width: 1920
-    fallback_format: original
+    fallback_format: webp
     quality: 90
+    size: 1920
