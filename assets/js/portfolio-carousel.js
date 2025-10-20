@@ -379,6 +379,50 @@ document.addEventListener('DOMContentLoaded', function() {
             }
           });
         });
+
+        // Filmstrip navigation buttons
+        const filmstripWrapper = filmstrip.closest('.filmstrip-wrapper');
+        if (filmstripWrapper) {
+          const prevBtn = filmstripWrapper.querySelector('.filmstrip-nav-btn.prev');
+          const nextBtn = filmstripWrapper.querySelector('.filmstrip-nav-btn.next');
+
+          if (prevBtn && nextBtn) {
+            // Scroll filmstrip by one thumbnail width when clicking arrows
+            prevBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              const scrollAmount = filmstrip.querySelector('.filmstrip-thumb')?.offsetWidth || 100;
+              filmstrip.scrollBy({ left: -scrollAmount - 8, behavior: 'smooth' }); // -8 for gap
+            });
+
+            nextBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              const scrollAmount = filmstrip.querySelector('.filmstrip-thumb')?.offsetWidth || 100;
+              filmstrip.scrollBy({ left: scrollAmount + 8, behavior: 'smooth' }); // +8 for gap
+            });
+
+            // Show/hide navigation buttons based on scroll position
+            function updateNavButtons() {
+              const isAtStart = filmstrip.scrollLeft <= 0;
+              const isAtEnd = filmstrip.scrollLeft + filmstrip.clientWidth >= filmstrip.scrollWidth - 1;
+
+              prevBtn.style.opacity = isAtStart ? '0.3' : '0.8';
+              prevBtn.style.pointerEvents = isAtStart ? 'none' : 'auto';
+              nextBtn.style.opacity = isAtEnd ? '0.3' : '0.8';
+              nextBtn.style.pointerEvents = isAtEnd ? 'none' : 'auto';
+            }
+
+            // Initial check
+            updateNavButtons();
+
+            // Update on scroll
+            filmstrip.addEventListener('scroll', updateNavButtons);
+
+            // Update on resize
+            window.addEventListener('resize', updateNavButtons);
+          }
+        }
       }
 
       // Touch swipe support (only when expanded)

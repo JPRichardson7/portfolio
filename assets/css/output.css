@@ -211,9 +211,6 @@
   .relative {
     position: relative;
   }
-  .static {
-    position: static;
-  }
   .sticky {
     position: sticky;
   }
@@ -297,6 +294,9 @@
     @media (width >= 1920px) {
       max-width: 1920px;
     }
+  }
+  .m-69 {
+    margin: calc(var(--spacing) * 69);
   }
   .m-\[10px\] {
     margin: 10px;
@@ -627,10 +627,6 @@
     border-style: var(--tw-border-style) !important;
     border-width: 2px !important;
   }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
   .border-2 {
     border-style: var(--tw-border-style);
     border-width: 2px;
@@ -765,6 +761,9 @@
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
+  }
+  .px-10 {
+    padding-inline: calc(var(--spacing) * 10);
   }
   .py-8 {
     padding-block: calc(var(--spacing) * 8);
@@ -1630,24 +1629,69 @@ p {
       background-color: color-mix(in oklab, var(--color-white) 95%, transparent);
     }
   }
-  .portfolio-filmstrip::-webkit-scrollbar {
-    height: 6px;
-    background: transparent;
+  .portfolio-filmstrip {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
   }
-  .portfolio-filmstrip::-webkit-scrollbar-thumb {
+  .portfolio-filmstrip::-webkit-scrollbar {
+    display: none;
+  }
+  .filmstrip-wrapper {
+    position: relative;
+  }
+  .filmstrip-nav-btn {
+    position: absolute;
+    top: calc(1/2 * 100%);
+    z-index: 10;
+    height: calc(var(--spacing) * 8);
+    width: calc(var(--spacing) * 8);
+    --tw-translate-y: calc(calc(1/2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
     border-radius: 0.25rem;
-    background-color: color-mix(in srgb, #fff 30%, transparent);
+    border-style: var(--tw-border-style) !important;
+    border-width: 2px !important;
+    border-color: color-mix(in srgb, #BBEBE8 30%, transparent) !important;
     @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--color-white) 30%, transparent);
+      border-color: color-mix(in oklab, var(--color-light-blue) 30%, transparent) !important;
     }
-    &:hover {
-      @media (hover: hover) {
-        background-color: color-mix(in srgb, #fff 50%, transparent);
-        @supports (color: color-mix(in lab, red, red)) {
-          background-color: color-mix(in oklab, var(--color-white) 50%, transparent);
-        }
-      }
+    background-color: color-mix(in srgb, #BBEBE8 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-light-blue) 10%, transparent);
     }
+    color: var(--color-light-blue) !important;
+    transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+    --tw-duration: 200ms;
+    transition-duration: 200ms;
+    display: none;
+  }
+  @media (max-width: 1465px) {
+    .filmstrip-wrapper:has(.filmstrip-thumb:nth-child(4)) .filmstrip-nav-btn {
+      display: flex;
+    }
+  }
+  .filmstrip-nav-btn:hover {
+    border-color: color-mix(in srgb, #BBEBE8 50%, transparent) !important;
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-light-blue) 50%, transparent) !important;
+    }
+    background-color: color-mix(in srgb, #BBEBE8 20%, transparent) !important;
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-light-blue) 20%, transparent) !important;
+    }
+  }
+  .filmstrip-nav-btn.prev {
+    left: calc(var(--spacing) * 0);
+    margin-left: calc(var(--spacing) * 1);
+  }
+  .filmstrip-nav-btn.next {
+    right: calc(var(--spacing) * 0);
+    margin-right: calc(var(--spacing) * 1);
   }
   .filmstrip-thumb {
     border-radius: var(--radius-sm);

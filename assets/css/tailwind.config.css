@@ -314,13 +314,42 @@ p{
 }
 
 /* Desktop Filmstrip */
-.portfolio-filmstrip::-webkit-scrollbar {
-  height: 6px;
-  background: transparent;
+.portfolio-filmstrip {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  scroll-behavior: smooth;
 }
 
-.portfolio-filmstrip::-webkit-scrollbar-thumb {
-  @apply rounded bg-white/30 hover:bg-white/50;
+.portfolio-filmstrip::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
+}
+
+.filmstrip-wrapper {
+  @apply relative;
+}
+
+.filmstrip-nav-btn {
+  @apply absolute top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-light-blue/10 border-2! border-light-blue/30! text-light-blue! cursor-pointer rounded items-center justify-center transition-all duration-200;
+  display: none; /* Hidden by default */
+}
+
+/* Only show nav buttons on md breakpoint and up when filmstrip has 4+ images */
+@media (max-width: 1465px) {
+  .filmstrip-wrapper:has(.filmstrip-thumb:nth-child(4)) .filmstrip-nav-btn {
+    @apply flex;
+  }
+}
+
+.filmstrip-nav-btn:hover {
+  @apply bg-light-blue/20! border-light-blue/50!;
+}
+
+.filmstrip-nav-btn.prev {
+  @apply left-0 ml-1;
+}
+
+.filmstrip-nav-btn.next {
+  @apply right-0 mr-1;
 }
 
 .filmstrip-thumb {

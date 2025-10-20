@@ -113,30 +113,49 @@
 
     {% capture filmstrip_block %}
         {% if include.carousel_images or include.carousel_inline or has_carousel_folder %}
-        <div class="portfolio-filmstrip hidden lg:flex! gap-2 mt-4 overflow-x-auto">
-            {% if has_carousel_folder %}
-                {% for img in folder_images %}
-                <button class="filmstrip-thumb flex-shrink-0 w-30 h-30 overflow-hidden pb-1 border-b-4 border-transparent hover:border-light-blue/50 transition-all cursor-pointer" data-index="{{ forloop.index0 }}">
-                    <img src="{{ img.path }}" alt="{% if meta_data[img.name] %}{{ meta_data[img.name] }}{% else %}Thumbnail {{ forloop.index }}{% endif %}" class="w-full h-full object-cover">
-                </button>
-                {% endfor %}
-            {% elsif include.carousel_inline %}
-                {% for i in (0..10) %}
-                    {% assign idx = i | times: 2 %}
-                    {% assign src = inline_parts[idx] %}
-                    {% if src and src != '' %}
-                    <button class="filmstrip-thumb flex-shrink-0 w-20 h-16 overflow-hidden border-2 border-transparent hover:border-light-blue/50 transition-all cursor-pointer" data-index="{{ i }}">
-                        <img src="/{{ src }}" alt="Thumbnail {{ i | plus: 1 }}" class="w-full h-full object-cover">
+        {% comment %} Count images for conditional nav button display {% endcomment %}
+        {% if has_carousel_folder %}
+            {% assign image_count = folder_images.size %}
+        {% elsif include.carousel_inline %}
+            {% assign image_count = 0 %}
+            {% for i in (0..10) %}
+                {% assign idx = i | times: 2 %}
+                {% assign src = inline_parts[idx] %}
+                {% if src and src != '' %}
+                    {% assign image_count = image_count | plus: 1 %}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {% assign image_count = include.carousel_images.size %}
+        {% endif %}
+        <div class="filmstrip-wrapper px-10" data-image-count="{{ image_count }}">
+            <button class="filmstrip-nav-btn prev" aria-label="Scroll filmstrip left">&lsaquo;</button>
+            <div class="portfolio-filmstrip hidden lg:flex! gap-2 mt-4 overflow-x-auto">
+                {% if has_carousel_folder %}
+                    {% for img in folder_images %}
+                    <button class="filmstrip-thumb flex-shrink-0 w-30 h-30 overflow-hidden pb-1 border-b-4 border-transparent hover:border-light-blue/50 transition-all cursor-pointer" data-index="{{ forloop.index0 }}">
+                        <img src="{{ img.path }}" alt="{% if meta_data[img.name] %}{{ meta_data[img.name] }}{% else %}Thumbnail {{ forloop.index }}{% endif %}" class="w-full h-full object-cover">
                     </button>
-                    {% endif %}
-                {% endfor %}
-            {% else %}
-                {% for img in include.carousel_images %}
-                <button class="filmstrip-thumb flex-shrink-0 w-20 h-16 overflow-hidden border-2 border-transparent hover:border-light-blue/50 transition-all cursor-pointer" data-index="{{ forloop.index0 }}">
-                    <img src="/{{ img.src }}" alt="{{ img.alt }}" class="w-full h-full object-cover">
-                </button>
-                {% endfor %}
-            {% endif %}
+                    {% endfor %}
+                {% elsif include.carousel_inline %}
+                    {% for i in (0..10) %}
+                        {% assign idx = i | times: 2 %}
+                        {% assign src = inline_parts[idx] %}
+                        {% if src and src != '' %}
+                        <button class="filmstrip-thumb flex-shrink-0 w-20 h-16 overflow-hidden border-2 border-transparent hover:border-light-blue/50 transition-all cursor-pointer" data-index="{{ i }}">
+                            <img src="/{{ src }}" alt="Thumbnail {{ i | plus: 1 }}" class="w-full h-full object-cover">
+                        </button>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    {% for img in include.carousel_images %}
+                    <button class="filmstrip-thumb flex-shrink-0 w-20 h-16 overflow-hidden border-2 border-transparent hover:border-light-blue/50 transition-all cursor-pointer" data-index="{{ forloop.index0 }}">
+                        <img src="/{{ img.src }}" alt="{{ img.alt }}" class="w-full h-full object-cover">
+                    </button>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <button class="filmstrip-nav-btn next" aria-label="Scroll filmstrip right">&rsaquo;</button>
         </div>
         {% endif %}
     {% endcapture %}
