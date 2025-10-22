@@ -6,22 +6,29 @@ permalink: /portfolio/visual-design/logo-branding/
 ---
 
 {% include components/portfolio-piece.html
-   title='2019-20 CATALOG'
-   image=''
+   title='NMC PLACEHOLDER'
+   image='assets/img/projects/logo/nmc-logo.png'
    image_alt=''
    image_class='object-center'
    crop_mode='attention'
    carousel_folder='assets/img/projects/print/shor-line-catalog'
-   content="I rebuilt Shor-Line\'s 100+ page catalog by creating a comprehensive design system from scratch. Building a new grid structure, typography standards, and tabbed navigation brought order to their extensive SKU portfolio spanning tables, kennels, and cages. Using InDesign\'s Book feature, I directed a team of three designers to execute the system while maintaining consistency at scale. For the cover, I photographed and art directed a celebration of their American manufacturing heritage, then specified softtouch lamination with spot UV to make the welding sparks physically tactile—reinforcing quality through both visual and haptic experience. The catalog served as both a trade show marketing tool and sales resource for veterinary and boarding facilities nationwide."
-   skills='Design systems, team leadership, art direction, print production, InDesign'
+   content="I created a complete brand identity for the National Museum of Computing, building the system from the ground up. The logo's letterforms worked so well that I expanded them into a full custom display typeface called Circuitry, designed to evoke circuit board traces and chip terminals. This allowed the brand to reference its vintage computing roots while maintaining a bold, modern aesthetic—avoiding generic "retro tech" fonts in favor of something proprietary and strategically ownable. The system included brand guidelines, business collateral, environmental signage, and promotional applications."
+   skills='Brand identity, custom typeface design, design systems, typography, print design'
 %}
 {% include components/portfolio-piece.html
-   title='Cage Wraps'
+   title='JPShots Photography'
    layout='right'
    image=''
    image_alt=''
-   crop_mode='entropy'
+   crop_mode=''
    carousel_folder='assets/img/projects/print/wraps'
-   content="Shor-Line needed to showcase their new 4-color vinyl printing capability for veterinary kennel systems at trade shows—a major upgrade from their previous solid laminate and bare stainless steel options. Using halftone grids and CMYK ink drips as the visual theme, I developed a playful meta-reference to the printing process itself that would immediately communicate the customization possibilities. The first wrap uses dramatic process color drips for maximum impact, while the second demonstrates how veterinary practices and shelters could create branded environments. Both designs were printed on demo units for veterinary trade show displays."
-   skills='Visual communication, concept development, Adobe Illustrator, brand applications'
+   content='I built JPShots to operate in both wedding and commercial photography markets—requiring a brand identity strong enough for corporate clients yet approachable for brides in a market dominated by soft, script logos. I designed a geometric mark using the currency symbol (¤) as foundation, which naturally resembles a camera lens and mount. The yellow lens center sits within black crosshair elements referencing vintage lens mounts, while radial "shots" echo lens barrel markings. Brand touchpoints included transparent business cards—a material choice that stood out in a market of traditional paper stock while echoing the optical glass central to photography. The bold construction stayed legible from trade show booths to favicons, differentiating through technical confidence without alienating wedding clients.'
+   skills='Brand identity, logo design, visual identity systems, strategic positioning, multi-format design'
 %}
+<!--plan:
+NMC: Custom font, complete system
+JPShots: Professional, implemented, multi-touchpoint
+Guard & Glow: Product integration, photography
+Salon Grafix: Clean, industry-appropriate, package redesign
+VWKC: Professional services, straightforward
+->
