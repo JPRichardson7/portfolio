@@ -24,6 +24,13 @@ permalink: /portfolio/visual-design/logo-branding/
    content="I developed the brand identity and packaging for Kings of Nano's launch into consumer automotive care, working with stakeholders transitioning from B2B to retail markets. Through an iterative naming and concepting process, I created a visual system balancing technical credibility with retail shelf appeal. The vivid cyan palette reinforces the nanotechnology positioning while referencing the product itself, and the Guard & Glow wordmark uses geometric forms to create a droplet motif that emphasizes both the spray application and water-repellent protection."
    skills='Brand strategy, information hierarchy, typography, packaging design, client consultation, Illustrator'
 %}
+{% include components/portfolio-piece.html
+   title='Salon Grafix Can Redesign'
+   layout='right'
+   carousel_folder='assets/img/projects/logo-brand/jpshots'
+   content='Elevated dated haircare packaging for better shelf presence in a trend-forward beauty market. I enlarged the logo for improved customer recognition, replaced the white cap with brushed black steel for premium positioning, and simplified the existing color-coding system without abandoning its functional logic. Produced physical mockups by printing on glossy stock and wrapping actual cans to demonstrate real-world impact. The redesign maintains brand equity for an aging customer base while attracting younger consumers through refined, modern execution.'
+   skills='Package design, brand evolution, information hierarchy, mockup production, Adobe Illustrator'
+%}
 <!--plan:
 [x] NMC: Custom font, complete system
 [x] JPShots: Professional, implemented, multi-touchpoint
