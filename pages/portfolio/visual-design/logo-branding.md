@@ -9,32 +9,31 @@ permalink: /portfolio/visual-design/logo-branding/
    title='NMC Branding &amp; Typeface'
    carousel_folder='assets/img/projects/logo-brand/nmc'
    content="I created a complete brand identity for the National Museum of Computing, building the system from the ground up. The logo's letterforms worked so well that I expanded them into a full custom display typeface called Circuitry, designed to evoke circuit board traces and chip terminals. This allowed the brand to reference its vintage computing roots while maintaining a bold, modern aesthetic—avoiding generic 'retro tech' fonts in favor of something proprietary and strategically ownable. The system included brand guidelines, business collateral, environmental signage, and promotional applications."
-   skills='Brand identity, custom typeface design, design systems, typography, print design'
+   skills='Custom typeface design, brand identity, environmental design, typography, Illustrator'
 %}
 {% include components/portfolio-piece.html
    title='JPShots Photography'
    layout='right'
    carousel_folder='assets/img/projects/logo-brand/jpshots'
-   content='I built JPShots to operate in both wedding and commercial photography markets—requiring a brand identity strong enough for corporate clients yet approachable for brides in a market dominated by soft, script logos. I designed a geometric mark using the currency symbol (¤) as foundation, which naturally resembles a camera lens and mount. The yellow lens center sits within black crosshair elements referencing vintage lens mounts, while radial "shots" echo lens barrel markings. Brand touchpoints included transparent business cards—a material choice that stood out in a market of traditional paper stock while echoing the optical glass central to photography. The bold construction stayed legible from trade show booths to favicons, differentiating through technical confidence without alienating wedding clients.'
-   skills='Brand identity, logo design, visual identity systems, strategic positioning, multi-format design'
+   content='JPShots needed to work for both corporate clients and wedding markets—a challenge in an industry dominated by soft, script-heavy branding. I designed a geometric mark using the currency symbol (¤) as foundation, which naturally resembles a camera lens and mount. The yellow lens center sits within black crosshair elements referencing vintage lens mounts, while radial "shots" echo lens barrel markings. Brand touchpoints included transparent business cards—a material choice that stood out in a market of traditional paper stock while echoing the optical glass central to photography. The bold construction stayed legible from trade show booths to favicons, differentiating through technical confidence without alienating wedding clients.'
+   skills='Brand strategy, logo design, material innovation, print production, Illustrator'
 %}
 {% include components/portfolio-piece.html
    title='Kings Of Nano'
    carousel_folder='assets/img/projects/logo-brand/kings-of-nano'
-   content="I developed the brand identity and packaging for Kings of Nano's launch into consumer automotive care, working with stakeholders transitioning from B2B to retail markets. Through an iterative naming and concepting process, I created a visual system balancing technical credibility with retail shelf appeal. The vivid cyan palette reinforces the nanotechnology positioning while referencing the product itself, and the Guard & Glow wordmark uses geometric forms to create a droplet motif that emphasizes both the spray application and water-repellent protection."
-   skills='Brand strategy, information hierarchy, typography, packaging design, client consultation, Illustrator'
+   content="I designed the brand identity and packaging for Kings of Nano's launch into consumer automotive care, working with stakeholders transitioning from B2B to retail markets. Through an iterative naming and concepting process, I created a visual system balancing technical credibility with retail shelf appeal. The vivid cyan palette reinforces the nanotechnology positioning while referencing the product itself, and the Guard & Glow wordmark uses geometric forms to create a droplet motif that emphasizes both the spray application and water-repellent protection."
+   skills='Packaging design, brand strategy, client consultation, information hierarchy, retail positioning'
 %}
 {% include components/portfolio-piece.html
    title='Salon Grafix Can Redesign'
    layout='right'
-   carousel_folder='assets/img/projects/logo-brand/jpshots'
-   content='Elevated dated haircare packaging for better shelf presence in a trend-forward beauty market. I enlarged the logo for improved customer recognition, replaced the white cap with brushed black steel for premium positioning, and simplified the existing color-coding system without abandoning its functional logic. Produced physical mockups by printing on glossy stock and wrapping actual cans to demonstrate real-world impact. The redesign maintains brand equity for an aging customer base while attracting younger consumers through refined, modern execution.'
-   skills='Package design, brand evolution, information hierarchy, mockup production, Adobe Illustrator'
+   carousel_folder='assets/img/projects/logo-brand/salon-grafix'
+   content='I redesigned dated haircare packaging for better shelf presence in a trend-forward beauty market. I enlarged the logo for improved customer recognition, replaced the white cap with brushed black steel for premium positioning, and simplified the existing color-coding system without abandoning its functional logic. Produced physical mockups by printing on glossy stock and wrapping actual cans to demonstrate real-world impact. The redesign preserves brand recognition while attracting younger consumers through refined, contemporary execution.'
+   skills=' Package redesign, brand evolution, physical prototyping, information hierarchy, retail strategy'
+%} 
+{% include components/portfolio-piece.html
+   title='VideoWorks KC Brand Identity'
+   carousel_folder='assets/img/projects/logo-brand/vwkc'
+   content="I created a brand for a local video production company  using Eurostyle Extended—a typeface with broadcast TV heritage—and leveraged the four-letter format to mirror local station call signs. The circular "O" naturally resembles a vintage television screen, which I reinforced with antenna flourishes for approachability. Explored three colorways tied to Kansas City sports teams and alternative positioning strategies, with client selecting cyan/navy for authoritative presence in the video production market. Designed to scale effectively from business cards to video watermarks and favicons."
+   skills='Typography selection, strategic color application, iconography, scalable systems, local market positioning'
 %}
-<!--plan:
-[x] NMC: Custom font, complete system
-[x] JPShots: Professional, implemented, multi-touchpoint
-[x] Guard & Glow: Product integration, photography
-[ ] Salon Grafix: Clean, industry-appropriate, package redesign
-[ ] VWKC: Professional services, straightforward
-->
