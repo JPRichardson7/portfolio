@@ -7,14 +7,14 @@
     "tailwindcss": "^4.1.11"
   },
  "scripts": {
-    "jekyll": "bin/jekyll serve --incremental --limit_posts 10",
-    "jekyll-original": "bin/jekyll serve --livereload",
+    "jekyll": "bash -c 'export PATH=\"$HOME/.rbenv/bin:$PATH\" && eval \"$(rbenv init -)\" && bin/jekyll serve --incremental --limit_posts 10'",
+    "jekyll-original": "bash -c 'export PATH=\"$HOME/.rbenv/bin:$PATH\" && eval \"$(rbenv init -)\" && bin/jekyll serve --livereload'",
     "tailwind": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css --watch",
     "dev": "concurrently \"npm run jekyll\" \"npm run tailwind\"",
     "dev-original": "concurrently \"npm run jekyll-original\" \"npm run tailwind\"",
     "clean": "rm -rf _site assets/css/output.css",
     "clean-all": "rm -rf _site assets/css/output.css .jekyll-cache",
     "fresh": "npm run clean-all && npm run dev",
-    "build": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css && bin/jekyll build"
+    "build": "bash -c 'export PATH=\"$HOME/.rbenv/bin:$PATH\" && eval \"$(rbenv init -)\" && tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css && bin/jekyll build'"
   }
 }
