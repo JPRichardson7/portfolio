@@ -41,6 +41,7 @@
     --color-dark-blue: #0A2647;
     --color-highlight-on-dark: #08241B;
     --font-barlow: Barlow Condensed, sans-serif;
+    --font-ubuntu-mono: Ubuntu Mono, monospace;
   }
 }
 @layer base {
@@ -1370,6 +1371,14 @@ p {
     font-weight: var(--font-weight-extrabold);
     color: var(--color-light-blue);
     text-transform: uppercase;
+  }
+  .code-text {
+    border-radius: 0.25rem;
+    background-color: var(--color-highlight-on-dark);
+    padding-inline: calc(var(--spacing) * 1);
+    padding-block: calc(var(--spacing) * 0.5);
+    font-family: var(--font-ubuntu-mono);
+    color: var(--color-highlight-yellow);
   }
   .nav-line {
     position: relative;

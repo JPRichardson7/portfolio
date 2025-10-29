@@ -34,6 +34,6 @@ permalink: /portfolio/visual-design/logo-branding/
 {% include components/portfolio-piece.html
    title='VideoWorks KC Brand Identity'
    carousel_folder='assets/img/projects/logo-brand/vwkc'
-   content="I created a brand for a local video production company  using Eurostyle Extended—a typeface with broadcast TV heritage—and leveraged the four-letter format to mirror local station call signs. The circular "O" naturally resembles a vintage television screen, which I reinforced with antenna flourishes for approachability. Explored three colorways tied to Kansas City sports teams and alternative positioning strategies, with client selecting cyan/navy for authoritative presence in the video production market. Designed to scale effectively from business cards to video watermarks and favicons."
+   content="I created a brand for a local video production company using Eurostyle Extended—a typeface with broadcast TV heritage—and leveraged the four-letter format to mirror local station call signs. The circular &ldquo;O&rdquo; naturally resembles a vintage television screen, which I reinforced with antenna flourishes for approachability. Explored three colorways tied to Kansas City sports teams and alternative positioning strategies, with client selecting cyan/navy for authoritative presence in the video production market. Designed to scale effectively from business cards to video watermarks and favicons."
    skills='Typography selection, strategic color application, iconography, scalable systems, local market positioning'
 %}

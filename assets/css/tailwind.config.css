@@ -17,6 +17,7 @@
   --color-dark-blue: #0A2647;
   --color-highlight-on-dark: #08241B;
   --font-barlow: Barlow Condensed, sans-serif;
+  --font-ubuntu-mono: Ubuntu Mono, monospace;
 
   --letter-spacing-wide: 0.13em;    /* 13% for accents */
 
@@ -51,6 +52,10 @@ p{
 
     .hero-text {
       @apply font-barlow uppercase text-light-blue font-extrabold;
+    }
+
+    .code-text {
+      @apply font-ubuntu-mono text-highlight-yellow bg-highlight-on-dark px-1 py-0.5 rounded;
     }
     
 
