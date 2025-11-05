@@ -36,10 +36,39 @@
 }
 body {
     @apply
-      bg-dark-blue 
+      bg-dark-blue
       selection:bg-highlight-on-dark
-      selection:text-highlight-yellow
-    
+      selection:text-highlight-yellow;
+    position: relative;
+  }
+
+/* Paper texture overlay - sits above background and text, but below images */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/img/paperboard-texture.webp');
+    background-repeat: repeat;
+    opacity: 0.8;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 8;
+  }
+
+/* Ensure images and interactive elements sit above the texture */
+img,
+picture,
+video,
+canvas,
+svg,
+header,
+footer,
+nav {
+    position: relative;
+    z-index: 10;
   }
 p{
   font-family: "IBM Plex Sans Condensed", sans-serif;
@@ -55,7 +84,7 @@ p{
     }
 
     .code-text {
-      @apply font-ubuntu-mono text-highlight-yellow bg-highlight-on-dark px-1 py-0.5 rounded;
+      @apply font-ubuntu-mono text-[81%] bg-highlight-on-dark px-2 py-0.5 rounded font-[450] ;
     }
     
 
