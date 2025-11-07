@@ -1,4 +1,4 @@
-        <nav class="max-lg:hidden lg:block pl-margin-base bg-dark-blue sticky top-0 z-20 col-span-full {% if page.url != '/about.html' %} pr-margin-base {% endif %} py-[calc(var(--spacing-margin-base)*.25)]">
+        <nav class="nav-strip max-lg:hidden lg:block pl-margin-base bg-dark-blue sticky top-0 z-20 relative col-span-full {% if page.url != '/about.html' %} pr-margin-base {% endif %} py-[calc(var(--spacing-margin-base)*.25)]">
           <ul class="flex-row flex flex-wrap justify-between gap-x-4 mr-margin-base mt-[-10px]">
             {% for item in site.data.main-pages %}
               {% include components/navigation/nav-item.html
