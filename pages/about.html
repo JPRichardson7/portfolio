@@ -4,14 +4,15 @@ title: About
 ---
 
 <!-- Grid container -->
-<div class="md:grid! md:grid-cols-2! md:h-[calc(100vh-133px)]! md:overflow-hidden!">
+<div class="md:grid! md:grid-cols-2! md:h-[calc(100vh-133px)]!">
 
     <!-- Left column - content -->
-     <div class="md:overflow-y-auto! h-full! scrollbar-hidden">
+     <div class="h-full! relative">
         <nav class="md:sticky md:top-0 z-10 pr-margin-base bg-dark-blue">
             <!-- Navigation -->
             {% include components/navigation/nav-strip.html %}
         </nav>
+        <div class="md:overflow-y-auto! md:h-[calc(100vh-133px-60px)]! scrollbar-hidden">
         <div>
             <div class="bg-light-blue pl-margin-base pr-margin-base pb-3 text-dark-blue!">
                 <h2 class="left-[-3px]">
@@ -52,6 +53,7 @@ title: About
                     I understand the constraints that developers face because I write code myself. I appreciate the nuances that designers care about because I've spent years crafting pixel-perfect visual experiences. This unique combination - someone who can design beautiful interfaces AND implement them effectively - is exactly what modern product teams need. I'm not just transitioning into UX/UI; I'm bringing a decade of creative problem-solving experience in building digital experiences. I'm committed to creating products that work beautifully for both users and the technology that performs them.
                 </p>
             </div>
+        </div>
         </div>
     </div> 
        <!-- Right column - image -->

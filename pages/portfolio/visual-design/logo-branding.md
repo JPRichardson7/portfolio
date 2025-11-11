@@ -2,7 +2,7 @@
 layout: portfolio
 title: Logo & Branding
 portfolio_category: graphic-design
-permalink: /portfolio/visual-design/logo-branding/
+permalink: /portfolio/logo-branding/
 ---
 {% include components/portfolio-piece.html
    title='NMC Branding &amp; Typeface'

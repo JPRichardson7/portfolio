@@ -1,14 +1,17 @@
 - text: "HOME"
   url: "/"
-  
+
 - text: "ABOUT"
   url: "/about/"
 
 - text: "UX/UI & WEB"
   url: "/portfolio/ux-ui/ux-ui-web/"
 
-- text: "VISUAL DESIGN"
-  url: "/portfolio/visual-design/graphic-design/"
+- text: "GRAPHIC DESIGN"
+  url: "/portfolio/graphic-design/"
+
+- text: "LOGO & BRANDING"
+  url: "/portfolio/logo-branding/"
 
 - text: "PHOTOGRAPHY"
   url: "/portfolio/photography/"

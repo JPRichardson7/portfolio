@@ -2,7 +2,7 @@
 layout: portfolio
 title: Graphic Design Portfolio
 portfolio_category: graphic-design
-permalink: /portfolio/visual-design/graphic-design/
+permalink: /portfolio/graphic-design/
 ---
 
 {% include components/portfolio-piece.html
