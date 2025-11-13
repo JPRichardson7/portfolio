@@ -6,12 +6,29 @@ permalink: /portfolio/ux-ui/ux-ui-web/
 ---
 
 {% include components/portfolio-piece.html
+   title='JP Richardson Portfolio'
+   layout='right'
+   image_alt='Html Email for Shor-Line'
+   crop_mode='entropy'
+   carousel_folder='assets/img/projects/web/portfolio'
+   content="Hand-coded portfolio website designed to present multidisciplinary creative and technical capabilities through a technical blueprint aesthetic. The challenge was creating a flexible design system that showcases diverse work—photography, graphic design, UX/UI, and code—with cohesive visual identity and excellent responsive performance across all devices.
+   
+   I designed the site in Figma, then developed it using <span class='code-text'> Jekyll</span> with <span class='code-text'> Liquid</span>, for component-based architecture and <span class='code-text'> Tailwind CSS</span> for systematic styling. The blueprint theme uses deep blue background with light blue typography and yellow accents simulating highlighter markup, reinforced through dotted-line navigation patterns. Typography system pairs Barlow Extra-Bold for bold display with IBM Plex Sans Condensed for efficient body copy and Ubuntu Mono for inline code terms—creating clear visual hierarchy while reinforcing the technical aesthetic. Initial typeface selections (<span class='font-barlow'> DIN Condensed Black</span>, <span class='font-ibmplex'> Trade Gothic Condensed) were replaced with these Google Fonts alternatives drawn from similar industrial classifications, ensuring accessibility and broad device compatibility.
+   
+   The design system leverages CSS <span class='code-text'>clamp()</span> functions for fluid typography scaling across breakpoints and custom <span class='code-text'> CSS</span> variables for responsive page margins that proved essential for positioning and layout throughout. Images are optimized with WebP format and fallbacks for performance. I chose this framework for its lightweight simplicity and seamless GitHub Pages hosting without React's complexity..
+   
+   Navigation features a custom mobile drawer that animates from bottom-up with an extending line from the arrow icon, avoiding standard hamburger patterns while reinforcing the blueprint aesthetic. Projects organize by discipline (UX/UI & Web, Visual Design, Photography) rather than chronology, allowing flexible positioning for different role applications while quickly demonstrating range to hiring managers."
+
+   skills="<span class='code-text'>Jekyll</span>/<span class='code-text'>Liquid</span>, <span class='code-text'>Tailwind CSS</span>, typography systems, <span class='code-text'>CSS</span> custom properties, Figma, component-based architecture, responsive design, design systems, performance optimization, information architecture"
+%}
+
+{% include components/portfolio-piece.html
    title='Shor-Line Website Redesign'
    image=''
    image_alt=''
    image_class='object-center'
    crop_mode='attention'
-   carousel_folder='assets/img/projects/print/shor-line-catalog'
+   carousel_folder='assets/img/projects/web/shor-line-com'
    content="Led UI design and information architecture for a national veterinary equipment manufacturer transitioning from a 15-year-old interface to a modern <span class='code-text'>BigCommerce</span> platform. The challenge was serving five distinct user types—veterinarians needing technical specifications, purchasing staff seeking accessible overviews, architects planning facilities, boarders/groomers evaluating equipment, and shelter administrators with budget constraints.
 
    Working collaboratively with an external agency and internal marketing director, I developed the core design system in Sketch: Montserrat typography hierarchy, deep blue with orange/teal accents conveying premium American manufacturing heritage, and a modular card-based layout. I designed the homepage, product category pages, and user-specific landing pages (Veterinary, Boarding, Grooming, Architect, Shelter), tailoring content and imagery to each audience's needs.
@@ -31,25 +48,6 @@ permalink: /portfolio/ux-ui/ux-ui-web/
 %}
 {% include components/portfolio-piece.html
    title='JP Richardson Portfolio'
-   layout='right'
-   image='projects/web/email.png'
-   image_alt='Html Email for Shor-Line'
-   crop_mode='entropy'
-   carousel_folder='assets/img/projects/print/wraps'
-   content="Hand-coded portfolio website designed to present multidisciplinary creative and technical capabilities through a technical blueprint aesthetic. The challenge was creating a flexible design system that showcases diverse work—photography, graphic design, UX/UI, and code—with cohesive visual identity and excellent responsive performance across all devices.
-   
-   I designed the site in Figma, then developed it using <span class='code-text'> Jekyll</span> with <span class='code-text'> Liquid</span>, for component-based architecture and <span class='code-text'> Tailwind CSS</span> for systematic styling. The blueprint theme uses deep blue background with light blue typography and yellow accents simulating highlighter markup, reinforced through dotted-line navigation patterns. Typography system pairs Barlow Extra-Bold for bold display with IBM Plex Sans Condensed for efficient body copy and Ubuntu Mono for inline code terms—creating clear visual hierarchy while reinforcing the technical aesthetic. Initial typeface selections (<span class='font-barlow'>Barlow, DIN Condensed Black</span>, <span class='font-ibmplex'> Trade Gothic Condensed) were replaced with these Google Fonts alternatives drawn from similar industrial classifications, ensuring accessibility and broad device compatibility.
-   
-   The design system leverages CSS <span class='code-text'>clamp()</span> functions for fluid typography scaling across breakpoints and custom <span class='code-text'> CSS</span> variables for responsive page margins that proved essential for positioning and layout throughout. Images are optimized with WebP format and fallbacks for performance. I chose this framework for its lightweight simplicity and seamless GitHub Pages hosting without React's complexity..
-   
-   Navigation features a custom mobile drawer that animates from bottom-up with an extending line from the arrow icon, avoiding standard hamburger patterns while reinforcing the blueprint aesthetic. Projects organize by discipline (UX/UI & Web, Visual Design, Photography) rather than chronology, allowing flexible positioning for different role applications while quickly demonstrating range to hiring managers."
-
-   skills="<span class='code-text'>Jekyll</span>/<span class='code-text'>Liquid</span>, <span class='code-text'>Tailwind CSS</span>, typography systems, <span class='code-text'>CSS</span> custom properties, Figma, component-based architecture, responsive design, design systems, performance optimization, information architecture"
-%}
-
-{% include components/portfolio-piece.html
-   title='JP Richardson Portfolio'
-   layout='right'
    image='projects/web/email.png'
    image_alt='Html Email for Shor-Line'
    crop_mode='entropy'

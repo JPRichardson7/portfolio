@@ -219,6 +219,8 @@ document.addEventListener('DOMContentLoaded', function() {
               // Apply correct classes based on device type and expanded state
               if (isDesktop()) {
                 newImg.classList.add('portfolio-image', 'h-full', 'w-auto', 'object-contain', 'transition-all', 'duration-300');
+                newImg.style.minWidth = 'min(55vw, 100%)'; // Ensure narrow images aren't too small
+                newImg.style.maxHeight = '70vh'; // Prevent overly tall images
               } else {
                 newImg.classList.add('portfolio-image', 'w-full', 'h-full', 'transition-all', 'duration-300');
                 if (isExpanded) {
@@ -249,6 +251,12 @@ document.addEventListener('DOMContentLoaded', function() {
               newImg.src = imgData.src;
               if (imgData.srcset) {
                 newImg.srcset = imgData.srcset;
+              }
+
+              // Apply desktop constraints
+              if (isDesktop()) {
+                newImg.style.minWidth = 'min(55vw, 100%)';
+                newImg.style.maxHeight = '70vh';
               }
 
               newImg.style.opacity = '0';
@@ -597,6 +605,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (currentImg && isDesktop()) {
           currentImg.classList.remove('object-cover');
           currentImg.classList.add('object-contain');
+          currentImg.style.minWidth = 'min(55vw, 100%)'; // Ensure narrow images aren't too small
+          currentImg.style.maxHeight = '70vh'; // Prevent overly tall images
         }
       });
     }

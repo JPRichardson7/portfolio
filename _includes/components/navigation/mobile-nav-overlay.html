@@ -19,7 +19,7 @@
     </div>
     <!-- Navigation -->
         <nav class="flex flex-col @container/nav">
-            <ul class="flex flex-col justify-evenly h-full">
+            <ul class="flex flex-col justify-evenly h-full mb-14">
                 {% for item in site.data.main-pages %}
                         {% unless item.text == "contact" %}
                             {% include components/navigation/nav-item.html

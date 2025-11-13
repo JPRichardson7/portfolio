@@ -92,6 +92,38 @@ p{
       z-index: 1;
     }
 
+    /* Footer-strip texture overlay - exclusive to footer-strip component */
+    .footer-strip::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('/assets/img/paperboard-texture.webp');
+      background-repeat: repeat;
+      opacity: 0.20;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Mobile-nav-container texture overlay - exclusive to mobile nav */
+    .mobile-nav-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('/assets/img/paperboard-texture.webp');
+      background-repeat: repeat;
+      opacity: 0.20;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+      z-index: 1;
+    }
+
     .hero-text {
       @apply font-barlow uppercase text-light-blue font-extrabold;
     }
