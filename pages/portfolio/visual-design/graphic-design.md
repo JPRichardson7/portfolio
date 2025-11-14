@@ -22,7 +22,7 @@ permalink: /portfolio/graphic-design/
    image_alt=''
    crop_mode='entropy'
    carousel_folder='assets/img/projects/print/wraps'
-   content="Shor-Line needed to showcase their new 4-color vinyl printing capability for veterinary kennel systems at trade shows—a major upgrade from their previous solid laminate and bare stainless steel options. Using halftone grids and CMYK ink drips as the visual theme, I developed a playful meta-reference to the printing process itself that would immediately communicate the customization possibilities. The first wrap uses dramatic process color drips for maximum impact, while the second demonstrates how veterinary practices and shelters could create branded environments. Both designs were printed on demo units for veterinary trade show displays."
+   content="Shor-Line needed to showcase their new 4-color vinyl printing capability for veterinary kennel systems at trade shows- major upgrade from their previous solid laminate and bare stainless steel options. Using halftone grids and CMYK ink drips as the visual theme, I developed a playful meta-reference to the printing process itself that would immediately communicate the customization possibilities. The first wrap uses dramatic process color drips for maximum impact, while the second demonstrates how veterinary practices and shelters could create branded environments. Both designs were printed on demo units for veterinary trade show displays."
    skills='Visual communication, concept development, Adobe Illustrator, brand applications'
 %}
 {% include components/portfolio-piece.html
@@ -32,7 +32,7 @@ permalink: /portfolio/graphic-design/
    image_class='object-center'
    crop_mode='center'
    carousel_folder='assets/img/projects/print/steel'
-   content="Researching the workers and steel infrastructure of the late 19th and early 20th centuries, I compiled and rewrote content from multiple historical sources into a cohesive hardcover publication. The tactile metal-textured cover reinforces the industrial subject matter, while screw-post binding provided both structural integrity and thematic resonance. I developed experimental spreads built on an underlying grid system with narrow columns that echo steel beams and period newspaper typography, using each layout to complement the historical content while the pairing of Baskerville and Rockwell conveys the strength and precision of steel construction—allowing the typography itself to dominate without competing graphic elements."
+   content="Researching the workers and steel infrastructure of the late 19th and early 20th centuries, I compiled and rewrote content from multiple historical sources into a cohesive hardcover publication. The tactile metal-textured cover reinforces the industrial subject matter, while screw-post binding provided both structural integrity and thematic resonance. I developed experimental spreads built on an underlying grid system with narrow columns that echo steel beams and period newspaper typography. Each layout to complemented the historical content, while the pairing of Baskerville and Rockwell conveys the strength and precision of steel construction. This alowed typography itself to dominate without competing graphic elements."
    skills='Information architecture, content strategy, typography, grid systems, publication design'
 %}
 {% include components/portfolio-piece.html
@@ -43,7 +43,7 @@ permalink: /portfolio/graphic-design/
    image_class='object-center'
    crop_mode='attention'
    carousel_folder=''
-   content="Designed digital advertising for Shor-Line's first LED exam light launch in veterinary industry publications. I integrated the product directly into the typography—replacing the I in LIGHT to maximize visibility while maintaining visual interest. Cool brand colors (blues vs. orange) reinforced the LED's temperature benefits, and I pushed for cleaner, more modern layout despite pressure to include heavy copy. I photographed and retouched the prototype unit for use across multiple banner sizes."
+   content="Designed digital advertising for Shor-Line's first LED exam light launch in veterinary industry publications. I integrated the product directly into the typography—replacing the I in LIGHT to maximize visibility while maintaining visual interest. Cool brand colors (blues vs. orange) reinforced the LED's temperature benefits, and I advocated for cleaner, more modern layout despite pressure to include heavy copy. I photographed and retouched the prototype unit for use across multiple banner sizes."
    skills='Layout design, typography, product photography, photo retouching, Adobe Photoshop, Adobe Illustrator'
 %}
 {% include components/portfolio-piece.html
@@ -66,10 +66,3 @@ permalink: /portfolio/graphic-design/
    content="Created a magazine concept exploring view camera photography with a focus on making technical content visually engaging for enthusiasts. I developed a flexible grid system that balanced dense technical copy with strong visual moments—using large hero product photography, pull quotes, and selective typographic treatments to create rhythm and break up text-heavy spreads. The cover design featured a frosted transparent overlay with grid markings that mimicked a view camera's ground glass, with my photography underneath as the featured image. Corner bracket elements throughout referenced traditional cropping marks, creating a cohesive visual language tied to the camera format itself."
    skills='Editorial design, typography, layout systems, grid design, InDesign'
 %}
-<!--plan: 
-1x 2019-20 Catalog (Shor-Line) - Print
-2x Cage Wraps (Shor-Line) - Print
-3x "A World of Steel" (Student) - Print, conceptual bridge
-4x Prelude LED (Shor-Line) - Digital
-5x Ergonomics (Shor-Line) - Digital
-6x "Professional View" Magazine (Student) - Print/editorial -->
