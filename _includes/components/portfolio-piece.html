@@ -136,12 +136,19 @@
                     {% assign img_path = img.path | remove_first: "/assets/img/" | remove_first: "assets/img/" %}
                     {% if meta_data[img.name] %}
                         {% assign thumb_alt = meta_data[img.name] %}
+                        {% assign thumb_caption = meta_data[img.name] %}
                     {% else %}
                         {% assign thumb_alt = "Thumbnail " | append: forloop.index %}
+                        {% assign thumb_caption = nil %}
                     {% endif %}
-                    <button class="filmstrip-thumb flex-shrink-0 w-30 h-30 overflow-hidden pb-1 border-b-4 border-transparent hover:border-light-blue/50 transition-all cursor-pointer" data-index="{{ forloop.index0 }}">
-                        {% picture "{{ img_path }}" --alt {{ thumb_alt }} --img class="w-full h-full object-cover" %}
-                    </button>
+                    <div class="filmstrip-item flex flex-col flex-shrink-0">
+                        <button class="filmstrip-thumb w-30 h-30 overflow-hidden pb-1 transition-all cursor-pointer" data-index="{{ forloop.index0 }}">
+                            {% picture "{{ img_path }}" --alt {{ thumb_alt }} --img class="w-full h-full object-cover" %}
+                        </button>
+                        {% if thumb_caption %}
+                        <p class="filmstrip-caption text-light-blue/70 text-xs mt-2 max-w-[7.5rem] leading-tight">{{ thumb_caption }}</p>
+                        {% endif %}
+                    </div>
                     {% endfor %}
                 {% elsif include.carousel_inline %}
                     {% for i in (0..10) %}

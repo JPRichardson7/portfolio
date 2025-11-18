@@ -287,12 +287,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (filmstrip) {
           const thumbs = filmstrip.querySelectorAll('.filmstrip-thumb');
           thumbs.forEach((thumb, i) => {
+            // Update caption active state
+            const caption = thumb.parentElement.querySelector('.filmstrip-caption');
             if (i === currentIndex) {
-              thumb.classList.add('border-light-blue', 'border-opacity-100');
-              thumb.classList.remove('border-transparent');
+              if (caption) caption.classList.add('active');
             } else {
-              thumb.classList.remove('border-light-blue', 'border-opacity-100');
-              thumb.classList.add('border-transparent');
+              if (caption) caption.classList.remove('active');
             }
           });
         }
@@ -388,6 +388,17 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         });
 
+        // Filmstrip caption click handlers (desktop only)
+        const filmstripCaptions = filmstrip.querySelectorAll('.filmstrip-caption');
+        filmstripCaptions.forEach((caption, index) => {
+          caption.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (isDesktop()) {
+              showImage(index);
+            }
+          });
+        });
+
         // Filmstrip navigation buttons
         const filmstripWrapper = filmstrip.closest('.filmstrip-wrapper');
         if (filmstripWrapper) {
@@ -459,6 +470,15 @@ document.addEventListener('DOMContentLoaded', function() {
       // Initialize first image - DISABLED to preserve Jekyll Picture Tag's cropped/optimized image
       // Only runs when user interacts (swipe, click dots, expand)
       // showImage(0);
+
+      // Initialize first caption as active
+      if (filmstrip) {
+        const thumbs = filmstrip.querySelectorAll('.filmstrip-thumb');
+        if (thumbs.length > 0) {
+          const firstCaption = thumbs[0].parentElement.querySelector('.filmstrip-caption');
+          if (firstCaption) firstCaption.classList.add('active');
+        }
+      }
     }
 
     // Unified toggle function for carousel + content

@@ -373,6 +373,14 @@ p{
 /* Portfolio Carousel */
 .portfolio-image-container {
   @apply relative;
+  overflow: visible !important; /* Override inline overflow-hidden to allow drop-shadow */
+  padding: 10px; /* Add space for shadow */
+  margin: -10px; /* Negative margin to maintain original visual size */
+}
+
+.portfolio-image {
+  filter:
+ drop-shadow(-4px 3px 0.5px #00150e);
 }
 
 .carousel-controls {
@@ -414,7 +422,7 @@ p{
 
 /* Only show nav buttons on md breakpoint and up when filmstrip has 4+ images */
 @media (max-width: 1465px) {
-  .filmstrip-wrapper:has(.filmstrip-thumb:nth-child(4)) .filmstrip-nav-btn {
+  .filmstrip-wrapper:has(.filmstrip-item:nth-child(4)) .filmstrip-nav-btn {
     @apply flex;
   }
 }
@@ -432,13 +440,35 @@ p{
 }
 
 .filmstrip-thumb {
-  @apply rounded-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg;
+  @apply transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg;
+  position: relative;
+  z-index: 10;
+}
+
+.filmstrip-thumb img {
+  filter: drop-shadow(-4px 3px 0.5px #00150e);
 }
 
 .filmstrip-thumb.active {
   border-color: var(--color-light-blue) !important;
+
 }
 
+/* Filmstrip captions */
+.filmstrip-caption {
+  @apply text-[.93rem]! text-center cursor-pointer;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+.filmstrip-caption.active {
+  @apply font-bold! uppercase font-barlow!;
+}
+.filmstrip-caption.active::before {
+  content: '[';
+}
+.filmstrip-caption.active::after {
+  content: ']';
+}
 /* Portfolio Lightbox */
 .portfolio-lightbox {
   @apply fixed inset-0 z-[9999]! hidden items-center justify-center;
@@ -459,6 +489,7 @@ p{
 .lightbox-image {
   @apply max-w-full max-h-full object-contain select-none border-2 border-solid border-light-blue/30;
   -webkit-user-drag: none;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
 }
 
 /* Shared button styles for lightbox controls */

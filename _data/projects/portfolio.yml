@@ -1,0 +1,5 @@
+# Metadata for images in assets/img/projects/web/portfolio/
+# Format: filename: "Caption text"
+
+home.png: "Homepage"
+nav-drawer.png: "Mobile Nav"

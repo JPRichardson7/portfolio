@@ -8,7 +8,6 @@ permalink: /portfolio/ux-ui/ux-ui-web/
 {% include components/portfolio-piece.html
    title='JP Richardson Portfolio'
    layout='right'
-   image_alt='Html Email for Shor-Line'
    crop_mode='entropy'
    carousel_folder='assets/img/projects/web/portfolio'
    content="Hand-coded portfolio website designed to present multidisciplinary creative and technical capabilities through a technical blueprint aesthetic. The challenge was creating a flexible design system that showcases diverse work—photography, graphic design, UX/UI, and code—with cohesive visual identity and excellent responsive performance across all devices.
@@ -42,16 +41,13 @@ permalink: /portfolio/ux-ui/ux-ui-web/
    image='projects/web/email.png'
    image_alt='Html Email for Shor-Line'
    crop_mode='entropy'
-   carousel_folder='assets/img/projects/print/wraps'
    content="I designed and coded fixed-width <span class='code-text'>HTML</span> emails for Shor-Line's subscriber base across veterinary, kennel, grooming, and humane practice segments. I built a reusable component system for buttons and layout blocks to streamline production across multiple campaign types. I varied section backgrounds to maintain visual interest while keeping images minimal (one per section) to improve deliverability and accommodate copy-heavy content. The primary challenge was achieving polished, on-brand design while working within strict email client limitations and outdated rendering engines, particularly <span class='code-text'>Outlook on Windows</span>."
    skills='<span class="code-text">HTML</span>/<span class="code-text">CSS</span> email coding, component-based design, information hierarchy, visual communication, wireframe tools'
 %}
 {% include components/portfolio-piece.html
    title='JP Richardson Portfolio'
-   image='projects/web/email.png'
-   image_alt='Html Email for Shor-Line'
    crop_mode='entropy'
-   carousel_folder='assets/img/projects/print/wraps'
+   carousel_folder='assets/img/projects/web/jpshots-website'
    content="Photography portfolio and lead generation site built on WordPress from a blank theme, fully customized to serve wedding, senior portrait, commercial, and family photography clients. I hand-coded the custom theme implementing full-page split hero imagery with centered logo overlay and a custom masonry gallery grid that displayed full uncropped images without gaps or container fills—both technically challenging achievements for mid-2010s <span class='code-text'>CSS</span> and WordPress capabilities.
    
    The architectural approach prioritized visual impact through full-bleed imagery above the fold across all screen sizes, while placing descriptive text content below the fold to support SEO performance without compromising the hero visual. The site leveraged viewport width calculations, strategic floats for responsive layouts, early <span class='code-text'>WebP</span> optimization through plugins, and CDN integration. Strong SEO implementation achieved first-page Google rankings and top-three Google Maps placement. While the site shows its age today with some broken image links, it demonstrates foundational WordPress theme development skills."
