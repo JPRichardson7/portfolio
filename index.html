@@ -6,10 +6,10 @@ title: Portfolio
   <div class="flex flex-col h-full w-full overflow-x-hidden">
 
     <!-- Main grid: 4 columns [left-margin, nav-area, JP, right-margin] -->
-    <div class="@container grid grid-cols-[var(--spacing-margin-base)_1fr_auto_var(--spacing-margin-base)] grid-rows-[1fr_auto_auto_auto] text-right leading-none gap-x-[calc(var(--spacing-margin-base)*0.5)] mt-margin-base">
+    <div class="@container grid grid-cols-[var(--spacing-margin-base)_1fr_auto_var(--spacing-margin-base)] grid-rows-[1fr_auto_auto_auto] text-right leading-none gap-x-[calc(var(--spacing-margin-base)*0.5)] mt-[calc(var(--spacing-margin-base)*0.5)]">
 
       <!-- Row 1, Column 2: Nav (aligned to bottom) -->
-      <div class="col-start-2 row-start-1 flex flex-col justify-end mr-margin-base">
+      <div class="col-start-2 row-start-1 flex flex-col justify-end mr-margin-base ">
         <nav class="max-lg:hidden">
           <ul class="flex-row flex flex-wrap justify-between">
             {% for item in site.data.main-pages %}
@@ -31,17 +31,17 @@ title: Portfolio
 
       <!-- Rows 1-2, Column 3: JP (spans both rows, aligned to bottom right) -->
       <h1 class="col-start-3 row-start-1 row-span-2 flex items-end justify-end">
-        <span class="text-[clamp(4rem,25.8cqw,11.2rem)] hero-text leading-[85%]  md:font-extrabold lg:text-[clamp(12.2rem,19.4cqw,16.5rem)]">JP</span>
+        <span class="text-[clamp(3.9rem,19.7cqw,11.2rem)] hero-text leading-[85%]  md:font-extrabold lg:text-[clamp(12.2rem,19.4cqw,16.5rem)]">JP</span>
       </h1>
 
       <!-- Row 3, Columns 2-3: Richardson (spans middle columns) -->
       <h1 class="col-start-2 col-span-2 row-start-3">
-        <span class="hero-text text-[clamp(5rem,20.6cqw,9rem)] font-thin md:font-extrabold  lg:text-[clamp(12.2rem,19cqw,23.2rem)] leading-[85%]">Richardson</span>
+        <span class="hero-text text-[clamp(3.9rem,19.7cqw,9rem)] font-thin md:font-extrabold  lg:text-[clamp(12.2rem,19cqw,23.2rem)] leading-[85%]">Richardson</span>
       </h1>
 
       <!-- Row 4, All columns: Tagline -->
       <h2 class="col-start-1 col-span-3 row-start-4">
-        <span class="lowlight-marker text-[clamp(1.3rem,6.6cqw,3rem)] mt-[3vw] hero-text italic text-highlight-yellow uppercase font-extrabold">Artistic Soul + Analytical Mind</span>
+        <span class="lowlight-marker text-[clamp(1.3rem,6.6cqw,3rem)] mt-[1.5vw] hero-text italic text-highlight-yellow uppercase font-extrabold">Artistic Soul + Analytical Mind</span>
       </h2>
     </div>
 
@@ -49,7 +49,7 @@ title: Portfolio
     <div class="flex-1 flex items-center justify-center text-right">
       <div class="grid grid-cols-[var(--spacing-margin-base)_1fr_auto_var(--spacing-margin-base)] items-center gap-x-4 w-full">
         <h3 class="col-start-2">
-          <span class="font-barlow text-light-blue font-normal italic text-[clamp(1.1rem,4.3cqw,2.9rem)] leading-tight tracking-accent text-right lg:text-[clamp(1.5rem,3.4cqw,3.2rem)]">
+          <span class="font-barlow text-light-blue font-normal italic text-[clamp(1.1rem,4.3cqw,2.9rem)] leading-[1.8rem] tracking-accent text-right lg:text-[clamp(1.5rem,1.7cqw,3.2rem)]">
             "I view challenges through both <span class="lowlight-marker font-bold italic text-highlight-yellow">creative and technical</span> lenses—designing and coding digital experiences that are <span class="lowlight-marker highlight-flip font-bold italic text-highlight-yellow">user-friendly and functional."</span>
           </span>
         </h3>

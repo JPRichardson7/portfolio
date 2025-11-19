@@ -13,7 +13,11 @@
     "dev": "concurrently \"npm run jekyll\" \"npm run tailwind\"",
     "dev-original": "concurrently \"npm run jekyll-original\" \"npm run tailwind\"",
     "clean": "rm -rf _site assets/css/output.css",
+    "clean-keep-images": "bash -c 'find _site -mindepth 1 ! -path \"_site/assets\" ! -path \"_site/assets/generated\" ! -path \"_site/assets/generated/*\" -delete && rm -f assets/css/output.css'",
+    "clean-cache": "rm -rf .jekyll-cache/Jekyll",
     "clean-all": "rm -rf _site assets/css/output.css .jekyll-cache",
+    "quick": "npm run clean && npm run dev",
+    "refresh": "npm run clean-keep-images && npm run clean-cache && npm run dev",
     "fresh": "npm run clean-all && npm run dev",
     "build": "bash -c 'export PATH=\"$HOME/.rbenv/bin:$PATH\" && eval \"$(rbenv init -)\" && tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css && bin/jekyll build'"
   }

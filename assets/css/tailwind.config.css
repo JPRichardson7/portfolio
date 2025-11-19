@@ -58,6 +58,26 @@ body::before {
     z-index: 8;
   }
 
+/* Desk lamp lighting effect - subtle radial gradient from top right */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      ellipse 150% 180% at 55% 45%,
+      rgba(200, 235, 232, 0.3) 0%,
+      rgba(187, 235, 232, 0.15) 25%,
+      rgba(10, 38, 71, 0.4) 50%,
+      transparent 70%
+    );
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+    z-index: 9998;
+  }
+
 /* Ensure images and interactive elements sit above the first texture */
 img,
 picture,
@@ -380,7 +400,7 @@ p{
 
 .portfolio-image {
   filter:
- drop-shadow(-4px 3px 0.5px #00150e);
+ drop-shadow(-4px 3px .5px #00080e9d);
 }
 
 .carousel-controls {
@@ -446,7 +466,7 @@ p{
 }
 
 .filmstrip-thumb img {
-  filter: drop-shadow(-4px 3px 0.5px #00150e);
+  filter: drop-shadow(-4px 3px 0.5px #00080e9d);
 }
 
 .filmstrip-thumb.active {

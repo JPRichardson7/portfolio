@@ -26,13 +26,15 @@
         !text-light-blue
     {% endif %}
 
-    font-barlow font-extrabold leading-11
+    font-barlow font-extrabold leading-16
     uppercase {% if page.url == "/about.html" %}text-[clamp(1.3rem,8.4vw,3.9rem)]{% else %} text-[clamp(1.5rem,8.4vw,3.9rem)]{% endif %} tracking-accent
-    nav-hover lg:text-[clamp(1rem,2vw,2.8rem)] block whitespace-nowrap 
+    nav-hover lg:text-[clamp(1.9rem,2.9vw,5rem)] block whitespace-nowrap
+    {% if page.url == "/" %}text-[clamp(2.3rem,3.7vw,5.2rem)]! leading-[100%]!{% endif %}
     "
     data-text="{{ include.text }}"
     {% if page.url == include.url %}aria-current="page"{% endif %}
     {% if include.target %}target="{{ include.target }}"{% endif %}>
         {{ include.text }}
+       
     </a>
 </li>

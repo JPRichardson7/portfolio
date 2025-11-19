@@ -1,0 +1,7 @@
+# Metadata for images in assets/img/projects/print/pro-view/
+# Format: filename: "Caption text"
+
+01-cover.jpg: "Magazine Cover"
+02-inside-cover.png: "Inside Cover"
+03-article.jpg: "Article Layout"
+article2.jpg: "Feature Spread"

@@ -358,11 +358,11 @@
   .mt-\[-10px\] {
     margin-top: -10px;
   }
-  .mt-\[3vw\] {
-    margin-top: 3vw;
+  .mt-\[1\.5vw\] {
+    margin-top: 1.5vw;
   }
-  .mt-margin-base {
-    margin-top: var(--spacing-margin-base);
+  .mt-\[calc\(var\(--spacing-margin-base\)\*0\.5\)\] {
+    margin-top: calc(var(--spacing-margin-base) * 0.5);
   }
   .mr-3 {
     margin-right: calc(var(--spacing) * 3);
@@ -635,6 +635,9 @@
   .gap-margin-base {
     gap: var(--spacing-margin-base);
   }
+  .gap-x-1 {
+    column-gap: calc(var(--spacing) * 1);
+  }
   .gap-x-4 {
     column-gap: calc(var(--spacing) * 4);
   }
@@ -898,26 +901,37 @@
   .text-\[clamp\(1rem\,5cqw\,5rem\)\] {
     font-size: clamp(1rem, 5cqw, 5rem);
   }
+  .text-\[clamp\(2\.3rem\,3\.7vw\,5\.2rem\)\]\! {
+    font-size: clamp(2.3rem, 3.7vw, 5.2rem) !important;
+  }
   .text-\[clamp\(2\.8rem\,14\.2cqw\,17\.4rem\)\] {
     font-size: clamp(2.8rem, 14.2cqw, 17.4rem);
   }
-  .text-\[clamp\(4rem\,25\.8cqw\,11\.2rem\)\] {
-    font-size: clamp(4rem, 25.8cqw, 11.2rem);
+  .text-\[clamp\(3\.9rem\,19\.7cqw\,9rem\)\] {
+    font-size: clamp(3.9rem, 19.7cqw, 9rem);
   }
-  .text-\[clamp\(5rem\,20\.6cqw\,9rem\)\] {
-    font-size: clamp(5rem, 20.6cqw, 9rem);
+  .text-\[clamp\(3\.9rem\,19\.7cqw\,11\.2rem\)\] {
+    font-size: clamp(3.9rem, 19.7cqw, 11.2rem);
   }
   .leading-0 {
     --tw-leading: calc(var(--spacing) * 0);
     line-height: calc(var(--spacing) * 0);
   }
-  .leading-11 {
-    --tw-leading: calc(var(--spacing) * 11);
-    line-height: calc(var(--spacing) * 11);
+  .leading-16 {
+    --tw-leading: calc(var(--spacing) * 16);
+    line-height: calc(var(--spacing) * 16);
+  }
+  .leading-\[1\.8rem\] {
+    --tw-leading: 1.8rem;
+    line-height: 1.8rem;
   }
   .leading-\[85\%\] {
     --tw-leading: 85%;
     line-height: 85%;
+  }
+  .leading-\[100\%\]\! {
+    --tw-leading: 100% !important;
+    line-height: 100% !important;
   }
   .leading-none {
     --tw-leading: 1;
@@ -1323,14 +1337,14 @@
       padding-left: calc(var(--spacing) * 12);
     }
   }
-  .lg\:text-\[clamp\(1\.5rem\,3\.4cqw\,3\.2rem\)\] {
+  .lg\:text-\[clamp\(1\.5rem\,1\.7cqw\,3\.2rem\)\] {
     @media (width >= 1024px) {
-      font-size: clamp(1.5rem, 3.4cqw, 3.2rem);
+      font-size: clamp(1.5rem, 1.7cqw, 3.2rem);
     }
   }
-  .lg\:text-\[clamp\(1rem\,2vw\,2\.8rem\)\] {
+  .lg\:text-\[clamp\(1\.9rem\,2\.9vw\,5rem\)\] {
     @media (width >= 1024px) {
-      font-size: clamp(1rem, 2vw, 2.8rem);
+      font-size: clamp(1.9rem, 2.9vw, 5rem);
     }
   }
   .lg\:text-\[clamp\(12\.2rem\,19\.4cqw\,16\.5rem\)\] {
@@ -1381,6 +1395,18 @@ body::before {
   mix-blend-mode: overlay;
   pointer-events: none;
   z-index: 8;
+}
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient( ellipse 150% 180% at 55% 45%, rgba(200, 235, 232, 0.3) 0%, rgba(187, 235, 232, 0.15) 25%, rgba(10, 38, 71, 0.4) 50%, transparent 70% );
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  z-index: 9998;
 }
 img, picture, video, canvas, svg {
   position: relative;
@@ -1684,7 +1710,7 @@ p {
     margin: -10px;
   }
   .portfolio-image {
-    filter: drop-shadow(-4px 3px 0.5px #00150e);
+    filter: drop-shadow(-4px 3px .5px #00080e9d);
   }
   .carousel-controls {
     pointer-events: none;
@@ -1809,7 +1835,7 @@ p {
     z-index: 10;
   }
   .filmstrip-thumb img {
-    filter: drop-shadow(-4px 3px 0.5px #00150e);
+    filter: drop-shadow(-4px 3px 0.5px #00080e9d);
   }
   .filmstrip-thumb.active {
     border-color: var(--color-light-blue) !important;
