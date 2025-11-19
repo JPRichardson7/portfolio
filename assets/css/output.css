@@ -205,6 +205,9 @@
   .invisible {
     visibility: hidden;
   }
+  .visible {
+    visibility: visible;
+  }
   .absolute {
     position: absolute;
   }
@@ -871,11 +874,11 @@
   .text-\[clamp\(1\.2rem\,3vw\,2rem\)\]\! {
     font-size: clamp(1.2rem, 3vw, 2rem) !important;
   }
+  .text-\[clamp\(1\.3rem\,1\.8vw\,1\.6rem\)\]\! {
+    font-size: clamp(1.3rem, 1.8vw, 1.6rem) !important;
+  }
   .text-\[clamp\(1\.3rem\,6\.6cqw\,3rem\)\] {
     font-size: clamp(1.3rem, 6.6cqw, 3rem);
-  }
-  .text-\[clamp\(1\.3rem\,8\.4vw\,3\.9rem\)\] {
-    font-size: clamp(1.3rem, 8.4vw, 3.9rem);
   }
   .text-\[clamp\(1\.3rem\,13cqw\,7rem\)\] {
     font-size: clamp(1.3rem, 13cqw, 7rem);
@@ -928,6 +931,10 @@
   .leading-\[85\%\] {
     --tw-leading: 85%;
     line-height: 85%;
+  }
+  .leading-\[100\%\] {
+    --tw-leading: 100%;
+    line-height: 100%;
   }
   .leading-\[100\%\]\! {
     --tw-leading: 100% !important;
@@ -1466,6 +1473,13 @@ p {
     mix-blend-mode: overlay;
     pointer-events: none;
     z-index: 1;
+  }
+  @media (min-width: 1024px) {
+    .mobile-nav-container, .mobile-nav-container::before, .mobile-nav-container::after {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
   }
   .hero-text {
     font-family: var(--font-barlow);

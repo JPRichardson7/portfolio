@@ -144,6 +144,17 @@ p{
       z-index: 1;
     }
 
+    /* Hide mobile nav container and pseudo-elements on desktop */
+    @media (min-width: 1024px) {
+      .mobile-nav-container,
+      .mobile-nav-container::before,
+      .mobile-nav-container::after {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+      }
+    }
+
     .hero-text {
       @apply font-barlow uppercase text-light-blue font-extrabold;
     }

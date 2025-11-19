@@ -12,6 +12,51 @@
 
     <link rel="stylesheet" href="/assets/css/output.css">
 
+    <!-- Critical CSS: Hide mobile nav on desktop to prevent flash -->
+    <style>
+      @media (min-width: 1024px) {
+        #mobile-nav,
+        #mobile-nav *,
+        .mobile-nav-container {
+          display: none !important;
+          visibility: hidden !important;
+          opacity: 0 !important;
+          pointer-events: none !important;
+          transform: none !important;
+        }
+      }
+
+      /* Override any transition on desktop */
+      @media (min-width: 1024px) {
+        #mobile-nav {
+          transition: none !important;
+        }
+      }
+    </style>
+
+    <!-- Immediate inline script to hide mobile nav ASAP on desktop -->
+    <script>
+      (function() {
+        if (window.innerWidth >= 1024) {
+          var style = document.createElement('style');
+          style.id = 'mobile-nav-hide';
+          style.textContent = `
+            #mobile-nav,
+            #mobile-nav *,
+            .mobile-nav-container {
+              display: none !important;
+              visibility: hidden !important;
+              opacity: 0 !important;
+              pointer-events: none !important;
+              transform: none !important;
+              transition: none !important;
+            }
+          `;
+          document.head.appendChild(style);
+        }
+      })();
+    </script>
+
   </head>
 
   <body class="max-w-full">
@@ -23,10 +68,30 @@
       {% if page.url != "/" %}{% include components/header.html %}{% endif %}
     </header>
     
-    <div id="mobile-nav" 
-        class="mobile-nav-container fixed inset-0 bg-dark-blue z-40 translate-y-full transition-transform duration-300 ease-in-out">    
+    <div id="mobile-nav"
+        class="mobile-nav-container fixed inset-0 bg-dark-blue z-40"
+        style="display: none !important; visibility: hidden !important; opacity: 0 !important;">
       {% include components/navigation/mobile-nav-overlay.html %}
     </div>
+
+    <!-- Immediately show mobile nav ONLY on mobile (runs as soon as element exists) -->
+    <script>
+      (function() {
+        var nav = document.getElementById('mobile-nav');
+        var isDesktop = window.innerWidth >= 1024;
+
+        if (isDesktop) {
+          // Desktop: keep it hidden (already hidden by default)
+          window.debugLog && window.debugLog('Desktop: keeping nav hidden');
+        } else {
+          // Mobile: reveal it by removing display:none and positioning off-screen
+          nav.style.cssText = '';  // Clear the inline display:none
+          nav.style.transform = 'translateY(100%)';
+          nav.className = 'mobile-nav-container fixed inset-0 bg-dark-blue z-40 translate-y-full transition-transform duration-300 ease-in-out';
+          window.debugLog && window.debugLog('Mobile: nav revealed and positioned off-screen');
+        }
+      })();
+    </script>
     {{ content }}
     
     <!-- Global JavaScript -->
