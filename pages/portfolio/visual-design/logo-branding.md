@@ -36,3 +36,4 @@ permalink: /portfolio/logo-branding/
    content="I created a brand for a local video production company using Eurostyle Extended—a typeface with broadcast TV heritage—and leveraged the four-letter format to mirror local station call signs. The uniqie shape of Eurostyle's &ldquo;O&rdquo; naturally resembles a vintage television screen. for added approachability, which I reinforced the theme with antenna flourishes. I explored three colorways tied to Kansas City sports teams and alternative positioning strategies, with client selecting cyan/navy for authoritative presence in the video production market. Designed to scale effectively from business cards to video watermarks and favicons."
    skills='Typography selection, strategic color application, iconography, scalable systems, local market positioning'
 %}
+

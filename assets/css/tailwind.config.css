@@ -256,7 +256,10 @@ p{
       clip-path: inset(0 0 0 0);
   }
   .menu-btn {
-    @apply bg-transparent border-none cursor-pointer p-0 w-[61px] h-[62px];
+    @apply lg:hidden bg-transparent border-none cursor-pointer fixed bottom-0 z-[90];
+    left: calc(var(--spacing-margin-base) * 0.5);
+    display: block;
+    top: auto; /* Force Firefox to respect bottom positioning */
   }
 
   .menu-btn .menu-base,
@@ -406,7 +409,7 @@ p{
   @apply relative;
   overflow: visible !important; /* Override inline overflow-hidden to allow drop-shadow */
   padding: 10px; /* Add space for shadow */
-  margin: -10px; /* Negative margin to maintain original visual size */
+  top: -10px; /* Negative margin to maintain original visual size */
 }
 
 .portfolio-image {
@@ -452,7 +455,7 @@ p{
 }
 
 /* Only show nav buttons on md breakpoint and up when filmstrip has 4+ images */
-@media (max-width: 1465px) {
+@media (min-width: 1024px) {
   .filmstrip-wrapper:has(.filmstrip-item:nth-child(4)) .filmstrip-nav-btn {
     @apply flex;
   }
@@ -521,6 +524,16 @@ p{
   @apply max-w-full max-h-full object-contain select-none border-2 border-solid border-light-blue/30;
   -webkit-user-drag: none;
   filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
+}
+
+/* Force 5/4 aspect ratio viewing window on mobile/tablet */
+@media (max-width: 1023px) {
+  .lightbox-image {
+    max-width: 90vw;
+    max-height: calc(90vw * 4 / 5); /* 5:4 aspect ratio */
+    width: auto;
+    height: auto;
+  }
 }
 
 /* Shared button styles for lightbox controls */

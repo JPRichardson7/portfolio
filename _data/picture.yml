@@ -6,3 +6,14 @@ presets:
     fallback_format: webp
     quality: 90
     size: 1920
+
+# PNG-only preset for images with transparency
+# Use this for PNGs with alpha channels to avoid libvips corruption
+png_only:
+  formats: [original]
+  widths: [400, 600, 800, 1000, 1400, 1920, 2560]
+  fallback_width: 1920
+  size: 1920
+
+media_presets:
+  default: ''

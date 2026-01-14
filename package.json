@@ -7,18 +7,10 @@
     "tailwindcss": "^4.1.11"
   },
  "scripts": {
-    "jekyll": "bash -c 'export PATH=\"$HOME/.rbenv/bin:$PATH\" && eval \"$(rbenv init -)\" && bin/jekyll serve --incremental --limit_posts 10'",
-    "jekyll-original": "bash -c 'export PATH=\"$HOME/.rbenv/bin:$PATH\" && eval \"$(rbenv init -)\" && bin/jekyll serve --livereload'",
+    "jekyll": "bundle exec jekyll serve --incremental --limit_posts 10",
     "tailwind": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css --watch",
-    "dev": "concurrently \"npm run jekyll\" \"npm run tailwind\"",
-    "dev-original": "concurrently \"npm run jekyll-original\" \"npm run tailwind\"",
-    "clean": "rm -rf _site assets/css/output.css",
-    "clean-keep-images": "bash -c 'find _site -mindepth 1 ! -path \"_site/assets\" ! -path \"_site/assets/generated\" ! -path \"_site/assets/generated/*\" -delete && rm -f assets/css/output.css'",
-    "clean-cache": "rm -rf .jekyll-cache/Jekyll",
-    "clean-all": "rm -rf _site assets/css/output.css .jekyll-cache",
-    "quick": "npm run clean && npm run dev",
-    "refresh": "npm run clean-keep-images && npm run clean-cache && npm run dev",
-    "fresh": "npm run clean-all && npm run dev",
-    "build": "bash -c 'export PATH=\"$HOME/.rbenv/bin:$PATH\" && eval \"$(rbenv init -)\" && tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css && bin/jekyll build'"
+    "dev": "bash -c 'find _site -mindepth 1 ! -path \"_site/assets\" ! -path \"_site/assets/generated\" ! -path \"_site/assets/generated/*\" -delete && rm -rf .jekyll-cache/Jekyll && rm -f assets/css/output.css' && tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css && concurrently \"npm run jekyll\" \"npm run tailwind\"",
+    "fresh": "rm -rf _site assets/css/output.css .jekyll-cache && tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css && concurrently \"npm run jekyll\" \"npm run tailwind\"",
+    "build": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css && bin/jekyll build"
   }
 }
