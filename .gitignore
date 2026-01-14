@@ -24,3 +24,6 @@ assets/images/generated/    # Add this - these are auto-generated
 assets/css/output.css
 node_modules/
 .DS_Store
+
+# vendors
+vendor/
