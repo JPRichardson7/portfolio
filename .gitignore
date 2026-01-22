@@ -20,7 +20,7 @@ Thumbs.db
 _site/
 .jekyll-cache/
 .jekyll-metadata
-assets/images/generated/    # Add this - these are auto-generated
+assets/images/generated/    # Add this - thegse are auto-generated
 assets/css/output.css
 node_modules/
 .DS_Store
